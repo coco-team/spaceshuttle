@@ -1,0 +1,5775 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-12-18 Tue 12:04 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SIMPLIFIED MODEL OF THE SPACE SHUTTLE ON-ORBIT FLIGHT CONTROL SYSTEM</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="P. Hattis, C. Kirchwey, H. Malchow, D. Sargent, S. Tavan." />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="tufte.css"/>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "left",
+        displayIndent: "5em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "Neo-Euler"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "Neo-Euler"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "left",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">SIMPLIFIED MODEL OF THE SPACE SHUTTLE ON-ORBIT FLIGHT CONTROL SYSTEM</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org385ace1">1. FrontMatter</a>
+<ul>
+<li><a href="#org1f25c9e">1.1. Abstract</a></li>
+<li><a href="#org4fc0dc7">1.2. Preface</a></li>
+</ul>
+</li>
+<li><a href="#orgc1ced2f">2. MainMatter</a>
+<ul>
+<li><a href="#orgee36eb4">2.1. Introduction</a></li>
+<li><a href="#orga149d6b">2.2. SDAP Structure</a></li>
+<li><a href="#org55e70c4">2.3. Module descriptions</a></li>
+<li><a href="#org5ccb5c8">2.4. <span class="todo TODO">TODO</span> FCS Hardware Models</a></li>
+</ul>
+</li>
+<li><a href="#orgb8dccb7">3. <span class="todo TODO">TODO</span> Appendix</a>
+<ul>
+<li><a href="#org3953f40">3.1. <span class="todo TODO">TODO</span> SDAP CONSTANTS AND PARAMETERS</a></li>
+<li><a href="#org79ca0b2">3.2. ATTITUDE DATA GENERATION AND TRANSFER</a></li>
+<li><a href="#org09aae49">3.3. <span class="todo TODO">TODO</span> USE OF QUATERNIONS FOR AUTO MANEUVER AND THE ATTITUDE PROCESSOR</a></li>
+<li><a href="#org3a5b825">3.4. <span class="todo TODO">TODO</span> VEHICLE RIGID-BODY MOTION MODEL</a></li>
+<li><a href="#org8c7eab6">3.5. SDAP TEST CONSIDERATIONS</a></li>
+<li><a href="#org2028dd9">3.6. COORDINATE FRAMES</a></li>
+<li><a href="#orgd1f1f2a">3.7. List of acronyms</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<ul class="org-ul">
+<li>author: P. Hattis, C. Kirchwey, H. Malchow, D. Sargent, S. Tavan</li>
+<li>address 
+The Charles Stark Draper Laboratory, Inc.
+555 Technology Square
+Cambridge, Massachusetts 02139</li>
+<li>sponsor
+National Aeronautics and Space Administration
+Johnson Space Center
+Houston, Texas 77058</li>
+<li>date July 1982</li>
+</ul>
+
+<p>
+Annotations by H. Bourbouh, P-L. Garoche and K. Trinh. Oct. 2019
+</p>
+
+
+<div id="outline-container-org385ace1" class="outline-2">
+<h2 id="org385ace1"><span class="section-number-2">1</span> FrontMatter</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org1f25c9e" class="outline-3">
+<h3 id="org1f25c9e"><span class="section-number-3">1.1</span> Abstract</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+This document defines the simplified version of the space shuttle on-orbit
+flight control system intended for establishing the interaction of the flight
+control on the payload and/or payload interface structure during the
+predeployment or deployment state.  These states are defined to occur any time
+the payload is unlatched from its relatively rigid ascent/entry mounting, but is
+still connected to the orbiter. This flight control version is called the
+simplified digital autopilot (SDAP) and includes all rotational control
+capabilities generally expected during orbital payload operations which include
+any payload related activity where payload dynamics and orbiter dynamics
+significantly interact.
+</p>
+
+<p>
+The purpose of the SDAP is to generate representative reaction control system
+(RCS) jet firings during on-orbit operations. The SDAP lends itself to ready
+implementation in any well constructed flexure simulation with payload and
+possibly orbiter bending models.  Possible outputs of simulation studies include
+payload loads data and payload/orbiter interactions.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4fc0dc7" class="outline-3">
+<h3 id="org4fc0dc7"><span class="section-number-3">1.2</span> Preface</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+This document defines the simplified version of the space shuttle on-orbit
+flight control system intended for establishing the interaction of the flight
+control on the payload and/or payload interface structure during the
+pre-deployment or deployment state. These states are defined to occur any time
+the payload is unlatched from its relatively rigid ascent/entry mounting, but is
+still connected to the orbiter. This flight control version is called the
+simplified digital autopilot (SDAP) and includes all rotational control
+capabilities generally expected during orbital payload operations which include
+any payload related activity where payload dynamics and orbiter dynamics
+significantly interact.
+</p>
+
+<p>
+The purpose of the SDAP is to generate representative reaction control system
+(RCS) jet firings during on-orbit operations.  The SDAP lends itself to ready
+implementation in any well constructed flexure simulation with payload and
+possibly orbiter bending models.  Possible outputs of simulation studies include
+payload loads data and payload/ orbiter interactions.
+</p>
+
+<p>
+Key constraints in developing the SDAP model were that no translation operations
+would be required during pre-deployment or deployment payload activity and that
+the most severe failures requiring study would be single jet ON failures of the
+jet type(s) (primary and vernier) used when operating with a particular payload.
+Any planned payload operations that could violate these assumptions may require
+study beyond the scope of this document.
+</p>
+
+<p>
+A significant number of quantities which are software design or mission
+dependent, called I-loads, are required in the SDAP.  Sample values, applicable
+to STS-5, are given in the SDAP model, but reference to the NASA I-load
+baseline, <span class="underline">Space Shuttle Program Orbiter Project Computer Program Development
+Specification Volume I</span>, Book 9.5 <span class="underline">STS Flight Software Initialization Load
+SS-P-0002-195F</span> will be required to assure that appropriate I-load values are
+used for a payload on a specific shuttle flight.
+</p>
+
+<p>
+The user should be aware that a flight software change may have some affect on
+the validity of the SDAP model.
+</p>
+
+<p>
+While the SDAP is not meant to guarantee the exposure of all payload/orbiter/FCS
+operational concerns, it is intended to be used as a design tool to aid in
+resolving broad configurational and operational issues.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc1ced2f" class="outline-2">
+<h2 id="orgc1ced2f"><span class="section-number-2">2</span> MainMatter</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgee36eb4" class="outline-3">
+<h3 id="orgee36eb4"><span class="section-number-3">2.1</span> Introduction</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+This report documents a simplified model of the shuttle orbital flight-control
+system (FCS).  The model is designed for construction of shuttle-payload
+interaction simulations, and it contains sufficient elements of the complete
+autopilot to provide realistic reaction control system (RCS) jet-firing
+patterns.
+</p>
+
+<p>
+The report defines a simplified digital autopilot (DAP) that contains an
+automatic maneuver routine to control rotation maneuvers and attitude hold.
+Manual rotation modes are allowed also.  The RCS processor retains state-error
+computations, phase-plane logic, and rotational vernier and primary jet
+selection.  A state estimator is included to process attitude data, thus
+assuring that the RCS processor senses errors in a similar manner to the actual
+flight software. A considerable simplification is attained by eliminating RCS
+and orbital maneuvering system translational DAP logic <a href="questions.html#org686f39e">Q1</a>.
+</p>
+
+<p>
+The report begins with an overview of the simple DAP (SDAP).  Then, each logic
+module is discussed in turn.  The discussion includes four elements for each
+module, namely:
+</p>
+<ol class="org-ol">
+<li>Purpose.</li>
+<li>Functional Description.</li>
+<li>Recommended Logical Realization.</li>
+<li>Input/Output (I/0) Requirements.</li>
+</ol>
+
+<p>
+Simplified models of the inertial measurement unit (IMU) (DAP sensory data
+source) and RCS jets (DAP effectors) complete the FCS model.
+</p>
+
+<p>
+The appendices provide supporting material including a discussion of the sources
+and allowable sizes of SDAP parameters, an overview of the attitude data
+transfer problem, a discussion of rigid-body SDAP behavior, and some discussion
+of suggested test cases to verify the SDAP implementation.  This report defines
+the FCS as including the SDAP, the motion sensors (IMU), and the RCS (jet)
+model.  The RCS hardware models are designed for rotation only.  The FCS model
+can be configured as a logical unit in a shuttle/payload simulation as shown in
+Figure 1.
+</p>
+
+
+<div id="orge3fb7e7" class="figure">
+<p><img src="./figs/fig1.png" alt="fig1.png" width="40%" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Shuttle/payload simulation.</p>
+</div>
+
+<p>
+<span style="background-color: #E0E0E0;"> 
+Users of the SDAP are cautioned that, at very small rate
+limits and deadbands, e.g., 0.01 deg/s and 0.01 deg for
+vernier jets, simulation results using the models presented
+here may not represent real vehicle behavior because of the
+model simplifications. 
+</span><label for="Req.s1.p2.1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="Req.s1.p2.1" class="margin-toggle"/><span class="sidenote">
+[<a href="requirements.html#orgaa36aac">Req.s1.p2.1</a>]
+</span>
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-orga149d6b" class="outline-3">
+<h3 id="orga149d6b"><span class="section-number-3">2.2</span> SDAP Structure</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<ol class="org-ol">
+<li><a id="orgadc8be8"></a>DAP/Vehicle Relationship<br />
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+Figure 2 shows the general nature of the DAP/vehicle relationship.  The DAP
+receives information concerning the vehicle attitude from sensors (IMUs), makes
+decisions about needed changes in state, and requests the exercise of effectors
+(jets) to bring about a desired state.  The conditioning inputs shown in Figure
+2 include DAP parameters, such as attitude rate limits and deadbands and other
+quantities that the crew can set via keyboard entry, and by push-button moding
+discretes, such as the choices between primary and vernier jets and automatic
+and manual attitude control. [<a href="requirements.html#org8d2f9e7">Req.s2.1.p3.1</a>]
+</p>
+
+
+<div id="orgbfc02cf" class="figure">
+<p><img src="./figs/fig2.png" alt="fig2.png" width="40%" />
+</p>
+<p><span class="figure-number">Figure 2: </span>DAP/Vehicle Relationship</p>
+</div>
+</div>
+</li>
+<li><a id="orgebfd110"></a>SDAP Internal Structure (Basic)<br />
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+The heavy arrows in Figure 3 show the SDAP basic flow structure.  The Attitude
+Processor receives attitude measurements from the IMU, sends the current
+attitude to the Steering modules, and sends attitude increments to the State
+Estimator.  The State Estimator filters the attitude increments and sends rate
+and attitude estimates to the State Error module.  The Steering modules send
+desired state information to the State Error module where it is compared to the
+estimated state.  Resulting state errors are passed to the Phase Plane module
+where decisions are made about requesting jet firings.  If a decision is made to
+fire jets, the Jet Selection algorithm selects an efficient jet combination to
+fire.
+</p>
+
+
+<div id="orgde78d03" class="figure">
+<p><img src="./figs/fig3.png" alt="fig3.png" width="40%" />
+</p>
+<p><span class="figure-number">Figure 3: </span>Simplified DAP functional structure.</p>
+</div>
+
+
+<p>
+The SDAP executive routine calls the SDAP at a 12.5-Hz cycle rate with
+appropriate settings of input moding discretes.
+</p>
+
+<p>
+The light arrows in Figure 3 represent refinements required to reproduce
+complete DAP behavior.  The State Estimator feeds a body-attitude change
+estimate to the Auto Maneuver steering module.  It also feeds an estimate of all
+unmodeled accelerations to the Phase Plane which uses this information for more
+efficient control.  The Jet Selection module feeds information about jet firings
+to the State Estimator so that the firings will not be treated as unmodeled
+forces.  
+<span style="background-color: #E0E0E0;">
+When the steering mode is manual open-loop, the State Error and Phase
+Plane modules can be bypassed; jets are fired directly by moving the rotational
+hand controller (RHC) out of detent. 
+</span><label for="Req.s2.2.p5.1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="Req.s2.2.p5.1" class="margin-toggle"/><span class="sidenote">
+[<a href="requirements.html#org72d51fb">Req.s2.2.p5.1</a>]
+</span>
+</p>
+</div>
+</li>
+
+<li><a id="org443f58f"></a>SDAP Construction<br />
+<div class="outline-text-4" id="text-2-2-3">
+<p>
+Figure 4 is a detailed SDAP diagram with module I/0. The structure is basically
+that of Figure 3, except that the Attitude Processor is treated as an external
+module.
+</p>
+</div>
+
+
+<ol class="org-ol">
+<li><a id="org127fa94"></a><span class="todo TODO">TODO</span> <br />
+<div class="outline-text-5" id="text-2-2-3-1">
+<p>
+{{{color(red,We are missing Figure 4 and pages 7 and 8 !}}}
+</p>
+</div>
+</li>
+</ol>
+</li>
+
+<li><a id="org45e84a7"></a>SDAP Input Description<br />
+<div class="outline-text-4" id="text-2-2-4">
+<p>
+The SDAP input quantities can be conveniently divided
+into four categories:
+</p>
+<ol class="org-ol">
+<li>Constants.</li>
+<li>Dynamic Variables.</li>
+<li>Parameters.</li>
+<li>Moding Discretes.</li>
+</ol>
+
+<p>
+Normal crew inputs cannot alter constants such as State Estimator gains.  Other
+constants, such as Phase Plane acceleration, can be scaled by crew input, but
+the basic reference set remains unchanged.  Appendix A lists the constants,
+along with their documented identification numbers.
+</p>
+
+<p>
+Only two dynamic variables enter the SDAP from the IMU via the Attitude
+Processor module.  These are current attitude and attitude increment.
+</p>
+
+<p>
+SDAP parameters are crew alterable items, such as rate
+limit and deadband.
+</p>
+
+<p>
+Finally, the moding discretes choose options such as auto or manual control and
+jet subgroup selection.  Tables 1 through 4 list all the SDAP inputs shown in
+Figure 4 and the inputs to the SDAP executive.  Except where noted, the user
+must supply these inputs.
+</p>
+
+<table id="org40f6526" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 1:</span> Constants</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">MIN DELTA OMEGA</td>
+<td class="org-left">Minimum rotation rate change, used to define Phase Plane switching lines</td>
+</tr>
+
+<tr>
+<td class="org-left">CONTROL ACCELERATION</td>
+<td class="org-left">3-axis body acceleration expected from thrusting jet</td>
+</tr>
+
+<tr>
+<td class="org-left">PHASE PLANE ACCEL</td>
+<td class="org-left">Control acceleration used to define Phase Plane switching lines</td>
+</tr>
+
+<tr>
+<td class="org-left">PRIMARY JET LARGEST</td>
+<td class="org-left">Largest expected rotation rate</td>
+</tr>
+
+<tr>
+<td class="org-left">ROTATION MINIMUM IMPULSE</td>
+<td class="org-left">change in any axis over one SDAP cycle, for primary jets</td>
+</tr>
+
+<tr>
+<td class="org-left">ROTATION RATE INCREMENT</td>
+<td class="org-left">Expected rotation rate change over one SDAP cycle due to jet firing</td>
+</tr>
+
+<tr>
+<td class="org-left">STATE ESTIMATOR GAIN</td>
+<td class="org-left">Constant gains used in the estimator measurement incorporation equations</td>
+</tr>
+
+<tr>
+<td class="org-left">VERNIER JET LARGEST</td>
+<td class="org-left">Vernier equivalent of primary</td>
+</tr>
+
+<tr>
+<td class="org-left">ROTATION MINIMUM IMPULSE</td>
+<td class="org-left">value listed above</td>
+</tr>
+</tbody>
+</table>
+
+<table id="org36a4d18" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 2:</span> Dynamic variables</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ATTITUDE INCREMENT</td>
+<td class="org-left">Change in attitude during two SDAP cycles. Not a user input.</td>
+</tr>
+
+<tr>
+<td class="org-left">CURRENT ATTITUDE</td>
+<td class="org-left">Current attitude relative to inertial reference. Not a user input.</td>
+</tr>
+</tbody>
+</table>
+
+
+<table id="org8a3e982" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 3:</span> Parameters</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">COMMANDED ATTITUDE</td>
+<td class="org-left">Attitude to be attained by an automatic maneuver</td>
+</tr>
+
+<tr>
+<td class="org-left">DEADBAND</td>
+<td class="org-left">Attitude error limit allowed before invoking control</td>
+</tr>
+
+<tr>
+<td class="org-left">DIAGONAL INERTIA RATIO</td>
+<td class="org-left">Ratio of inverse inertia matrix diagonals to reference values</td>
+</tr>
+
+<tr>
+<td class="org-left">MANEUVER RATE</td>
+<td class="org-left">Rate at which maneuver is to be carried out</td>
+</tr>
+
+<tr>
+<td class="org-left">OFF-AXIS COMP THRESHOLD</td>
+<td class="org-left">Threshold for off-axis coupling compensation</td>
+</tr>
+
+<tr>
+<td class="org-left">RATE LIMIT</td>
+<td class="org-left">Rate error limit allowed before invoking control</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<table id="orged9e8f3" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 4:</span> Moding discretes</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">AUTO-MANUAL SWITCH</td>
+<td class="org-left">Chooses between automatic and manual steering. Executive discrete not passed to SDAP</td>
+</tr>
+
+<tr>
+<td class="org-left">BYPASS</td>
+<td class="org-left">Allows Phase Plane to be bypassed in open-loop manual mode. Not a user input</td>
+</tr>
+
+<tr>
+<td class="org-left">INITIALIZE AUTO MANEUVER</td>
+<td class="org-left">Required by Auto Maneuver logic. Not a user input</td>
+</tr>
+
+<tr>
+<td class="org-left">INITIALIZE JET SELECTION</td>
+<td class="org-left">Required by the Jet Selection logic. Not a user input</td>
+</tr>
+
+<tr>
+<td class="org-left">INITIALIZE STATE ERROR</td>
+<td class="org-left">Required by the State Error logic. Not a user input</td>
+</tr>
+
+<tr>
+<td class="org-left">CLOSED LOOP</td>
+<td class="org-left">Chooses between closed- and open-loop manual control</td>
+</tr>
+
+<tr>
+<td class="org-left">NO PLUS Z JETS</td>
+<td class="org-left">Controls use of jets firing in upward direction</td>
+</tr>
+
+<tr>
+<td class="org-left">PAYLOAD EXTENDED</td>
+<td class="org-left">Provides for alternate set of mass properties when payload is extended</td>
+</tr>
+
+<tr>
+<td class="org-left">PITCH HI-LOW SWITCH</td>
+<td class="org-left">Allows selection of pitch jet forward plus aft couples or forward or aft only jets</td>
+</tr>
+
+<tr>
+<td class="org-left">PITCH TAIL-NOSE SWITCH</td>
+<td class="org-left">If previous switch is LOW, allows choice of forward or aft jets</td>
+</tr>
+
+<tr>
+<td class="org-left">PRIMARY-VERNIER SWITCH</td>
+<td class="org-left">Allows choice of primary or vernier jets</td>
+</tr>
+
+<tr>
+<td class="org-left">RHC STATE</td>
+<td class="org-left">Indicator of RHC deflection</td>
+</tr>
+
+<tr>
+<td class="org-left">YAW HI-LOW SWITCH</td>
+<td class="org-left">Yaw equivalent of pitch switch previously listed</td>
+</tr>
+
+<tr>
+<td class="org-left">YAW TAIL-NOSE SWITCH</td>
+<td class="org-left">Yaw equivalent of pitch switch previously listed</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+
+<li><a id="org242c53d"></a>SDAP Outputs<br />
+<div class="outline-text-4" id="text-2-2-5">
+<p>
+The SDAP has only two outputs, namely discretes which determine jet ON/OFF
+status (see Table 5).
+</p>
+
+<table id="org4cf2c24" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 5:</span> SDAP outputs</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">PRIMARY JET COMMAND</td>
+<td class="org-left">Primary ON/OFF discrete</td>
+</tr>
+
+<tr>
+<td class="org-left">VERNIER JET COMMAND</td>
+<td class="org-left">Vernier ON/OFF discrete</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+
+<li><a id="org670bc32"></a>Mode Possibilities<br />
+<div class="outline-text-4" id="text-2-2-6">
+<p>
+Figure 5 shows the basic moding possibilities.  SDAP can be in either AUTO or
+MANUAL configuration.  If in AUTO, the desired state comes from the auto
+maneuver logic [<a href="requirements.html#org989d1dc">Req.s2.6.p13.1</a>]; if in MANUAL, the desired state depends on the hand controller
+history [<a href="requirements.html#org727f947">Req.s2.6.p13.2</a>].  The possibilities of Figure 5 are repeated for both primary and
+vernier jets. Manual acceleration can be achieved in the SDAP by turning on jets
+when the RHC is deflected in the manual open-loop mode. The flight code pulse
+mode can be emulated by an appropriate choice of RHC deflection interval [<a href="requirements.html#org70cd64c">Req.s2.6.p13.3</a>].  In
+flight, pulse sizes in all axes are controlled by a single crew specified rate
+change quantity which is divided by an estimated per axis acceleration to
+compute pulse duration [<a href="requirements.html#org336cfcb">Req.s2.6.p13.4</a>]. Pulses in close proximity to one another generally will
+all be based on one rate change value [<a href="requirements.html#orgc7475a5">Req.s2.6.p13.5</a>].  In any one axis, plus and minus pulses
+will be of the same duration [<a href="requirements.html#orgdd4f64c">Req.s2.6.p13.6</a>].
+</p>
+
+<p>
+Tables 6 and 7 describe the moding options.
+</p>
+
+
+<div id="org6eaeffd" class="figure">
+<p><img src="./figs/fig5.png" alt="fig5.png" width="40%" />
+</p>
+<p><span class="figure-number">Figure 4: </span>SDAP moding possibilities.</p>
+</div>
+
+<table id="org900e218" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 6:</span> Automatic modes.</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">AUTOMATIC MANEUVER</td>
+<td class="org-left">The vehicle executes an attitude change from current to commanded attitude at a selected rate</td>
+</tr>
+
+<tr>
+<td class="org-left">AUTOMATIC ATTITUDE HOLD</td>
+<td class="org-left">The vehicle maintains current inertial attitude within selected rate limit and deadband</td>
+</tr>
+</tbody>
+</table>
+
+<table id="orgcdccd8c" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 7:</span> Manual modes.</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">OPEN-LOOP</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">PULSE</td>
+<td class="org-left">RHC deflection is exercised to mimic pulse behavior in the shuttle where pulses achieve the selected rate change</td>
+</tr>
+
+<tr>
+<td class="org-left">ACCEL</td>
+<td class="org-left">RHC deflection turns on jets for duration of deflection. This mode, for the SDAP, is functionally the same as Pulse</td>
+</tr>
+
+<tr>
+<td class="org-left">CLOSED-LOOP</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">DISCRETE RATE</td>
+<td class="org-left">Vehicle achieves and maintains constant rate about axes with RHC deflected, attitude hold about axes with RHC in detent</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+
+<li><a id="orgf4ff0a3"></a>Differences Between Simple and Complete DAPs<br />
+<ol class="org-ol">
+<li><a id="orgb5f20a3"></a>General Discussion<br />
+<div class="outline-text-5" id="text-2-2-7-1">
+<p>
+By eliminating thrust vector control (TVC), seven of the 18 modules of the
+complete DAP are eliminated.  Elimination of the local vertical/local horizontal
+tracking module (LVLH TRACK) and the translation modules, and combining manual
+rotations in one module, reduce the DAP to six control law modules, an Attitude
+Processor module, and an Executive module which retains some of the functions of
+the complete DAP reconfiguration (RECON) module.
+</p>
+</div>
+</li>
+
+<li><a id="org98da192"></a>Module Alterations<br />
+<div class="outline-text-5" id="text-2-2-7-2">
+<p>
+The Phase Plane and State Estimator modules are unchanged.  Auto Maneuver is
+simplified by eliminating the track mode and moving the desired attitude
+increment integration to the State Error module.  The Manual Maneuver module
+contains three DAP functions: discrete rate rotation (ROT DISC), pulsed rotation
+(ROT PULSE), and rotational acceleration (ROT ACCEL).  ROT DISC becomes a manual
+closed-loop option and works the same way as in the complete DAP; however,
+interaction with LVLH TRACK is eliminated and the desired attitude increment
+integration moves to the State Error module.  Setting the RHC discrete to ON for
+an appropriate interval mimics the ROT PULSE and ROT ACCEL functions.
+</p>
+
+<p>
+The State Error module adds desired attitude increment integration and drops the
+BYPASS switch, which can be handled in the Executive module by altering the SDAP
+calling sequence.
+</p>
+
+<p>
+Although the Phase Plane module function is unaltered, the boundary equations
+and control action equations have been simplified by eliminating a number of
+intermediate variables.
+</p>
+
+<p>
+Finally, the Jet Selection module has been simplified considerably by reducing
+the number of primary jets considered to 11.
+</p>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-org55e70c4" class="outline-3">
+<h3 id="org55e70c4"><span class="section-number-3">2.3</span> Module descriptions</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+This section describes the construction of each defined logic module.
+The module descriptions are located in the following sections.
+</p>
+
+<ul class="org-ul">
+<li>SDAP Executive.</li>
+<li>Attitude Processor.</li>
+<li>Auto Maneuver.</li>
+<li>Manual Maneuver.</li>
+<li>State Estimator.</li>
+<li>State Error.</li>
+<li>Phase Plane.</li>
+<li>Jet Selection.</li>
+</ul>
+
+<p>
+The Executive module contains a subset of the logic contained in the complete
+DAP reconfiguration function.  It may include read/write functions for use of
+the SDAP in simulations.  The Attitude Processor is not a control law module,
+such as modules 3.3 through 3.8; however it performs a flight control system
+function and is therefore included.
+</p>
+
+<p>
+Each module description section contains a statement of purpose, a description
+of how it works, a sequence of logic from which codinq can be produced, and an
+I/0 list.
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org8e58c5e"></a>SDAP Executive.<br />
+<ol class="org-ol">
+<li><a id="org308f960"></a>Purpose<br />
+<div class="outline-text-5" id="text-2-3-1-1">
+<p>
+The SDAP Executive routine serves two functions. It calls the SDAP modules
+in proper sequence [<a href="requirements.html#orgbbdc459">Req.s3.1.1.p18.1</a>] and sets SDAP moding flags [<a href="requirements.html#org3d55636">Req.s3.1.1.p18.2</a>].
+</p>
+</div>
+</li>
+
+<li><a id="org9cb1d92"></a>Functional Description<br />
+<ol class="org-ol">
+<li><a id="org9d42120"></a>Relation of SDAP Executive to Simulation Executive<br />
+<div class="outline-text-6" id="text-2-3-1-2-1">
+<p>
+The SDAP Executive must be integrated into an overall simulation which
+includes the dynamics of the orbiter and models of its sensors and
+effectors.  Figure 6 shows the essential functions of a simulation
+executive, including the sequencing of the SDAP Executive and the FCS
+hardware models.  The vehicle dynamics models for rigid-body motion and
+flexure should propagate the vehicle state in a manner that makes IMU
+measurements current and applies RCS thrust impulses to the proper dynamic
+state.
+</p>
+
+<p>
+Information transport lags due to the IMU and the RCS hardware models
+affect the simulation results significantly.  Implementation of these lags
+is covered in the section on FCS hardware models.  In general, however,
+these models are responsible for supplying the SDAP with information and
+responding to SDAP commands, with appropriate delays.
+</p>
+
+<p>
+A clock is maintained that increments time at intervals of 80 ms, the SDAP
+time step [<a href="requirements.html#org3546385">Req.s3.1.2.1.p19.1</a>].  The IMU module is called every 80 ms, even though the SDAP
+reads the IMU only every 160 ms, so a push-down stack of old IMU data can
+be maintained.  Thus, IMU lags that are multiples of the 80 ms SDAP cycle
+can be implemented conveniently.  Section 4.1, on the IMU model, and
+Appendix B, on attitude data generation and transfer, contain a further
+discussion of IMU lags.
+</p>
+
+
+<div id="orgf4339d1" class="figure">
+<p><img src="./figs/fig6.png" alt="fig6.png" width="40%" />
+</p>
+<p><span class="figure-number">Figure 5: </span>Simulation executive.</p>
+</div>
+</div>
+</li>
+
+<li><a id="org187497b"></a>SDAP Executive Functional Description<br />
+<div class="outline-text-6" id="text-2-3-1-2-2">
+<p>
+The SDAP Executive sets some module initialization and modinq
+flags, and sequences the SDAP modules in accordance with the
+flag settings.  If the hand controller is deflected in any axis,
+the SDAP automatically switches to manual mode
+[<a href="requirements.html#org0c4b991">Req.s3.1.2.2.p19.1</a>].  On the first pass, the jet select
+initialization flag is set [<a href="requirements.html#org6442c0b">Req.s3.1.2.2.p19.2</a>], and if the mode
+is manual, the state error initialization flag is set
+[<a href="requirements.html#org645ceff">Req.s3.1.2.2.p19.3</a>].  Every second pass, the Attitude Processor
+and Part 1 of the State Estimator are called to incorporate new
+attitude information from the IMU [<a href="requirements.html#org2ca634e">Req.s3.1.2.2.p19.4</a>].  When
+the maneuver mode is changed from manual to auto, if the bypass
+flag is ON, it is set to OFF and the auto maneuver
+initialization flag is set to ON [<a href="requirements.html#orgc468f31">Req.s3.1.2.2.p19.5</a>.  Since
+the Auto Maneuver module is processed at 1.04 Hz, it is called
+every 12th DAP pass whenever SDAP is in the auto mode
+[<a href="requirements.html#org6ceb275">Req.s3.1.2.2.p19.6</a>].  If the mode is manual, the Manual
+Maneuver module is called each SDAP pass [<a href="requirements.html#org688f36f">Req.s3.1.2.2.p20.1</a>].
+</p>
+
+<p>
+State Error uses the desired attitude and rate, which are
+generated by the maneuver modules, to calculate attitude and
+rate errors.  If any of the bypass-flag elements are OFF, then
+Phase Plane is called to set the rotation commands in those axes
+[<a href="requirements.html#org591ab80">Req.s3.1.2.2.p20.2</a>].  Jet Selection then is called to convert
+the rotation commands to individual jet commands.  Finally, Part
+2 of the State Estimator is called to extrapolate the vehicle
+state estimates.
+</p>
+</div>
+</li>
+</ol>
+</li>
+
+<li><a id="orgcff6405"></a>Logical Structure<br />
+<div class="outline-text-5" id="text-2-3-1-3">
+<p>
+Figure 7 shows the logical structure of the SDAP
+Executive.
+</p>
+
+<pre class="example" id="orgbcf3410">
+IF ANY ELEMENT OF RHC STATE \neq 0 THEN AUTO MANUAL SWITCH = MANUAL
+IF FIRST PASS THEN
+   INIT JET SELECT = ON
+   IF AUTO MANUAL SWITCH = MANUAL THEN
+      SET ALL ELEMENTS OF INIT STATE ERROR= ON
+EVERY SECOND PASS:
+   CALL ATTITUDE PROCESSOR
+   CALL PART1 FILTER
+IF AUTO MANUAL SWITCH = AUTO THEN
+   IF OLD AUTO MANUAL= MANUAL THEN
+      CALL COUNTER= 0
+      SET ALL ELEMENTS OF BYPASS= OFF
+      INIT AUTO MANEUVER= ON
+   IF CALL COUNTER= 0 THEN
+      CALL COUNTER = 12
+      CALL AUTO MANEUVER
+ELSE CALL MANUAL MANEUVER
+CALL STATE ERROR
+IF ANY ELEMENT OF BYPASS= OFF THEN CALL PHASE PLANE
+CALL JET SELECT
+CALLPART2 FILTER
+OLD AUTO MANUAL= AUTO MANUAL SWITCH
+CALLCOUNTER=CALLCOUNTER-1
+</pre>
+</div>
+</li>
+
+<li><a id="orgdc2a65c"></a>Interface Summary<br />
+<div class="outline-text-5" id="text-2-3-1-4">
+<p>
+The Executive receives the RHC state, the auto/manual switch, and the bypass
+flag as inputs.  Its outputs are the initialization flags for state errors, jet
+select and auto maneuver, and the bypass flag.  In addition, the Executive
+modifies the auto/manual switch based on the RHC state.
+</p>
+</div>
+</li>
+
+<li><a id="org1b14340"></a>Input List<br />
+<div class="outline-text-5" id="text-2-3-1-5">
+<p>
+The quantities listed in Table 8 are the subset of
+quantities listed in Table 4 that actually affect the SDAP
+calling sequence.
+</p>
+
+<table id="org6fc3ab3" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 8:</span> Executive module inputs</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Variable Name</th>
+<th scope="col" class="org-left">Source</th>
+<th scope="col" class="org-left">Qualities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">AUTO MANUAL SWITCH</td>
+<td class="org-left">Run Input,Executive</td>
+<td class="org-left">Boolean 1=auto 0=manual</td>
+</tr>
+
+<tr>
+<td class="org-left">BYPASS</td>
+<td class="org-left">Manual Maneuver, Executive</td>
+<td class="org-left">3 vector of Booleans</td>
+</tr>
+
+<tr>
+<td class="org-left">RHC STATE</td>
+<td class="org-left">Run Input</td>
+<td class="org-left">3 vector with 0 = detent \(\pm\) 1 = out of detent</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+
+<li><a id="org4c715c6"></a>Output List<br />
+<div class="outline-text-5" id="text-2-3-1-6">
+<p>
+Table 9 shows the subset of the quantities in Table 4 that are outputs of the
+Executive.
+</p>
+
+<table id="org1b45163" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 9:</span> Executive module outputs</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Variable Name</th>
+<th scope="col" class="org-left">Destination</th>
+<th scope="col" class="org-left">Qualities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">BYPASS</td>
+<td class="org-left">Phase Plane</td>
+<td class="org-left">3 Vector of Booleans</td>
+</tr>
+
+<tr>
+<td class="org-left">INIT AUTO MANEUVER</td>
+<td class="org-left">Auto Maneuver</td>
+<td class="org-left">Boolean</td>
+</tr>
+
+<tr>
+<td class="org-left">INIT JET SELECT</td>
+<td class="org-left">Jet Select</td>
+<td class="org-left">Boolean</td>
+</tr>
+
+<tr>
+<td class="org-left">INIT STATE ERROR</td>
+<td class="org-left">State Error</td>
+<td class="org-left">Boolean</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ol>
+</li>
+
+
+<li><a id="org75f482c"></a>Attitude Processor.<br />
+<ol class="org-ol">
+<li><a id="org35dda23"></a>Purpose<br />
+<div class="outline-text-5" id="text-2-3-2-1">
+<p>
+The flight-code attitude processor module reads IMU gimbal angles.  From these,
+it produces the quaternion that specifies the relationship of the orbiter body
+axes to inertial coordinates and also produces angle increments over successive
+cycles.  Because of the simple IMU model chosen for use with the SDAP, the
+Attitude Processor defined herein simply reads the Euler rotation matrix \(R_I^B\)
+(orbiter body with respect to inertial reference rotation) produced by the
+orbiter dynamics model, and constructs the quaternion \(Q_I^B\) (body with respect
+to inertial), from which angular increments \(\delta\theta\) are derived (see
+Appendices B and C).
+</p>
+</div>
+</li>
+
+<li><a id="org4e1f6b9"></a>Function<br />
+<div class="outline-text-5" id="text-2-3-2-2">
+<p>
+The quaternion \(Q_I^B\) is obtained from the rigid-body dynamics integration of
+\(\dot{R}_I^B\), name \(R_I^B\). \(Q_I^B\) is named CURRENT ATTITUDE and is used by
+the Auto Maneuver module.  Successive values of \(Q_I^B\) are used to produce
+ATTITUDE INCREMENT, which is the basic attitude measurement processed by Part 1
+of the State Estimator module.  The Attitude Processor module is called every
+second SDAP pass; that is, on the same pass on which Part 1 of the State
+Estimator is called [<a href="requirements.html#org3d59726">Req.s3.2.2.p23.1</a>].
+</p>
+</div>
+</li>
+
+<li><a id="orgee6227b"></a>Logical Structure<br />
+<div class="outline-text-5" id="text-2-3-2-3">
+<p>
+The logic carries out the indicated transform algebra (see Appendix B for
+overall transport of attitude data and Appendix C for a discussion of quaternion
+algebra).
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org0098c97"></a>Current Attitude \((Q_I^B)\) Calculation<br />
+<div class="outline-text-6" id="text-2-3-2-3-1">
+<p>
+Let \(q_i\) represent the elements of \(Q_I^B\), \(i = 0,1,2,3\). Let \(R\) represent
+\(R_I^B\), then
+</p>
+
+<p>
+\[q_0 = \frac{1}{2} \sqrt{tr(R) + 1} \]
+\[|q_i| = \frac{1}{2} \sqrt{2 R_{ii} + 1 - tr(R) }\]
+</p>
+</div>
+</li>
+
+<li><a id="org3d4ca71"></a>ATTITUDE INCREMENT Calculation Using Successive \(Q_I^B\) Values<br />
+<div class="outline-text-6" id="text-2-3-2-3-2">
+<p>
+Compute the quaternion increment (\(B'\) represents previous cycle value)
+</p>
+
+<p>
+\[
+Q_{B'}^B = Q_I^B (Q_I^{B'})^*
+\]
+</p>
+
+<p>
+Let \(q_i\) represent the elements of \(Q_{B'}^B\), then
+</p>
+
+<p>
+\[ \delta\theta = 2 \cdot (q_1^2 + q_2^2 + q_3^2)^{1/2} \text{ (radians)} \]
+</p>
+
+<p>
+The projection of single-axis rotation magnitude \(\delta\theta\) onto the
+body axes is
+</p>
+
+<p>
+\[
+(\text{ATTITUDE INCREMENT})_i = \delta\theta \cdot  -\hat{u}_i
+\]
+</p>
+
+<p>
+where \(\hat{u}\) is the unit vector formed from \(q_1\), \(q_2\), \(q_3\), and \(i\)
+denotes a particular body axis.
+</p>
+</div>
+</li>
+</ol>
+</li>
+
+<li><a id="org7a44590"></a>Interface Summary<br />
+<div class="outline-text-5" id="text-2-3-2-4">
+<p>
+The Attitude Processor module receives an Euler rotation matrix representing
+body axis orientation with respect to an inertial reference.  This matrix is
+produced by the rigid-body dynamics model and passed, with delay, through the
+IMU model.  The Attitude Processor produces quaternion CURRENT ATTITUDE and
+vector ATTITUDE INCREMENT for the Auto Maneuver module and the State Estimator
+to use.
+</p>
+</div>
+</li>
+
+<li><a id="orgb0b315f"></a>Input List<br />
+<div class="outline-text-5" id="text-2-3-2-5">
+<p>
+See Table 10.
+</p>
+
+<table id="orgc1393db" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 10:</span> Attitude processor input list.</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Variable Name</th>
+<th scope="col" class="org-left">Source</th>
+<th scope="col" class="org-left">Qualities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">\(R_I^B\)</td>
+<td class="org-left">IMU Model</td>
+<td class="org-left">3 x 3 matrix</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+
+<li><a id="org8cfd1cb"></a>Output List<br />
+<div class="outline-text-5" id="text-2-3-2-6">
+<table id="org7ca155c" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 11:</span> Attitude processor output list.</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Variable Name</th>
+<th scope="col" class="org-left">Destination</th>
+<th scope="col" class="org-left">Qualities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ATTITUDE INCREMENT</td>
+<td class="org-left">State Estimator</td>
+<td class="org-left">3 vector</td>
+</tr>
+
+<tr>
+<td class="org-left">CURRENT ATTITUDE</td>
+<td class="org-left">Auto Maneuver</td>
+<td class="org-left">Quaternion  (4 vector)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ol>
+</li>
+
+
+<li><a id="org7865fb0"></a>Auto Maneuver.<br />
+<ol class="org-ol">
+<li><a id="orga692bcd"></a>Purpose<br />
+<div class="outline-text-5" id="text-2-3-3-1">
+<p>
+The Auto Maneuver module performs attitude change maneuvers or attitude hold.  A
+commanded inertial attitude is input, and, if this attitude is sufficiently
+different from the current attitude, the SDAP executes a maneuver at a
+preselected maneuver rate until the current attitude approaches the commanded
+attitude [<a href="requirements.html#org8122bcd">Req.s3.3.1.p26.1</a>].
+</p>
+</div>
+</li>
+
+<li><a id="orgadf8185"></a>Functional Description<br />
+<div class="outline-text-5" id="text-2-3-3-2">
+<p>
+The two driving inputs are CURRENT ATTITUDE and COMMANDED ATTITUDE.
+The logic has been designed around quaternion algebra (see Appendix C).
+The module accepts the two inertial attitude inputs in the form of quaternions
+\(Q_I^B\). 
+Multiplication yields the commanded attitude with 
+respect to current body attitude quaternion \(QB^C\) from which the
+Euler eigen axis can be extracted in body coordinates
+</p>
+
+<p>
+\[ \underline{\hat{u}} = - \frac{\underline{V}^n}{|V^n|} = -(q_1
+\underline{\hat{i}} + q_2 \underline{\hat{j}} + q_3 \underline{\hat{k}})/|V^n|\]
+</p>
+
+<p>
+and the single equivalent axis rotation
+</p>
+
+<p>
+\[
+\Delta\theta = 2 sin^{-1} (q_1^2 + q_2^2 + q_3^2)^{1/2} \text{ (radians)}
+\]
+</p>
+
+<p>
+where \(q_0\), \(q_1\), \(q_2\), \(q_3\) are the elements of \(Q_B^C\), and \(V^n\) is the
+vector formed from \(q_1\), \(q_2\), \(q_3\). For convenience, the 
+commanded attitude can be defined as a series of Euler rotations.
+The Euler rotation matrix can be calculated and
+converted to eigen axis and a single equivalent rotation
+angle using the equations of Appendix C.
+</p>
+
+<p>
+Auto Maneuver tests the rotation angle \(\Delta\theta\) against
+two numerical criteria.
+If \(\Delta\theta\) is larger than \(y\), the module
+places itself in the maneuver mode; if \(\Delta\theta\) is less than \(x\),
+the hold mode results [<a href="requirements.html#orgc6e95e4">Req.s3.3.2.p27.1</a>].
+The test values x and y are calculated as
+</p>
+
+<p>
+\[\begin{array}{l}
+x = \text{SCALAR BIAS} + \text{Deadband}\\
+y = \text{SCALAR BIAS} + 2 \cdot \text{Deadband}
+\end{array}
+\]
+</p>
+
+<p>
+where
+</p>
+
+<p>
+\[
+\text{SCALAR BIAS} = \left(\text{RATE ESTIMATE} \cdot
+\underline{\hat{u}})^2/(2\underline{CA} \cdot abs\; \underline{\hat{u}}\right) +
+0.5 |\underline{\text{RATE ESTIMATE}} \cdot \underline{\hat{u}}|\]
+</p>
+
+<p>
+where the underscore indicates a vector, and
+</p>
+
+<p>
+The difference between x and y, namely one deadband, is an angular hysteresis
+zone.  The scalar bias is added to ensure that the angle traversed during
+deceleration from maneuver to hold results in a vehicle attitude near the center
+of the deadband.
+</p>
+
+<p>
+The output of Auto Maneuver is simply two variable quantities DESIRED RATE and
+DESIRED ATTITUDE.  DESIRED RATE is either zero during hold or the projection of
+MANEUVER RATE on the eigen axis during maneuver [<a href="requirements.html#org825ac78">Req.s3.3.2.p27.2</a>].  Table 12 shows possible values
+of DESIRED ATTITUDE as set by Auto Maneuver.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Situation</th>
+<th scope="col" class="org-left">Module State</th>
+<th scope="col" class="org-left">Desired Attitude</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Hold</td>
+<td class="org-left">Hold</td>
+<td class="org-left">ATTITUDE ESTIMATE +</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ROTATION ANGLE \(\cdot\) Eigen</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Axis Unit Vector</td>
+</tr>
+
+<tr>
+<td class="org-left">Maneuver</td>
+<td class="org-left">Maneuver</td>
+<td class="org-left">Not set by Module</td>
+</tr>
+
+<tr>
+<td class="org-left">Start of Hold</td>
+<td class="org-left">Hold</td>
+<td class="org-left">Same as Hold Above</td>
+</tr>
+
+<tr>
+<td class="org-left">Start of Maneuver</td>
+<td class="org-left">Maneuver</td>
+<td class="org-left">ATTITUDE ESTIMATE+</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">VECTOR BIAS</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+In the hold mode, DESIRED ATTITUDE is the attitude estimate plus the projection
+of the rotation angle \(\Delta\theta\) the eigen axis [<a href="requirements.html#org1bff8d9">Req.s3.3.2.p28.1</a>].  This means that in the
+State Error module, the attitude error is just \(\Delta\theta\) projected on the
+eigen axis, since the attitude estimate is subtracted.
+</p>
+
+<p>
+When the maneuver mode is first entered, DESIRED ATTITUDE is set equal
+to the current attitude estimate plus a bias vector. The State Error
+module then has an attitude error equal to the bias vector
+[<a href="requirements.html#orga87c3fa">Req.s3.3.2.p28.2</a>]. On each pass, State Error adds an attitude
+increment of \(0.08 \cdot \text{DESIRED RATE}\) to the desired attitude
+so that the attitude error is always referred to a frame rotating at
+the desired maneuver rate [<a href="requirements.html#orgc475951">Req.s3.3.2.p28.3</a>].
+</p>
+
+<p>
+The bias vector is computed as
+</p>
+<p>
+for the ith axis.  This bias compensates for the angular error produced during
+acceleration to the maneuver rate.  The vehicle follows a quadratic angle versus
+time curve while the State Error module increments the desired attitude
+linearly.  The bias vector therefore attempts to zero the attitude error during
+the acceleration phase of the maneuver.
+</p>
+</div>
+</li>
+
+<li><a id="org1647bab"></a>Logical Structure<br />
+<div class="outline-text-5" id="text-2-3-3-3">
+<p>
+See Figure 8.
+</p>
+
+<pre class="example" id="orge01710a">
+IF FIRST PASS THEN
+   MANEUVER HOLD SWITCH = OFF
+   OLD MANEUVER HOLD SWITCH = OFF
+$Q_B^C = Q_I^C (Q_I^B)^*$
+$\underline{V}$ = $SIGN$ ($Q_B^C$ (SCALAR)) $Q_B^C$ (VECTOR)
+ROTATION ANGLE = $2 arcsin |\underline{V}| 180/\pi$
+IF $|\underline{V}| = 0$ THEN $V_1 = 1.0$
+EIGEN AXIS = -UNIT (\underline{V})
+SCALAR BIAS = ((RATE EST $\cdot$ EIGEN AXIS)^2/(2(CONTROL ACCEL_1|EIGEN AXIS_1| + CONTROL ACCEL_2 |EIGEN AXIS_2| + CONTROL ACCEL_3 |EIGEN AXIS_3|))) + 0.5 |RATE EST \cdot EIGEN AXIS|
+IF ROTATION ANGLE &gt; SCALAR BIAS+ 2 \cdot DEADBAND THEN MANEUVER HOLD SWITCH = ON
+ELSE IF ROTATION ANGLE &lt; SCALAR BIAS + DEADBAND THEN MANEUVER HOLD SWITCH = OFF
+IF MANEUVER HOLD SWITCH = OFF THEN DO
+   DESIRED RATE = 0
+   DESIRED ATTITUDE = ATTITUDE EST+ EIGEN AXIS· ROTATION ANGLE
+ELSE DO
+   DESIRED RATE = EIGEN AXIS \cdot MANEUVER RATE
+   IF INIT AUTO MANEUVER = ON OR OLD MANEUVER HOLD SWITCH = OFF
+      THEN DO
+	 DO FOR I = 1 TO 3
+	    TEMP = DESIRED RATE_I - RATE EST_I
+	    VECTOR BIAS_I = -TEMP|TEMP|/(2 \cdot CONTROL ACCEL_I)
+	 DESIRED ATTITUDE = ATTITUDE EST+ VECTOR BIAS
+INIT AUTO MANEUVER = OFF
+OLD MANEUVER HOLD SWITCH = MANEUVER HOLD SWITCH
+</pre>
+</div>
+</li>
+
+<li><a id="orgaa02368"></a>Interface Summary<br />
+<div class="outline-text-5" id="text-2-3-3-4">
+<p>
+The basic dynamical inputs to the Auto Maneuver module are the quaternions
+CURRENT ATTITUDE (from the Attitude Processor module) and COMMANDED ATTITUDE (a
+user input).  Functional parameters input by the user include DEADBAND, CONTROL
+ACCELERATION, and MANEUVER RATE.  The Executive provides an initialization
+discrete, INITIALIZE AUTO MANEUVER, on the first pass when entering the AUTO
+mode.  ATTITUDE ESTIMATE and RATE ESTIMATE are input from the State Estimator.
+</p>
+
+<p>
+The outputs DESIRED ATTITUDE and DESIRED RATE are passed to the State Error
+module.
+</p>
+</div>
+</li>
+
+<li><a id="org21b3a1b"></a>Input List<br />
+<div class="outline-text-5" id="text-2-3-3-5">
+<p>
+Table 13 lists the Auto Maneuver module inputs.
+</p>
+
+<table id="org64a822a" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 12:</span> Auto Maneuver module inputs.</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Constants</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Name</td>
+<td class="org-left">Values</td>
+<td class="org-left">(deq/s2)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">CONTROL ACCELERATION</td>
+<td class="org-left">Primary Jets</td>
+<td class="org-left">Vernier Jets</td>
+</tr>
+
+<tr>
+<td class="org-left">roll</td>
+<td class="org-left">0.8</td>
+<td class="org-left">0.019</td>
+</tr>
+
+<tr>
+<td class="org-left">pitch</td>
+<td class="org-left">0.9</td>
+<td class="org-left">0.013</td>
+</tr>
+
+<tr>
+<td class="org-left">yaw</td>
+<td class="org-left">0.6</td>
+<td class="org-left">0.014</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Moding Discretes</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Name</td>
+<td class="org-left">Source</td>
+<td class="org-left">Qualities</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">INITIALIZE AUTO MANEUVER</td>
+<td class="org-left">Executive</td>
+<td class="org-left">Boolean</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Parameters</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Name</td>
+<td class="org-left">Source</td>
+<td class="org-left">Qualities</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">DEADBAND</td>
+<td class="org-left">User Input</td>
+<td class="org-left">scalar</td>
+</tr>
+
+<tr>
+<td class="org-left">MANEUVER RATE</td>
+<td class="org-left">User Input</td>
+<td class="org-left">scalar</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Variables</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Name</td>
+<td class="org-left">Source</td>
+<td class="org-left">Qualities</td>
+</tr>
+
+<tr>
+<td class="org-left">ATTITUDE ESTIMATE</td>
+<td class="org-left">State Estimator</td>
+<td class="org-left">3 vector</td>
+</tr>
+
+<tr>
+<td class="org-left">COMMANDED ATTITUDE</td>
+<td class="org-left">User Input</td>
+<td class="org-left">quaternion</td>
+</tr>
+
+<tr>
+<td class="org-left">CURRENT ATTITUDE</td>
+<td class="org-left">Attitude Processor</td>
+<td class="org-left">quaternion</td>
+</tr>
+
+<tr>
+<td class="org-left">RATE ESTIMATE</td>
+<td class="org-left">State Estimator</td>
+<td class="org-left">3 vector</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+
+
+<li><a id="org4663ca5"></a>Output List<br />
+<div class="outline-text-5" id="text-2-3-3-6">
+<p>
+Table 14 lists the Auto Maneuver module outputs.
+</p>
+
+<table id="org69fca1a" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 13:</span> Auto Maneuver module outputs.</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Name</td>
+<td class="org-left">Destination</td>
+<td class="org-left">Qualities</td>
+</tr>
+
+<tr>
+<td class="org-left">DESIRED ATTITUDE</td>
+<td class="org-left">State Error</td>
+<td class="org-left">3 vector</td>
+</tr>
+
+<tr>
+<td class="org-left">DESIRED RATE</td>
+<td class="org-left">State Error</td>
+<td class="org-left">3 vector</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ol>
+</li>
+
+<li><a id="org729c4b5"></a>Manual Maneuver.<br />
+<ol class="org-ol">
+<li><a id="orgb1cead7"></a>Purpose<br />
+<div class="outline-text-5" id="text-2-3-4-1">
+<p>
+This module executes open- and closed-loop manual rotation commands. The
+open-loop option sends a rotation command directly to the Jet Selection module
+whenever the RHC is deflected from null. The closed-loop option commands a
+constant rotation rate about chosen axes.
+</p>
+</div>
+</li>
+
+<li><a id="org41bbdcb"></a>Functional Description<br />
+<div class="outline-text-5" id="text-2-3-4-2">
+<p>
+The Manual Maneuver module incorporates three of the regular on-orbit autopilot
+functions, namely RHC acceleration, RHC pulse, and RHC discrete rate/attitude
+hold.  In the SDAP, manual control is defined as being open-loop or closed-loop.
+The open-loop submode issues a rotation command whenever the RHC is deflected [<a href="requirements.html#org7a5f064">Req.s3.4.2.p33.1</a>].
+The user can simulate acceleration and pulse actions by choosing an appropriate
+RHC deflection interval.  In this submode, the module sets a BYPASS discrete and
+consequently, the Phase Plane module output is ignored. The rotation command is
+sent directly to the Jet Selection module [<a href="requirements.html#org0737438">Req.s3.4.2.p33.2</a>].
+</p>
+
+<p>
+The closed-loop submode causes a DESIRED RATE value to be sent to State Error.
+For each axis in which the RHC is deflected, this rate is set equal to the input
+MANEUVER RATE [<a href="requirements.html#orgbb1f79f">Req.s3.4.2.p33.3</a>]. Normal Phase Plane module processing then maintains this body
+rate. When the RHC is returned to detent, the DESIRED RATE is set to zero and
+attitude hold is established at the current attitude [<a href="requirements.html#org19b6fd2">Req.s3.4.2.p33.4</a>].
+</p>
+
+<p>
+When the closed-loop submode is operating, the Manual Maneuver module issues an
+INITIALIZE STATE ERROR discrete whenever a change occurs in RHC state.  This
+allows an attitude hold to be effected at the attitude attained when the RHC is
+returned to detent, by zeroing the attitude error [<a href="requirements.html#org9c27332">Req.s3.4.2.p33.5</a>].
+</p>
+
+<p>
+A FORCE FIRE discrete is sent to the Phase Plane module when the RHC is
+deflected (first pass of deflection only).  This discrete causes at least a
+minimum-impulse jet firing at the beginning of RHC deflection and improves the
+crew "feel" of vehicle response to manual input for SDAP settings involving a
+large RATE LIMIT and small MANEUVER RATE [<a href="requirements.html#org997af3d">Req.s3.4.2.p34.1</a>].
+</p>
+
+<p>
+The choice between manual open- and closed-loop functions is made by setting the
+discrete CLOSED LOOP.  The ON setting selects the closed-loop function [<a href="requirements.html#orgcc1e7cc">Req.s3.4.2.p34.2</a>].
+</p>
+</div>
+</li>
+
+<li><a id="org15f1f83"></a>Logical Structure<br />
+<div class="outline-text-5" id="text-2-3-4-3">
+<p>
+See Figure 9.
+</p>
+
+
+<pre class="example" id="org4f257fb">
+DO FOR EACH AXIS IN TURN
+   IF CLOSED LOOP = ON THEN
+      BYPASS = OFF
+      IF RHC STATE $\neq$ OLD RHC STATE THEN
+      INITIALIZE STATE ERRORS = ON
+      IF RHC STATE $\neq$ 0 THEN
+	 FORCE Fl RE = ON
+      DESIRED RATE = RHC STATE $\cdot$ MANEUVER RATE
+      OLD RHC STATE = RHC STATE
+   OTHERWISE IF CLOSED LOOP = OFF, THEN
+      BYPASS = ON
+      ROTATION COMMAND = RHC STATE
+
+OLD RHC STATE is an internally-defined variable which keeps current the RHC history.
+</pre>
+</div>
+</li>
+
+<li><a id="orgdd9cb37"></a>Interface Summary<br />
+<div class="outline-text-5" id="text-2-3-4-4">
+<p>
+The Manual Maneuver module receives user inputs of RHC state and the choice of
+open- or closed-loop control.  The main outputs are either a DESIRED RATE sent
+to the State Error module or a ROTATION COMMAND sent to the Jet Selection
+module.  The flags FORCE FIRE and BYPASS are sent to the Phase Plane module.
+</p>
+</div>
+</li>
+
+<li><a id="orgf0aa539"></a>Input List<br />
+<div class="outline-text-5" id="text-2-3-4-5">
+<p>
+Table 15 defines the Manual Maneuver module inputs.
+</p>
+
+<table id="orgd6b46f0" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 14:</span> Manual Maneuver module inputs.</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Moding Discretes</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Name</td>
+<td class="org-left">Source</td>
+<td class="org-left">Qualities</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">CLOSED LOOP</td>
+<td class="org-left">User Input</td>
+<td class="org-left">3 vector of Booleans,</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">1 element for each axis</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">RHC STATE</td>
+<td class="org-left">User Input</td>
+<td class="org-left">3 vector of scalars,</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">1 element for each axis,</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">O = detent</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">\(\pm\) 1 = out of detent</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Parameter</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Name</td>
+<td class="org-left">Source</td>
+<td class="org-left">Qualities</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">MANEUVER RATE</td>
+<td class="org-left">User Input</td>
+<td class="org-left">Scalar</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+
+<li><a id="orgb366598"></a>Output List<br />
+<div class="outline-text-5" id="text-2-3-4-6">
+<p>
+Table 16 shows the Manual Maneuver module outputs.
+</p>
+
+<table id="org6554b80" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 15:</span> Manual Maneuver module outputs.</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Moding Discretes</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Name</td>
+<td class="org-left">Destination</td>
+<td class="org-left">Qualities</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">BYPASS</td>
+<td class="org-left">Phase Plane</td>
+<td class="org-left">3 vector of Booleans</td>
+</tr>
+
+<tr>
+<td class="org-left">FORCE FIRE</td>
+<td class="org-left">Phase Plane</td>
+<td class="org-left">3 vector of Booleans</td>
+</tr>
+
+<tr>
+<td class="org-left">INITIALIZE STATE ERROR</td>
+<td class="org-left">State Error</td>
+<td class="org-left">3 vector of Booleans</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Variables</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Name</td>
+<td class="org-left">Destination</td>
+<td class="org-left">Qualities</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">DESIRED RATE</td>
+<td class="org-left">State Error</td>
+<td class="org-left">3 vector</td>
+</tr>
+
+<tr>
+<td class="org-left">ROTATION COMMAND</td>
+<td class="org-left">Jet Selection</td>
+<td class="org-left">3 vector of scalars, range \(\pm\) 1.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ol>
+</li>
+
+<li><a id="orgfd1bb93"></a>State Estimator.<br />
+<ol class="org-ol">
+<li><a id="org74e50f7"></a>Purpose<br />
+<div class="outline-text-5" id="text-2-3-5-1">
+<p>
+The State Estimator module filters IMU angle data to provide smoothed estimates
+of vehicle rate and unmodeled acceleration.  Since rate information is obtained
+by differentiating attitude data, noisy attitude data could create rate jumps
+large enough to cause many unwanted jet firings, especially when small rate
+limits are imposed.  The estimator provides a low-pass rate filter, which
+reduces the noise problem to negligible proportions and filters higher frequency
+sensed rotations due to vehicle flexure.  Figure 10 shows the effective
+attenuation curve for the State Estimator, and Figure 11 shows the associated
+phase lag.
+</p>
+
+<p>
+An undesired acceleration estimate is also produced, which improves Phase Plane
+performance in the presence of forces like gravity gradient or on-orbit
+aerodynamic torques.
+</p>
+
+
+<div id="org4354894" class="figure">
+<p><img src="./figs/fig10.png" alt="fig10.png" width="40%" />
+</p>
+<p><span class="figure-number">Figure 6: </span>State Estimator rate estimate attenuation versus frequency.</p>
+</div>
+
+
+<div id="org3510f4f" class="figure">
+<p><img src="./figs/fig11.png" alt="fig11.png" width="40%" />
+</p>
+<p><span class="figure-number">Figure 7: </span>State Estimator rate estimate phase lag versus frequency.</p>
+</div>
+</div>
+</li>
+
+
+<li><a id="orgb8ee15c"></a>Functional Description<br />
+<div class="outline-text-5" id="text-2-3-5-2">
+<p>
+The State Estimator module logic is in the following two parts:
+</p>
+
+<ol class="org-ol">
+<li>Part 1 Filter-Incorporates each new attitude increment (measurement) as it is
+produced at half the SDAP calling rate and puts out the current
+measurement-determined state estimate.</li>
+<li>Part 2 Filter-Extrapolates the estimate at the SDAP calling rate and includes
+expected \(\Delta\omega\) due to jet firings.</li>
+</ol>
+
+<p>
+The State Estimator is divided into two parallel sections, one for rate
+estimation and the other for undesired acceleration estimation.  The section
+division was made so that different gains could be used for the rate and
+acceleration estimates.  The gains are further divided according to primary or
+vernier jet modes.
+</p>
+
+<p>
+The measurement incorporation equation (Part 1 Filter) is of the form
+</p>
+
+\begin{equation}
+\underline{\hat{x}} =  \underline{\hat{x}}' + \underline{K} (\tilde{\theta} -
+\hat{\theta}' )
+\end{equation}
+
+
+<p>
+where
+</p>
+<p>
+The state \(\underline{x}\) includes angle, rate, and acceleration.
+</p>
+
+<p>
+Angular motions are assumed to be uncoupled, so a separate Eq.(1) is applied for
+each axis.
+</p>
+
+<p>
+The extrapolation equation (Part 2 Filter) is of the form
+</p>
+
+<p>
+\[
+\underline{\hat{x}}_N = \phi (\underline{\hat{x}}_{N-1} + \underline{w})
+\]
+</p>
+
+<p>
+where \(\phi\) is the transition matrix
+</p>
+
+<p>
+\[
+\phi = \begin{bmatrix} 1 & T & T^2/2\\ 0 & 1 & T\\ 0 & 0 & 1\end{bmatrix} \; (T
+= 0.08)
+\]
+</p>
+
+<p>
+and \(\underline{w}\) is the Jet Selection feed-forward rate change
+projection
+\[
+\underline{w} = \begin{pmatrix} 0\\\Delta\omega_{\text{RCS}} \\ 0 \end{pmatrix}
+\]
+</p>
+</div>
+</li>
+
+<li><a id="orgde6f6dc"></a>Logical Structure<br />
+<div class="outline-text-5" id="text-2-3-5-3">
+<p>
+Part 1 of the estimator is executed on alternate SDAP
+cycles.
+Let \(\theta\), \(\omega\) and \(\alpha\) denote the attitude, angular rate,
+and angular acceleration for a given axis.
+The State Estimator, Part 1, is then defined by the following equations:
+</p>
+
+<ol class="org-ol">
+<li><p>
+Acceleration Filter (a)
+</p></li>
+</ol>
+
+
+<ol class="org-ol">
+<li><p>
+Rate Filter (r)
+</p></li>
+</ol>
+
+<p>
+where \(T = 0.08\) (SDAP cycle time), \(\tilde{\theta}\) is the measured angle (an
+accumulation of attitude increments), and the prime denotes extrapolated
+estimates from the Part 2 filter.  The constant filter gains \(K_{ij}\) are listed
+in Table 17 of the I/0 subsection.  Each \(K_{ij}\) has two associated values, one
+for primary and one for vernier jets, thus 10 gain values are defined.
+</p>
+
+<p>
+The Part 2 extrapolation equations are as follows: 
+</p>
+
+<ol class="org-ol">
+<li><p>
+Acceleration Filter (a)
+</p></li>
+
+<li><p>
+Rate Filter (r)
+</p></li>
+</ol>
+
+<p>
+Note that the undesired acceleration estimate, \(\alpha(a)\), is used in both the
+rate and acceleration extrapolation equations.
+</p>
+
+<p>
+The rate and acceleration sections of the State Estimator module are executed in
+parallel.  The measurement incorporation equations (Part 1 Filter) are executed
+at the beginning of the SDAP when a new set of attitude increments is supplied,
+and the extrapolation (Part 2 Filter) is carried out at the end of the SDAP when
+\(\Delta\omega_{RCS}\) (delta omega RCS from Jet Selection) is available.
+</p>
+</div>
+</li>
+
+<li><a id="orga1e1ddf"></a>Interface Summary<br />
+<div class="outline-text-5" id="text-2-3-5-4">
+<p>
+The State Estimator module receives angle increment data from the attitude
+processor, expected rate changes from the Jet Selection module, and a primary or
+vernier jet indicator from the user.  Its outputs are a three-axis rotational
+state estimate which goes to the State Error and Auto Maneuver modules and an
+undesired acceleration estimate used by the Phase Plane module.
+</p>
+</div>
+</li>
+
+<li><a id="orgc40e9e7"></a>Input List<br />
+<div class="outline-text-5" id="text-2-3-5-5">
+<p>
+Table 17 outlines the State Estimator module inputs.
+</p>
+
+<table id="org0ebbf33" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 16:</span> State Estimator module inputs &#x2013; Constants*</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-right">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">\(K_{\theta a}\) (primary)</td>
+<td class="org-right">1.0</td>
+</tr>
+
+<tr>
+<td class="org-left">\(K_{\theta a}\) (vernier)</td>
+<td class="org-right">1.0</td>
+</tr>
+
+<tr>
+<td class="org-left">\(K_{\omega a}\) (primary)</td>
+<td class="org-right">0.013</td>
+</tr>
+
+<tr>
+<td class="org-left">\(K_{\omega a}\) (vernier)</td>
+<td class="org-right">0.013</td>
+</tr>
+
+<tr>
+<td class="org-left">\(K_{\alpha a}\) (primary)</td>
+<td class="org-right">0.000064</td>
+</tr>
+
+<tr>
+<td class="org-left">\(K_{\alpha a}\) (vernier)</td>
+<td class="org-right">0.000064</td>
+</tr>
+
+<tr>
+<td class="org-left">\(K_{\theta r}\) (primary)</td>
+<td class="org-right">0.18</td>
+</tr>
+
+<tr>
+<td class="org-left">\(K_{\theta r}\) (vernier)</td>
+<td class="org-right">0.064</td>
+</tr>
+
+<tr>
+<td class="org-left">\(K_{\omega r}\) (primary)</td>
+<td class="org-right">0.013</td>
+</tr>
+
+<tr>
+<td class="org-left">\(K_{\omega r}\) (vernier)</td>
+<td class="org-right">0.0016</td>
+</tr>
+</tbody>
+</table>
+<p>
+*Gains are dimensionless; division by \(T^n\) maintains equation dimension.
+</p>
+
+<table id="org8ecc756" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 17:</span> State Estimator module inputs &#x2013; Moding Discretes</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Source</th>
+<th scope="col" class="org-left">Qualities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">PRIMARY VERNIER SW</td>
+<td class="org-left">User Input</td>
+<td class="org-left">Boolean</td>
+</tr>
+</tbody>
+</table>
+
+<table id="org4a530f7" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 18:</span> State Estimator module inputs &#x2013; Variables</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Source</th>
+<th scope="col" class="org-left">Qualities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ATTITUDE INCREMENT</td>
+<td class="org-left">Attitude Processor</td>
+<td class="org-left">3 vector</td>
+</tr>
+
+<tr>
+<td class="org-left">DELTA OMEGA RCS</td>
+<td class="org-left">Jet Selection</td>
+<td class="org-left">3 vector</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+
+
+<li><a id="orge19811f"></a>Output List<br />
+<div class="outline-text-5" id="text-2-3-5-6">
+<p>
+The State Estimator module outputs are shown in Table 18.
+</p>
+
+<table id="orga3a7214" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 19:</span> State Estimator module outputs.</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Destination</th>
+<th scope="col" class="org-left">Qualities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ATTITUDE ESTIMATE</td>
+<td class="org-left">Auto Maneuver State Error</td>
+<td class="org-left">3 vector</td>
+</tr>
+
+<tr>
+<td class="org-left">RATE ESTIMATE</td>
+<td class="org-left">Auto Maneuver State Error</td>
+<td class="org-left">3 vector</td>
+</tr>
+
+<tr>
+<td class="org-left">UNDESIRED ACCELERATION</td>
+<td class="org-left">Phase Plane</td>
+<td class="org-left">3 vector</td>
+</tr>
+
+<tr>
+<td class="org-left">ESTIMATE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ol>
+</li>
+
+<li><a id="org62b1524"></a>State Error Module.<br />
+<ol class="org-ol">
+<li><a id="org6d8a813"></a>Purpose<br />
+<div class="outline-text-5" id="text-2-3-6-1">
+<p>
+This module performs the simple but essential function of comparing the
+estimated and desired state vectors. It passes the difference or 'state error'
+along to the Phase Plane logic for consideration and decision about possible
+control action.
+</p>
+</div>
+</li>
+
+<li><a id="org38ae5e1"></a>Functional Description<br />
+<div class="outline-text-5" id="text-2-3-6-2">
+<p>
+The module performs the calculation
+</p>
+
+<p>
+\[
+\delta \underline{x} = \hat{\underline{x}} - \underline{x}_d
+\]
+</p>
+
+<p>
+where
+</p>
+<p>
+Estimated attitude and rate are obtained from the State Estimator module.  The
+desired rate equals the MANEUVER RATE when the SDAP is in the discrete rate mode
+and the RHC is deflected, or it equals the eigen axis projection of MANEUVER
+RATE when the SDAP is in the auto maneuver mode and maneuvering. Otherwise the
+desired rate is zero. [<a href="requirements.html#org0d023e0">Req.s3.6.2.p45.1</a>]
+</p>
+
+<p>
+While maneuvering in the automatic maneuver mode, and while in the manual
+closed-loop mode with RHC deflected, desired attitude equals a snapshot of the
+attitude estimate at the beginning of the maneuver plus an accumulation of
+angular increments each equal to 0.08 times DESIRED RATE [<a href="requirements.html#org7ee5ae9">Req.s3.6.2.p45.2</a>].
+</p>
+
+<p>
+When the momentary INITIALIZE STATE ERROR flag is ON, DESIRED ATTITUDE is set
+equal to the current attitude estimate.  The flag is set in the Manual Maneuver
+module when a change of RHC state occurs [<a href="requirements.html#orgf453b94">Req.s3.6.2.p46.1</a>].
+</p>
+</div>
+</li>
+
+<li><a id="orgf084f18"></a>Logical Structure<br />
+<div class="outline-text-5" id="text-2-3-6-3">
+<p>
+The State Error module logical structure is shown in
+Figure 12.
+</p>
+
+<pre class="example" id="org495a19f">
+DO FOR EACH OF THREE BODY AXES:
+  IF INITIALIZE STATE ERROR = ON, THEN
+    DESIRED ATTITUDE = ATTITUDE EST
+    INITIALIZE STATE ERROR = OFF
+  DESIRED ATTITUDE = DESIRED ATTITUDE +0.08 $\cdot$ DESIRED RATE
+  ATTITUDE ERROR = ATTITUDE EST- DESIRED ATTITUDE
+  RATE ERROR = RATE EST- DESIRED RATE
+</pre>
+</div>
+</li>
+
+<li><a id="orgf56af64"></a>Interface Summary<br />
+<div class="outline-text-5" id="text-2-3-6-4">
+<p>
+The State Error module receives inputs from the steering modules Auto Maneuver
+and Manual Maneuver, namely desired attitude and rate, and the initialization
+flag. It receives attitude information from the State Estimator.
+</p>
+
+<p>
+Output of errors in the vehicle state goes solely to the Phase Plane module.
+</p>
+</div>
+</li>
+
+
+<li><a id="orgd340630"></a>Input List<br />
+<div class="outline-text-5" id="text-2-3-6-5">
+<p>
+Table 19 shows the State Error module inputs.
+</p>
+
+<table id="org0b7415a" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 20:</span> State Error module inputs. Moding Discrete</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Source</th>
+<th scope="col" class="org-left">Qualities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">INITIALIZE</td>
+<td class="org-left">Manual Maneuver Executive</td>
+<td class="org-left">3 vector of Booleans</td>
+</tr>
+
+<tr>
+<td class="org-left">STATE ERROR</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<table id="orgffd1011" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 21:</span> State Error module inputs. Variables</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Source</th>
+<th scope="col" class="org-left">Qualities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ATTITUDE ESTIMATE</td>
+<td class="org-left">State Estimator</td>
+<td class="org-left">3 vector</td>
+</tr>
+
+<tr>
+<td class="org-left">DESIRED ATTITUDE</td>
+<td class="org-left">Auto Maneuver</td>
+<td class="org-left">3 vector</td>
+</tr>
+
+<tr>
+<td class="org-left">DESIRED RATE</td>
+<td class="org-left">Manual Maneuver, Auto Maneuver</td>
+<td class="org-left">3 vector</td>
+</tr>
+
+<tr>
+<td class="org-left">RATE ESTIMATE</td>
+<td class="org-left">State Estimator</td>
+<td class="org-left">3 vector</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+
+<li><a id="org5403488"></a>Output List<br />
+<div class="outline-text-5" id="text-2-3-6-6">
+<p>
+Table 20 shows the State Error module outputs.
+</p>
+
+<table id="org9fed7b3" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 22:</span> State Error module outputs.</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Destination</th>
+<th scope="col" class="org-left">Qualities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ATTITUDE ERROR</td>
+<td class="org-left">Phase Plane</td>
+<td class="org-left">3 vector</td>
+</tr>
+
+<tr>
+<td class="org-left">RATE ERROR</td>
+<td class="org-left">Phase Plane</td>
+<td class="org-left">3 vector</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ol>
+</li>
+
+
+
+<li><a id="orgd81bd8f"></a>Phase Plane Module<br />
+<ol class="org-ol">
+<li><a id="org4d2551c"></a>Purpose<br />
+<div class="outline-text-5" id="text-2-3-7-1">
+<p>
+The Phase Plane module determines, on a per-axis basis, whether a rotation
+acceleration command should be issued to the Jet Selection module.  Attitude and
+angular rate errors are compared against a set of mathematical regions defined
+in a plane formed by attitude and rate error axes for each rotation control axis
+not in an open-loop mode.  A determination is made of whether a command is
+needed and of what polarity based on current Phase Plane region status.  In the
+vernier jet control mode, preference for rotation coupling in an uncommanded
+axis may be generated based on a function of Phase Plane state.
+</p>
+</div>
+</li>
+
+<li><a id="org5fb72d9"></a>Functional Description<br />
+<div class="outline-text-5" id="text-2-3-7-2">
+<p>
+The Phase Plane module generates rotational acceleration commands on a
+per-body-axis basis whenever the crew has selected closed-loop attitude control
+(including manual discrete rate).  The Phase Plane is divided into nine regions
+defined by numbered boundaries.  At any time, for each axis, the rigid vehicle
+state is defined by an attitude and rate error point that must lie in one of the
+defined regions since the regions cover the entire plane [<a href="requirements.html#org6b7a8f3">Req.s3.7.2.p48.1</a>].  The decision
+concerning whether to send a rotation command is made on the basis of logic
+unique to each defined region.  Figure 13 shows the numbered and defined regions
+and the numbered boundaries.  Note the symmetry about the \(\omega_e = 0\) axis.
+</p>
+
+
+<div id="orgdee1e9a" class="figure">
+<p><img src="./figs/fig13.png" alt="fig13.png" width="40%" />
+</p>
+<p><span class="figure-number">Figure 8: </span>Phase Plane switch lines and regions.</p>
+</div>
+
+<p>
+Detailed definitions of the switching lines are given in Table 21 in terms of
+the state errors and other input variables such as rate limit and deadband.
+Switch lines 1, 2, 6, 7, 8, 12, are of the general form
+</p>
+
+<p>
+\[
+\theta_{switch} = K \omega_e^2 + constant 
+\]
+</p>
+
+<p>
+Lines 3, 4, 5 and 9, 10, 11 are of the form \(\omega_{switch} = constant\), and
+line 13 is of the form
+\[
+\omega_{switch} = K | f(\theta_e)|^{1/2} + constant
+\]
+</p>
+
+<p>
+Switch line S13 is the most complicated line; it affects the boundaries of
+regions 4, 8, and 9.  The sign of \(\alpha_d\), the undesired acceleration
+estimate, affects its definition.  The objective of using S13 to define part of
+the hysteretic region is to reduce jet duty cycles by extending jet firings in
+the hysteresis zone long enough to overcome some of the anticipated effects of
+undesired accelerations when the vehicle is allowed to coast.
+</p>
+
+<p>
+Another feature of the Phase Plane is that whenever the state is within the
+coast or hysteretic regions, the we state value is also used to bias the vernier
+jet commands by use of off-axis preferences which are incorporated into the
+ROTATION COMMAND output to take into account corrections that will naturally
+occur due to \(\alpha_d\). Any fractional command values reflect the influence of
+the off-axis preferences.
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org50f483a"></a>Switch-line equations.<br />
+<div class="outline-text-6" id="text-2-3-7-2-1">
+<p>
+Define:
+</p>
+<ul class="org-ul">
+<li>$&alpha;<sub>C</sub> = $ Phase Plane control acceleration in the axis of interest</li>
+<li>$&alpha;<sub>d</sub> = $ State Estimator generated undesired (disturbance) acceleration</li>
+<li>$RL = $ angular rate limit</li>
+<li>$DB = $ attitude deadband</li>
+<li>$&omega;<sub>min</sub> = minimum rotation rate change in the axis of interest</li>
+<li>\(C = 1.25\) if ABS (rotation command last cycle) &ne; 1
+\(= 1.0\) if ABS (rotation command last cycle) = 1</li>
+<li>\(\alpha'_C = \alpha_C - SIGN(\omega_e)\alpha_d\)</li>
+<li>$&omega;<sub>e</sub> = $ rate error</li>
+<li>$&theta;<sub>e</sub> = $ attitude error</li>
+</ul>
+
+<p>
+Equations
+</p>
+<ul class="org-ul">
+<li>\(S1(\omega_e) = - \frac{\omega_e^2}{2 \alpha'_C} + DB\)</li>
+<li>\(S2(\omega_E) = - \frac{C \omega_E^2}{2 \alpha'_C} - 1.2 DB\)</li>
+<li>\(S3 = RL\)</li>
+<li>\(S4 = 0.8 RL\) if verniers in use (ignored if primaries in use)</li>
+<li>\(S5 = 0.6 RL\) if vernier in use
+\(= RL - 2\omega_{min}\) if primaries in use</li>
+<li>\(S6(\omega_e) = - \frac{\omega_e^2}{2\alpha'_C} - DB\)</li>
+<li>\(S7(\omega_e) = \frac{\omega_e^2}{2\alpha'_C} - DB\)</li>
+<li>\(S8(\omega_e) = \frac{C\omega_e^2}{2\alpha'_C} + 1.2 DB\)</li>
+<li>\(S9 = -RL\)</li>
+<li>\(S10 = -0.8 RL\) if verniers in use (ignored if primaries in use)</li>
+<li>\(S11 = -0.6 RL\) if verniers in use
+\(= -RL + 2\omega_{min}\) if primaries in use</li>
+<li>\(S12(\omega_e) = \frac{\omega_e^2}{2\alpha'_C} + DB\)</li>
+<li>\(S13(\theta_e) = 0\) if \(SIGN (\alpha_d) \theta_e < -0.5 DB \text{ or}\\= - SIGN (\alpha_d) \left(\sqrt{(SIGN(\alpha_d)\theta_e + 0.5 DB)(2 ABS(\alpha_d))} - \omega_{min}\right)\) if \(-0.5 DB \leq SIGN(\alpha_d)\theta_e\)
+With the constraints: if \(S13 \alpha_d > 0\) then \(S13 = 0\), and if \(|S13| >
+     RL - \omega_{min}\) then \(S13 = SIGN(\alpha_d)(-RL + \omega_{min})\)</li>
+</ul>
+
+<p>
+Crossing a switch line usually requires redetermination of jet command
+status.  The command status is decided by determining the current
+state region shown in Table 22 and the required action shown in Table
+23 [<a href="requirements.html#orgcbde0bf">Req.s3.7.2.p53.1</a>].
+</p>
+
+<p>
+The numbered control regions are defined by the boundaries listed in
+Table 22.  Control actions, specified in Table 23, are described as
+follows.
+</p>
+
+<p>
+Regions 1 and 5 always command jets [<a href="requirements.html#org0a73d63">Req.s3.7.2.p53.2</a>].  For primary
+jet use, regions 2, 3, 6, and 7 always permit coast with no jet
+commands [<a href="requirements.html#orgd5fa694">Req.s3.7.2.p53.3</a>].  Region 9 never causes commands to be
+generated, but a preference for vernier jet selection is computed
+[<a href="requirements.html#orgccdcb79">Req.s3.7.2.p53.4</a>].  Regions 4 and 8 have hysteresis.  If the phase is
+in either region 4 or 8 and a firing is taking place (because, for
+example, regions 4 or 8 have been entered from regions 1 or 5), then
+the firing will continue until the phase point crosses the S13 switch
+curve.  At that point, the ROTATION COMMAND magnitude will become less
+than one and stop the firing [<a href="requirements.html#orgefc5dba">Req.s3.7.2.p53.5</a>].
+</p>
+
+<p>
+When inside region 4 or 8, after S13 has been crossed once, the
+ROTATION COMMAND magnitude will be less than unity since \(|S13|
+\leq |RL|\).  In fact, it will be less than 0.8 because of the 0.8
+multiplication factor.  When no ROTATION COMMANDS are issued, vernier
+jet preferences usually are computed [<a href="requirements.html#orgc3ee753">Req.s3.7.2.p53.6</a>].
+</p>
+
+<p>
+Table 24 shows the general I/O relationship between symbols used in the switch
+curve definitions and the SDAP-defined quantities for the Phase Plane module.
+</p>
+
+<table id="orgc60c963" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 23:</span> Phase Plane region boundaries.</caption>
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">Region</td>
+<td class="org-left">Boundaries</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">&theta;<sub>e</sub> &gt; S1 and &omega;<sub>e</sub> &ge; 0, or &theta;<sub>e</sub> &gt; S8 and &omega;<sub>e</sub> &gt; S11, or &omega;<sub>e</sub> &gt; S3</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">&theta;<sub>e</sub> &lt; S2 and S4 &le; &omega;<sub>e</sub> &le; S3</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">&theta;<sub>e</sub> &lt; S2 and S5 = &omega;<sub>e</sub> &le; S4</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">if &alpha;<sub>d</sub> &ge; 0, S6 &le; &theta;<sub>e</sub> &le; S1 and 0 &le; &omega;<sub>e</sub> &le; S3, or &theta;<sub>e</sub> &le; S8 and S13 &le; &omega;<sub>e</sub> &lt; 0. If &alpha;<sub>d</sub> &lt; 0, S6 &le; &theta;<sub>e</sub> &le; S1 ans S13 &lt; &omega;<sub>e</sub> &le; S3</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-left">&theta;<sub>e</sub> &lt; S7 and &omega;<sub>e</sub> &le; 0, or &theta;<sub>e</sub> &lt; S2 and &omega;<sub>e</sub> &lt; S5, or &omega;<sub>e</sub> &lt; S9</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-left">&theta;<sub>e</sub> &gt; S8 and S10 &ge; &omega;<sub>e</sub> &ge; S9</td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-left">&theta;<sub>e</sub> &gt; S8 and S11 &ge; &omega;<sub>e</sub> &gt; S10</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-left">if &alpha;<sub>d</sub> &lt; 0, S12 &ge; &theta;<sub>e</sub> &ge; S7 and 0 &ge; &omega;<sub>e</sub> &ge; S9, or &theta;<sub>e</sub> &ge; S2 and S13 &ge; &omega;<sub>e</sub> &gt; 0. If &alpha;<sub>d</sub> &ge; 0, S12 &ge; &theta;<sub>e</sub> &ge; S7 and S13 &gt; &omega;<sub>e</sub> &ge; S9</td>
+</tr>
+
+<tr>
+<td class="org-right">9</td>
+<td class="org-left">S2 &le; &theta;<sub>e</sub> &lt; S6 and S13 &lt; &omega;<sub>e</sub> &le; S3 or S8 &ge; &theta;<sub>e</sub> &gt; S12 and 13 &gt; &omega;<sub>e</sub> &ge; S9</td>
+</tr>
+</tbody>
+</table>
+
+
+<table id="org7f2aeac" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 24:</span> Phase Plane region actions.</caption>
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">Region</td>
+<td class="org-left">Action</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">Rotation \(command_n = -1\)</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">If primaries selected, then rotation \(command_n = 0\). Else if past rotation \(command_n = -1\), then do not change it. Else \(rotation command_n = 3.2-4 (\frac{\omega_e}{RL})\)</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">If primaries selated, then rotation \(command_n = 0\). Else if past rotation \(command_n = 1\), then do not change it. Else \(rotation command_n = 3.2-4 (\frac{\omega_e}{RL})\)</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">If past rotation command<sub>n</sub> = -1, then do not change it. Else if \(Force Fire_n = ON\), then \(Rotation Command_n = -1\). Else \(Rotation Command_n = 0.8\left(\frac{S13(\theta_e)- \omega_e}{RL-S13(\theta_e)}\right)\)</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-left">\(Rotation command_n = +1\)</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-left">If primaries selected, then \(rotation command_n = 0\). Else if past \(rotation command_n = 1\), then do not change it. Else \(rotation command_n = -3.2-4(\frac{\omega_e}{RL})\)</td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-left">If primaries selected, then \(rotation command_n = 0\). Else if past \(rotation command_n = -1\), then do not change it. Else \(rotation command_n = -3.2-4(\frac{\omega_e}{RL})\)</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-left">If past \(rotation command_n = 1\), then do not change it. Else if \(Force Fire_n = ON\), then \(Rotation Command_n = 1\). Else \(Rotation Command_n = 0.8\left(\frac{S13(\theta_e)- \omega_e}{RL+S13(\theta_e)}\right)\)</td>
+</tr>
+
+<tr>
+<td class="org-right">9</td>
+<td class="org-left">\(Rotation Command_n = 0.8 \left( \frac{S13(\theta_e) - \omega_e}{RL - SIGN(\omega_e)S13(\theta_e)} \right)\)</td>
+</tr>
+</tbody>
+</table>
+
+
+<table id="org558ae75" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 25:</span> I/0 named quantity and symbol.</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Variable Name*</td>
+<td class="org-left">Symbol</td>
+</tr>
+
+<tr>
+<td class="org-left">RATE ERROR<sub>n</sub></td>
+<td class="org-left">&omega;<sub>e</sub></td>
+</tr>
+
+<tr>
+<td class="org-left">ATTITUDE ERROR<sub>n</sub></td>
+<td class="org-left">&theta;<sub>e</sub></td>
+</tr>
+
+<tr>
+<td class="org-left">UNDESIRED ACCEL EST<sub>n</sub></td>
+<td class="org-left">&alpha;<sub>d</sub></td>
+</tr>
+
+<tr>
+<td class="org-left">MIN DELTA OMEGA<sub>n</sub></td>
+<td class="org-left">&omega;<sub>min</sub></td>
+</tr>
+
+<tr>
+<td class="org-left">PHASE PLANE ACCEL<sub>n</sub></td>
+<td class="org-left">&alpha;<sub>C</sub></td>
+</tr>
+
+<tr>
+<td class="org-left">DEADBAND</td>
+<td class="org-left">DB</td>
+</tr>
+
+<tr>
+<td class="org-left">RATE LIMIT</td>
+<td class="org-left">RL</td>
+</tr>
+</tbody>
+</table>
+<p>
+*n is the axis index ( 1 = roll, 2 = pitch, 3=yaw).
+</p>
+
+
+<p>
+There are four inputs other than the SDAP internal variables ATTITUDE
+ERROR, RATE ERROR, and UNDESIRED ACCELERATION EST plus the SDAP
+parameters DEADBAND and RATE LIMIT.  Moding switch PRIMARY VERNIER SW
+selects appropriate constants, the BYPASS flag effectively eliminates
+the Phase Plane from the SDAP by ignoring its output in favor of the
+RHC-commanded rotation from the Manual (open-loop) Maneuver module
+[<a href="requirements.html#orgb9e4b9c">Req.s3.7.2.p56.1</a>].  The FORCE FIRE flag initiates a firing if a
+command was not being set by Phase Plane when the RHC changed state in
+the closed-loop Manual Maneuver module [<a href="requirements.html#orgcac71ff">Req.s3.7.2.p56.2</a>.  The
+ROTATION COMMAND from the past cycle is input to be used in the region
+logic [<a href="requirements.html#orgde973a7">Req.s3.7.2.p56.3</a>].
+</p>
+</div>
+</li>
+</ol>
+</li>
+
+<li><a id="org10d30c8"></a>Logical Structure<br />
+<div class="outline-text-5" id="text-2-3-7-3">
+<p>
+Figures 14, 15, and 16 specify the logical structure of the Phase Plane in terms
+of pseudocode.
+</p>
+
+<p>
+Figure 14 assigns values to ROTATION COMMAND on a per axis basis, when BYPASS<sub>n</sub>
+= OFF, after it executes the logic in Figures 15 and 16.  Figure 15 evaluates
+the switch curve values for the current vehicle state.  Figure 16 determines the
+region for the current state based on the switch curve results.
+</p>
+</div>
+</li>
+
+
+<li><a id="org1b93c9e"></a>Interface Summary<br />
+<div class="outline-text-5" id="text-2-3-7-4">
+<p>
+The Phase Plane module receives inputs from the Executive module, from the user,
+from the State Error module, from the Manual Maneuver module, and from the State
+Estimator.
+</p>
+
+<p>
+The output from the Phase Plane module goes to the Jet Selection module.
+</p>
+</div>
+</li>
+
+<li><a id="orgaea4c16"></a>Input List<br />
+<div class="outline-text-5" id="text-2-3-7-5">
+<p>
+Table 25 lists the Phase Plane module inputs.
+</p>
+</div>
+</li>
+
+<li><a id="org182637e"></a>Output List<br />
+<div class="outline-text-5" id="text-2-3-7-6">
+<p>
+Table 26 outlines the phase plane module outputs.
+</p>
+
+
+<pre class="example" id="orgd5bbcbb">
+DO FOR n = 1 TO 3
+  IF BYPASS_n = OFF THEN DO
+    ASSIGN SWITCH CURVE VALUES (Figure 15)
+    ASSIGN REGION INDEX (Figure 16)
+    IF REGION INDEX = 1 THEN ROTATION COMMAND_n = -1
+    IF REGION INDEX = 5 THEN ROTATION COMMAND_n = 1
+    IF REGION INDEX = (2 OR 3 OR 6 OR 7) THEN DO
+       IF PRIMARY VERNIER SW = ON THEN ROTATION COMMAND_n = 0
+       ELSE DO
+	 IF (REGION INDEX = 2 AND ROTATION COMMAND_n \neq -1) OR
+	 (REGION INDEX = 3 AND ROTATION COMMAND_n \neq 1) THEN
+	 ROTATION COMMAND_n = 3.2 - 4 (\omega_e/RL)
+	 IF (REGION INDEX = 6 AND ROTATION COMMAND_n \neq -1) OR
+	 (REGION INDEX= 7 AND ROTATION COMMAND_n \neq -1) THEN
+	 ROTATION COMMAND_n = -3.2 - 4 (\omega_e/RL)
+    IF REGION INDEX = 4 AND ROTATION COMMAND_n \neq -1 THEN DO
+      IF FORCE FIRE_n = ON THEN ROTATION COMMAND_n = -1
+      ELSE ROTATION COMMAND_n = 0.8 (S13- \omega_e)/(RL- S13)
+    IF REGION INDEX = 8 AND ROTATION COMMAND_n \neq 1 THEN DO
+       IF FORCE FIRE_n = ON THEN ROTATION COMMAND_n = 1
+       ELSE ROTATION COMMAND_n = 0.8 (S13- \omega_e)/(RL + S13)
+    IF REGION INDEX = 9 THEN ROTATION COMMAND_n = 0.8 (S13 - \omega_e) (RL - SIGN(\omega_e) S13)
+    FORCE FIRE_n = OFF
+</pre>
+<p>
+INPUT LIST FOR INTERNAL PHASE PLANE VARIABLES
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Variable</td>
+<td class="org-left">Source</td>
+<td class="org-left">Qualities</td>
+</tr>
+
+<tr>
+<td class="org-left">REGION INDEX</td>
+<td class="org-left">Region Index Evaluation</td>
+<td class="org-left">Integer</td>
+</tr>
+</tbody>
+</table>
+
+<pre class="example" id="orgd480260">
+\alpha'_C = \alpha_c - SIGN (\omega_e) \alpha_d
+S1 = DB - \omega_e^2/2\alpha'_C
+S7 = -S1
+IF |ROTATION COMMAND_n| = 1 THEN C = 1
+ELSE C = 1.25
+SB = C\omega_e^2/2\alpha'_C + 1.2 DB
+S2 = -S8
+S3 = RL
+S9 = -RL
+S4 = 0.8 RL
+S10 = -S4
+IF PRIMARY VERNIER SW = OFF THEN S5 = 0.6 RL
+ELSE S5 = RL - 2\omega_{min}
+S11 = -S5
+S12 = \omega_e^2/2\alpha'_C + DB
+S6 = -S12
+K = SIGN (\alpha_d) \theta_e
+IF K &lt; -0.5 DB THEN S13 = 0
+ELSE S13 = -SIGN (\alpha_d)(SQRT ((K + 0.5 DB) (2|\alpha_d|)) - \omega_{min})
+IF S13\alpha_d &gt; 0 THEN S13 = 0
+IF |S13| &gt; RL - \omega_{min} THEN S13 = SIGN (\alpha_d) (\omega_{min} - RL)
+</pre>
+<p>
+OUTPUT LIST FOR INTERNAL PHASE PLANE VARIABLES
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Variable</td>
+<td class="org-left">Destination</td>
+<td class="org-left">Qualities</td>
+</tr>
+
+<tr>
+<td class="org-left">S1, S2, &#x2026; , S13</td>
+<td class="org-left">Region Index Evaluation</td>
+<td class="org-left">Scalar (each)</td>
+</tr>
+</tbody>
+</table>
+
+<pre class="example" id="org3cb6e5e">
+(\theta_e &gt; S1 AND \omega_e \geq 0) OR (\theta_e &gt; S8 AND \omega_e&gt; S11) OR \omega_e&gt; S3 THEN REGION INDEX = 1
+(\theta_e &lt; S7 AND \omega_e\leq  0) OR (\theta_e &lt; S2 AND \omega_e&lt; S5) OR \omega_e&lt; S9 THEN REGION INDEX = 5
+\theta_e &lt; S2 THEN DO
+   IF S4 \leq\omega_e \leq S3 THEN REGION INDEX = 2
+   IF S5 \leq\omega_e &lt; S4 THEN REGION INDEX = 3
+\theta_e &gt; S8 THEN DO
+   IF S10 \geq \omega_e \geq S9 THEN REGION INDEX = 6
+   IF S11 \geq \omega_e &gt; S10 THEN REGION INDEX = 7
+\alpha_d \geq 0 THEN DO
+   IF (S6 \leq \theta_e \leq S1 AND O\leq \omega_e\leq S3) OR (S13 \leq\omega_e&lt; 0 AND \theta_e \leq S8) THEN REGION INDEX = 4
+   IF S12 \geq \theta_e \geq S7 AND S13 &gt;\omega_e \geq S9 THEN REGION INDEX = 8
+ELSE DO
+  IF S6 \leq \theta_e \leq S1 AND S13 &lt;\omega_e \leq S3 THEN REGION INDEX = 4
+  IF (S12 \geq  \theta_e \geq S7 AND O \geq \omega_e \geq S9) OR (S13 \geq \omega_e &gt; 0 AND \theta_e \geq S2) THEN REGION INDEX = 8
+{S2 \leq \theta_e &lt; S6 AND S13 &lt;\omega_e \geq S3) OR (S8 \geq \theta_e &gt; S12 AND S13 &gt;\omega_e \geq S9) THEN REGION INDEX = 9
+</pre>
+<p>
+INPUT LIST FOR INTERNAL PHASE PLANE VARIABLES
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Source</td>
+<td class="org-left">Variable</td>
+<td class="org-left">Qualities</td>
+</tr>
+
+<tr>
+<td class="org-left">S1, S2, &#x2026; , S13</td>
+<td class="org-left">Switch Curve Evaluation</td>
+<td class="org-left">Scalar (each)</td>
+</tr>
+</tbody>
+</table>
+<p>
+OUTPUT LIST FOR INTERNAL PHASE PLANE VARIABLES
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Variable</td>
+<td class="org-left">Destination</td>
+<td class="org-left">Qualities</td>
+</tr>
+
+<tr>
+<td class="org-left">REGION INDEX</td>
+<td class="org-left">Phase Plane Logic</td>
+<td class="org-left">Integer</td>
+</tr>
+</tbody>
+</table>
+<p>
+#+end<sub>src</sub>
+</p>
+
+<p>
+Constants
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Units</th>
+<th scope="col" class="org-right">Values</th>
+<th scope="col" class="org-right">&#xa0;</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">Primary Vernier SW = ON</th>
+<th scope="col" class="org-right">Primary Vernier SW = OFF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">MIN DELTA OMEGA</td>
+<td class="org-left">roll deg/s</td>
+<td class="org-right">0.064</td>
+<td class="org-right">0.00152</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">pitch</td>
+<td class="org-right">0.072</td>
+<td class="org-right">0.00104</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">yaw</td>
+<td class="org-right">0.048</td>
+<td class="org-right">0.00112</td>
+</tr>
+
+<tr>
+<td class="org-left">PHASE PLANE</td>
+<td class="org-left">roll deg/s<sup>2</sup></td>
+<td class="org-right">0.64</td>
+<td class="org-right">0.0152</td>
+</tr>
+
+<tr>
+<td class="org-left">ACCEL</td>
+<td class="org-left">pitch</td>
+<td class="org-right">0.72</td>
+<td class="org-right">0.0104</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">yaw</td>
+<td class="org-right">0.48</td>
+<td class="org-right">0.0112</td>
+</tr>
+</tbody>
+</table>
+<p>
+Moding Discretes
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Name</td>
+<td class="org-left">Source</td>
+<td class="org-left">Qualities</td>
+</tr>
+
+<tr>
+<td class="org-left">BYPASS</td>
+<td class="org-left">Executive, Manual Maneuver</td>
+<td class="org-left">3 vector of Booleans</td>
+</tr>
+
+<tr>
+<td class="org-left">FORCE FIRE</td>
+<td class="org-left">Manual Maneuver</td>
+<td class="org-left">3 vector of Booleans</td>
+</tr>
+
+<tr>
+<td class="org-left">PRIMARY VERNIER SW</td>
+<td class="org-left">User Input</td>
+<td class="org-left">Boolean</td>
+</tr>
+</tbody>
+</table>
+<p>
+Parameters
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Name</td>
+<td class="org-left">Source</td>
+<td class="org-left">Qualities</td>
+</tr>
+
+<tr>
+<td class="org-left">DEADBAND</td>
+<td class="org-left">User Input</td>
+<td class="org-left">Scalar</td>
+</tr>
+
+<tr>
+<td class="org-left">RATE LIMIT</td>
+<td class="org-left">User Input</td>
+<td class="org-left">Scalar</td>
+</tr>
+</tbody>
+</table>
+<p>
+Variables (All SDAP Internal)
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Variable</td>
+<td class="org-left">Source</td>
+<td class="org-left">Qualities</td>
+</tr>
+
+<tr>
+<td class="org-left">ATTITUDE ERROR</td>
+<td class="org-left">State Error</td>
+<td class="org-left">3 vector</td>
+</tr>
+
+<tr>
+<td class="org-left">RATE ERROR</td>
+<td class="org-left">State Error</td>
+<td class="org-left">3 vector</td>
+</tr>
+
+<tr>
+<td class="org-left">ROTATION COMMAND</td>
+<td class="org-left">Phase Plane (last pass)</td>
+<td class="org-left">3 vector</td>
+</tr>
+
+<tr>
+<td class="org-left">UNDESIRED ACCEL EST</td>
+<td class="org-left">State Estimator</td>
+<td class="org-left">3 vector</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<table id="org0ea47a8" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 26:</span> Phase Plane module outputs.</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Variable</td>
+<td class="org-left">Destination</td>
+<td class="org-left">Qualities</td>
+</tr>
+
+<tr>
+<td class="org-left">ROTATION COMMAND</td>
+<td class="org-left">Jet Selection Phase Plane</td>
+<td class="org-left">3 vector</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ol>
+</li>
+
+<li><a id="org6fa8064"></a><span class="todo TODO">TODO</span> Jet Selection.<br />
+<ol class="org-ol">
+<li><a id="orgb6e57ef"></a>Purpose<br />
+<div class="outline-text-5" id="text-2-3-8-1">
+<p>
+The Jet Selection module logic processes commands from the Phase Plane and/or
+RHC (Manual Maneuver module) in combination with options on modes of jet use to
+derive specific RCS thruster commands.  Estimates of expected angular rate
+changes during the next SDAP cycle are computed for use by the State Estimator.
+An open-loop off-axis rotation-rate compensation logic is also available in the
+algorithm.
+</p>
+</div>
+</li>
+
+<li><a id="orgad65268"></a>Functional Description<br />
+<div class="outline-text-5" id="text-2-3-8-2">
+<p>
+The Jet Selection logic (Figure 17) commands either primary jets, producing
+about 870 pounds of force each, or vernier jets, producing about 24 pounds of
+force each. The two types of thrusters may not be used simultaneously [<a href="requirements.html#orgc1bdef6">Req.s3.8.2.p63.1</a>].  Moding
+between primary and vernier jets is accomplished by choosing a value for the
+discrete PRIMARY VERNIER SW (a simulation input) [<a href="requirements.html#orgb21b6c6">Req.s3.8.2.p63.2</a>].
+</p>
+
+<pre class="example" id="org90cd320">
+IF PRIMARY VERNIER SW = ON THEN DO
+  PERFORM PRIMARY JET LOGIC (Figure 18)
+  VERNIER JET COMMAND = OFF
+ELSE DO
+  PERFORM VERNIER JET LOGIC (Figure 20)
+  PRIMARY JET COMMAND = OFF
+PERFORM OPEN LOOP ROTATION COMPENSATION (Figure 22)
+INIT JET SELECTION = OFF
+</pre>
+
+
+<p>
+When using primary jets, there are options to select jets for pitch and yaw
+control in near couples, using forward and aft thrusters simultaneously, or to
+select forward only or aft only thrusters to reduce the total torque applied
+when thrusting.  Also, an option exists to preclude using jets that fire out of
+the top of the orbiter to prevent thruster-plume interaction with payloads that
+are in proximity, that are being manipulated on the arm, or that are in the
+payload bay.  Details are discussed in Section 3.8.2.1.
+</p>
+
+<p>
+When using vernier jets, an option exists to select different tables of expected
+angular acceleration as a function of orbiter/payload configuration.  Details of
+vernier jet selection are discussed in Section 3.8.2.2.
+</p>
+
+<p>
+In addition to producing thruster commands, the jet selection logic also
+generates estimates of expected next DAP cycle angular rate changes for use by
+the State Estimator, and has a rotation compensation algorithm which, if
+selected, permits open-loop correction of coupled rotation effects in
+uncommanded axes during manual orbiter control.  The compensation algorithm is
+detailed in Section 3.8.2.3.
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org33c836b"></a>Primary Jet Logic<br />
+<div class="outline-text-6" id="text-2-3-8-2-1">
+<p>
+The primary jet selection logic (Figure 18) specifies the desired ON/OFF status
+at 80-ms intervals of 11 rotation control thrusters (see Tables 32 and 33).
+This reduced configuration does not provide translation control or failure
+tolerance.
+</p>
+
+
+<pre class="example" id="org92c509f">
+DO FOR I = 1 TO 3
+   J = 2 I
+   IF |ROTATION COMMAND_I| = 1 OR |COMPENSATION COMMAND_I| = 1 THEN 
+      BIT COMMAND_J = ON
+   ELSE BIT COMMAND_J = OFF
+   IF ROTATION COMMAND_I = -1 OR (ROTATION COMMAND_I \neq 1 AND COMPENSATION COMMAND_I = -1) THEN 
+      BIT COMMAND_{J-1} = ON
+   ELSE BIT COMMAND_{J-1} = OFF
+HI PITCH = PITCH HI-LOW SW OR NO PLUS Z JETS
+NOSE PITCH = NOT (BIT COMMAND_2 OR HI PITCH OR PITCH TAIL-NOSE SW)
+TAIL PITCH = NOT (HI PITCH OR NOSE PITCH)
+SELECT PRIMARY JETS (Figure 19)
+DELTA OMEGA RCS = 0
+DO FOR I = 1 TO 11 
+   DELTA OMEGA RCS = DELTA OMEGA RCS + (PRIMARY JET COMMAND_I ROTATION RATE INCREMENT_I)
+DO FOR I = 1 TO 3
+   DELTA OMEGA RCS_I = DELTA OMEGA RCS_I DIAGONAL INERTIA RATIO_I
+</pre>
+<p>
+INPUT LIST FOR INTERNAL JET SELECTION VARIABLES
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Variable</td>
+<td class="org-left">Source</td>
+<td class="org-left">Qualities</td>
+</tr>
+
+<tr>
+<td class="org-left">COMPENSATION COMMAND</td>
+<td class="org-left">Open Loop Rotation Compensation</td>
+<td class="org-left">3 Vector</td>
+</tr>
+</tbody>
+</table>
+<p>
+OUTPUT LIST FOR INTERNAL JET SELECTION VARIABLES
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Variable</td>
+<td class="org-left">Destination</td>
+<td class="org-left">Qualities</td>
+</tr>
+
+<tr>
+<td class="org-left">BIT COMMAND</td>
+<td class="org-left">Primary Jet Selection</td>
+<td class="org-left">6 Vector of Booleans</td>
+</tr>
+
+<tr>
+<td class="org-left">NOSE PITCH</td>
+<td class="org-left">Primary Jet Selection</td>
+<td class="org-left">Boolean</td>
+</tr>
+
+<tr>
+<td class="org-left">TAIL PITCH</td>
+<td class="org-left">Primary Jet Selection</td>
+<td class="org-left">Boolean</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+The principle of the selection algorithm is: jets that fire into the orbiter Z
+body axis provide pitch and/or roll control only; jets that fire into the
+orbiter Y body axis provide yaw control only.  Any simultaneous combination of
+rotation commands is allowed.  The following describes the primary jet selection
+logic.
+</p>
+<ol class="org-ol">
+<li>Bit Command Generation &#x2013; The purpose of the bit commands is to convert the
+scalar rotation commands into a form that can be processed easily using
+boolean expressions to select jets. The commands in each axis are converted
+into two bits each, the first indicating command polarity (1=negative,
+0=positive) and the second indicating command state (1 = commanded, 0 =
+uncommanded). Compensation commands are considered as well as Phase Plane or
+manual commands. Compensation commands are overridden by commands from outside
+the jet selection logic.</li>
+<li><p>
+Rotation Options &#x2013; The primary jet logic has options in the available
+control authority for pitch and yaw rotation. These include a nominal level
+where either near-couple combinations of forward and aft jets are used
+together or two low levels of forward-only or aft-only thrusters are
+used. The options are selectable separately in each axis. No such options are
+included for roll since only the aft thrusters have sufficient moment arms to
+assure roll control.
+</p>
+
+<p>
+Two discretes per axis control the option selection. The PITCH or YAW HI-LOW
+SW controls the selection of couples. HI means couples, LOW means forward or
+aft only. The PITCH or YAW TAIL-NOSE SW controls the nose/tail option
+selection if the low noncouple status is also true. The purpose of the
+nose/tail options is to permit fuel usage balancing between the forward and
+aft RCS tanks as well as to reduce limit-cycle jet activity with smaller
+control torques. The options may have to be overridden in the pitch axis to
+assure that +Z jets are not used (an option discussed below) or to assure
+roll control when combined with pitch.
+</p></li>
+
+<li>No +Z Jet Option &#x2013; Proximity operations with the shuttle orbiter and any
+payload easily prone to damage or attitude disturbance from RCS plume effects
+may necessitate inhibiting use of jets that fire out of the top of the
+orbiter (producing a +Z thrust direction). This option is selected by the
+discrete NO PLUS Z JETS which affects the selection of jets for roll and/or
+pitch control. The discrete also influences the effect of the pitch control
+options since for ward/aft selections may not be possible without up-firing
+jets.</li>
+
+<li>Primary Jet Commands &#x2013; The primary jet commands are set in Figure 19 by
+processing the outputs of Figure 18 in Boolean algebraic expressions and
+setting the PRIMARY JET COMMAND for each jet. The command is ON for a jet to
+fire and OFF for a jet to be idle. The jets for roll and pitch are selected
+from the seven z-axis jets and for yaw from the four Y-axis jets.</li>
+
+<li>Rotation Rate Increment Computation &#x2013; The primary jet rotation-rate increment
+logic (Figure 18) computes estimated next SDAP cycle-rate changes due to jet
+activity for use by the open-loop rotation compensation and the State
+Estimator. The calculation adds a vector of expected rate change from each jet
+commanded ON for the next cycle. A correction for mass property changes is
+included which scales each rate-change component inversely with changes in the
+diagonal elements of the orbiter inertia matrix. (In the flight code, scale
+factors can be updated occasionally by crew input.) The accuracy of the
+correction depends partly on the relative magnitude of diagonal and
+off-diagonal inertia matrix components.</li>
+</ol>
+
+
+<pre class="example" id="orgcf5f877">
+C1 = NOT TAIL PITCH
+PRIMARY JET COMMAND_1 = BIT COMMAND_3 AND BIT COMMAND_4 AND C1 AND NOT NO PLUS Z JETS
+PRIMARY JET COMMAND_2 = NOT BIT COMMAND_3 AND BIT COMMAND_4 AND C1
+PRIMARY JET COMMAND_3 = PRIMARY JET COMMAND_2
+C1 = NOT BIT COMMAND_3 OR NOT BIT COMMAND_4
+C2 = NOT BIT COMMAND_2 AND NOT BIT COMMAND_3 AND BIT COMMAND_4
+C3 = NOT NOSE PITCH AND NOT NO PLUS Z JETS
+PRIMARY JET COMMAND_4 = ((BIT COMMAND_1 AND BIT COMMAND_2 AND C1) OR C2) AND C3
+PRIMARY JET COMMAND_5 = ((NOT BIT COMMAND_1 AND BIT COMMAND_2 AND C1) OR C2) AND C3
+C1 = NO PLUS Z JETS OR BIT COMMAND_3 OR NOT BIT COMMAND_4
+C2 = NOT BIT COMMAND_2 AND BIT COMMAND_3 AND BIT COMMAND_4
+PRIMARY JET COMMAND_6 = ((NOT BIT COMMAND_1 AND BIT COMMAND_2 AND C1) OR C2) AND NOT NOSE PITCH
+PRIMARY JET COMMAND_7 = ((BIT COMMAND_1 AND BIT COMMAND_2 AND C1) OR C2) AND NOT NOSE PITCH
+C1 = (YAW HI-LOW SW OR NOT YAW TAIL-NOSE SW) AND BIT COMMAND_6
+PRIMARY JET COMMAND_8 = NOT BIT COMMAND_5 AND C1
+PRIMARY JET COMMAND_9 = BIT COMMAND_5 AND C1
+C1 = (YAW HI-LOW SW OR YAW TAIL-NOSE SW) AND BIT COMMAND_6
+PRIMARY JET COMMAND_10 = BIT COMMAND_5 AND C1
+PRIMARY JET COMMAND 11 = NOT BIT COMMAND_5 AND C1
+</pre>
+<p>
+INPUT LIST FOR INTERNAL JET SELECTION VARIABLES
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Variable</td>
+<td class="org-left">Source</td>
+<td class="org-left">Qualities</td>
+</tr>
+
+<tr>
+<td class="org-left">BIT COMMAND</td>
+<td class="org-left">Primary Jet Logic</td>
+<td class="org-left">6 Vector of Booleans</td>
+</tr>
+
+<tr>
+<td class="org-left">NOSE PITCH</td>
+<td class="org-left">Primary Jet Logic</td>
+<td class="org-left">Boolean</td>
+</tr>
+
+<tr>
+<td class="org-left">TAIL PITCH</td>
+<td class="org-left">Primary Jet Logic</td>
+<td class="org-left">Boolean</td>
+</tr>
+</tbody>
+</table>
+
+
+<pre class="example" id="org4da8ea3">
+IF INIT JET SELECTION = ON THEN DELTA OMEGA RCS = 0
+   DO FOR I = 1 TO 3
+      IF |ROTATION COMMAND_I| = 1 THEN VECTOR COMMAND_I = ROTATION COMMAND_I
+      ELSE DO
+	 IF |COMPENSATION COMMAND_I| = 1 THEN VECTOR COMMAND_I = COMPENSATION COMMAND_I
+	 ELSE VECTOR COMMAND_I = ROTATION COMMAND_I
+   SELECT VERNIER JETS (Figure 21)
+   IF OLD VERNIER JET COMMAND \neq VERNIER JET COMMAND THEN DO
+      DELTA OMEGA RCS = 0
+      DO FOR I = 1 TO 6
+	 J = I + (6 PAYLOAD EXTENDED)+ 11
+	 DELTA OMEGA RCS = DELTA OMEGA RCS + (VERNIER JET COMMAND_I ROTATION RATE INCREMENT_J)
+      IF PAYLOAD EXTENDED = 0 THEN DO FOR I = 1 TO 3
+	 DELTA OMEGA RCS_I = DELTA OMEGA RCS_I DIAGONAL INERTIA RATIO_I
+   OLD VERNIER JET COMMAND = VERNIER JET COMMAND
+</pre>
+<p>
+INPUT LIST FOR INTERNAL JET SELECTION VARIABLES
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Variable</td>
+<td class="org-left">Source</td>
+<td class="org-left">Qualities</td>
+</tr>
+
+<tr>
+<td class="org-left">COMPENSATION COMMAND</td>
+<td class="org-left">Open Loop Rotation Compensation</td>
+<td class="org-left">3 Vector</td>
+</tr>
+
+<tr>
+<td class="org-left">OLD VERNIER JET COMMAND</td>
+<td class="org-left">Vernier Jet Selection</td>
+<td class="org-left">3 Vector</td>
+</tr>
+</tbody>
+</table>
+<p>
+OUTPUT LIST FOR INTERNAL JET SELECTION VARIABLES
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Variable</td>
+<td class="org-left">Destination</td>
+<td class="org-left">Qualities</td>
+</tr>
+
+<tr>
+<td class="org-left">VECTOR COMMAND</td>
+<td class="org-left">Vernier Jet Selection</td>
+<td class="org-left">3 Vector</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+
+
+
+<li><a id="org9d3b18c"></a>Vernier jet logic.<br />
+<div class="outline-text-6" id="text-2-3-8-2-2">
+<p>
+The vernier jet selection logic (Figures 20 and 21) specifies the desired ON/OFF
+status at 80 ms intervals of 6 thrusters which point in 6 different directions.
+Only rotation control is possible with this jet configuration, and failure
+tolerance exists for only two of the thrusters, which fire into the Y axis.
+</p>
+
+<pre class="example" id="orgb296a7f">
+IF INIT JET SELECTION = ON THEN DO
+   OLD VERNIER JET COMMAND = OFF
+   OLD VECTOR COMMAND = 0
+   K = 0
+SELECT JETS = OFF
+DO FOR I = 1 TO 3
+   IF |VECTOR COMMAND_I| = 1 THEN SELECT JETS = ON
+IF SELECT JETS = OFF THEN VERNIER JET COMMAND = OFF
+ELSE DO
+   IF K = 5 OR OLD VECTOR COMMAND \neq TRUNCATE (VECTOR COMMAND) THEN DO
+      K = 0
+      (Written note: VERNIER JET COMMAND = OFF)
+      MAX PRODUCT 1 = 0, MAX PRODUCT 2 = 0, MAX PRODUCT 3 = 0
+      JET 2 = 0
+      JET 3 = 0
+      L = 11 + (6 PAYLOAD EXTENDED)
+      DO FOR I = 1 TO 6
+	 J = I+ L
+	 C = VECTOR COMMAND \cdot ROTATION RATE INCREMENT_J
+	 IF C &gt; MAX PRODUCT 1 THEN DO
+	    MAX PRODUCT 1 = C
+	    JET 1 = I
+      VERNIER JET COMMAND_{JET1} = ON
+      DO FOR I = 1 TO 6
+	 J = I + L
+	 IF I \neq JET 1 THEN DO
+	    C = VECTOR COMMAND \cdot ROTATION RATE INCREMENT_J
+	    IF C &gt; (0.5 \cdot MAX PRODUCT 1) AND C &gt; MAX PRODUCT 2
+	    THEN DO
+	       JET 2 = I
+	       MAX PRODUCT 2 = C
+      IF JET 2 \neq 0 THEN VERNIER JET COMMAND_{JET2} = ON
+      IF JET 2 \neq 0 THEN DO FOR I = 1 TO 6
+	 J = I + L
+	 IF I \neq JET 1 AND I \neq JET 2 THEN DO
+	    C = VECTOR COMMAND \cdot ROTATION RATE INCREMENT_J
+	    IF C &gt; (0.4 \cdot MAX PRODUCT 1) AND C &gt; MAX PRODUCT 3
+	    THEN DO
+	       JET 3 = I
+	       MAX PRODUCT 3 = C
+      IF JET 3 \neq 0 THEN VERNIER JET COMMAND_{JET3} = ON
+   K = K + 1
+OLD VECTOR COMMAND = TRUNCATE (VECTOR COMMAND)
+</pre>
+<p>
+INPUT LIST FOR INTERNAL JET SELECTION VARIABLES
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Variable</td>
+<td class="org-left">Source</td>
+<td class="org-left">Qualities</td>
+</tr>
+
+<tr>
+<td class="org-left">VECTOR COMMAND</td>
+<td class="org-left">Vernier Jet Logic</td>
+<td class="org-left">3 Vector</td>
+</tr>
+</tbody>
+</table>
+<p>
+OUTPUT LIST FOR INTERNAL JET SELECTION VARIABLES
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Variable</td>
+<td class="org-left">Destination</td>
+<td class="org-left">Qualities</td>
+</tr>
+
+<tr>
+<td class="org-left">OLD VERNIER JET COMMAND</td>
+<td class="org-left">Vernier Jet Logic</td>
+<td class="org-left">3 Vector</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+The principle of the selection algorithm is to take the dot product of each jet
+rotational velocity increment vector with a vector from the rotation commands
+and then select the jets with the biggest dot product values.  The command
+vector must include at least one axis with a manual, Phase Plane, or
+compensation command (as distinguished from a Phase Plane preference value;
+refer to the following paragraph) to select any thrusters.
+</p>
+
+<p>
+Features which exist to reduce jet duty cycles include repeating previously
+selected jet combinations for several cycles and varying the rotation-increment
+vector set used for the dot products when payload manipulation greatly alters
+orbiter/payload mass properties.  The following describes the vernier jet
+selection logic.
+</p>
+
+<ol class="org-ol">
+<li><p>
+Command Vector Construction &#x2013; A vector is developed from rotation commands
+to permit taking a dot product with jet-rate-increment vectors for thruster
+selection.
+</p>
+
+<p>
+Phase Plane and/or manual commands generate values of &plusmn; 1. Open-loop
+compensation commands generate &plusmn; 1 values which can be overridden by Phase
+Plane or manual commands. Values between &plusmn; 1 can be generated in the Phase
+Plane when logic assigns preferences to axes without commands.
+</p></li>
+
+<li>Vernier Rotation Rate Increment Computation &#x2013; The vernier jet rotation rate
+increment (Figure 20) logic computes estimated next SDAP cycle-rate changes
+due to jet activity for use by the open-loop rotation compensation and the
+state estimator. The calculation adds a vector of expected rate change from
+each commanded jet for the next SDAP cycle. For each vernier thruster, two
+rate-change vectors can be used depending on the payload operation status
+defined by the variable PAYLOAD EXTENDED. If the variable equals zero,
+nominal rate-change values are used. If it is unity, rate changes are used
+for payload/orbiter combination inertias expected during payload
+operations. A correction for mass property changes is used when PAYLOAD
+EXTENDED equals zero, which scales each rate-change component inversely with
+changes in the diagonal elements of the orbiter inertia matrix. Since the
+accuracy of the correction depends on the relative magnitude of the diagonal
+and off-diagonal inertia matrix components, and since payload manipulation is
+likely to increase off-diagonal elements more than diagonal elements, no
+scaling correction is used when PAYLOAD EXTENDED = 1.</li>
+
+<li><p>
+Vernier Jet Selection &#x2013; Vernier jet selection determines if any jets should
+be selected, and if so, whether one, two, or three jets are required; and
+whether the same jets selected during the last minor cycle should be used
+again to minimize duty cycles.
+</p>
+
+<p>
+The selection of jets is done only if at least one rotation axis has an
+explicit fire command from the Phase Plane, a manual mode, or the open-loop
+compensation logic. If this condition is satisfied and the truncated command
+vector changed since the last cycle, then dot products of the command vector
+and the rate change increment vectors for each thruster are computed. The jet
+with the maximum value is selected. If a second product exists with a value
+greater than 0.5 times that of the first jet selected, then that jet is also
+selected. If a second jet is selected and a third product exists with a value
+greater than 0.4 times the first product, then that jet is selected too. 
+</p>
+
+<p>
+The rate-change increments used to compute the dot products are selected from
+one of two sets based on the value of the quantity PAYLOAD EXTENDED.
+</p>
+
+<p>
+If the truncated command vector is the same as the past cycle and the number
+of cycles since 73the jets were recomputed is less than or equal to 5, then
+the jets selected are the same as during the last cycle. If the number of
+consecutive cycles since reselection with the same truncated commands exceeds
+5, then jets are reselected to allow accumulated off-axis preferences to
+influence the selection and the count begins again.
+</p></li>
+</ol>
+</div>
+</li>
+
+<li><a id="org86fdc61"></a>Open-Loop Rotation Compensation<br />
+<div class="outline-text-6" id="text-2-3-8-2-3">
+<p>
+The rotation compensation logic (Figure 22) is designed to control the buildup
+of undesired off-axis rates during open-loop attitude control of the
+shuttle. Off-axis coupling occurs because of the inability of the thrusters to
+provide pure single-axis torques.
+</p>
+
+<p>
+Setting the threshold for compensation response OFF-AXIS COMP THRESHOLD larger
+than the magnitude of the largest single rotation axis minimum impulse for the
+type of jets in use selects the logic. A smaller threshold value bypasses the
+compensation.
+</p>
+
+<p>
+The compensation computation is done by adding the estimated next cycle
+rate-increment vector to an accumulator, which is initialized in all three axes
+when Jet Selection is initialized, and in each axis when a rotation command from
+outside the compensation logic occurs. If the accumulator in an axis exceeds the
+compensation threshold rate, then a command is issued in the opposite direction,
+which remains until the accumulator rate drops below half the largest single
+rotation axis minimum impulse or until a command is received in that axis from
+outside the compensation logic. Any previous cycle compensation command will be
+overridden by an external command.
+</p>
+
+<pre class="example" id="org2eca703">
+IF PRIMARY VERNIER SW = ON THEN LARGEST MIN IMPULSE = PRIMARY JET
+   LARGEST ROTATION MINIMUM IMPULSE
+ELSE LARGEST MIN IMPULSE = VERNIER JET LARGEST ROTATION MINIMUM IMPULSE
+IF LARGEST MIN IMPULSE &gt; OFF-AXIS COMP THRESHOLD THEN COMPENSATION
+   COMMAND = 0
+ELSE DO
+   IF INIT JET SELECTION = ON THEN DO
+      COMPENSATION COMMAND = 0
+      ROTATION ACCUMULATOR = 0
+   ROTATION ACCUMULATOR = ROTATION ACCUMULATOR + DELTA OMEGA RCS
+   DO FOR I = 1 TO 3
+      IF |ROTATION COMMAND_I|1 = 1 THEN DO
+	 COMPENSATION COMMAND_I = 0
+	 ROTATION ACCUMULATOR_I = 0
+      ELSE DO
+	 IF |ROTATION ACCUMULATOR_I| &gt; OFF-AXIS COMP THRESHOLD THEN
+	    COMPENSATION COMMAND_I = -SIGN(ROTATION ACCUMULATOR_I)
+	 IF |ROTATION ACCUMULATOR_I| &lt; LARGEST MIN IMPULSE/2 THEN
+	    COMPENSATION COMMAND_I = 0
+</pre>
+<p>
+OUTPUT LIST FOR INTERNAL JET SELECTION VARIABLES
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Variable</td>
+<td class="org-left">Destination</td>
+<td class="org-left">Qualities</td>
+</tr>
+
+<tr>
+<td class="org-left">COMPENSATION COMMAND</td>
+<td class="org-left">Primary Jet Logic</td>
+<td class="org-left">3 Vector</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Vernier Jet Logic</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ol>
+</li>
+
+
+
+
+<li><a id="orgc50991b"></a>Logical Structure<br />
+<div class="outline-text-5" id="text-2-3-8-3">
+<p>
+Figures 17 through 22 specify the logical structure for the Jet Selection logic
+in the form of pseudocode.
+</p>
+
+<p>
+Figure 17 sequences the logic execution and determines whether primary or
+vernier jets are selected.  Figure 18 sequences the primary Jet Selection
+assignment commands, calls the selection logic, and computes expected rate
+changes.  Figure 19 selects primary jets in the Z axis and then the Y axis.
+Figure 20 puts the vernier Jet Selection assignment commands in sequence, calls
+the selection logic, and computes expected rate changes.  Figure 21 selects up
+to three vernier jets based on a dot product scheme.  Figure 22 computes
+open-loop compensation commands, if the logic is not inhibited, after jets have
+been selected to fire for the next cycle.
+</p>
+</div>
+</li>
+
+<li><a id="orgf5107b1"></a>Interface Summary<br />
+<div class="outline-text-5" id="text-2-3-8-4">
+<p>
+The Jet Selection module receives rotation commands from the Phase Plane module,
+and from the Manual Maneuver module in the open-loop mode.  Several conditioning
+inputs are received from the user, including switch settings that restrict the
+logic to subsets of jets and adjustable constants for off-axis compensation and
+inertia-matrix adjustment.  The outputs are simply jet ON commands which are
+sent to the vehicle dynamics model and an estimated rate change due to the
+commanded ON jet firings which is sent to the State Estimator module.
+</p>
+</div>
+</li>
+
+<li><a id="org985d393"></a><span class="todo TODO">TODO</span> Input List<br />
+<div class="outline-text-5" id="text-2-3-8-5">
+<p>
+Table 27 lists the Jet Selection module constant inputs.
+</p>
+
+<p>
+Constants
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">PRIMARY JET LARGEST ROTATION MINIMUM IMPULSE</td>
+<td class="org-left">0. 112</td>
+</tr>
+
+<tr>
+<td class="org-left">ROTATION RATE INCREMENT</td>
+<td class="org-left">(Table 28)</td>
+</tr>
+
+<tr>
+<td class="org-left">VERNIER JET LARGEST ROTATION MINIMUM IMPULSE</td>
+<td class="org-left">0.002</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Table 28 shows the values of ROTATION RATE INCREMENT.  Elements 1 through 11 are
+for primary jets and elements 12 through 17 are for vernier jets with PAYLOAD
+EXTENDED = O.  Elements 18 through 23 are for vernier jets with PAYLOAD EXTENDED
+= 1.  Values for jets numbered 18 through 23 are computed as follows
+\[
+\overline{\Delta} = 0.08 I^{-1} \overline{\tau}
+\]
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="orgee61579"></a><span class="todo TODO">TODO</span> Check the notation about the torque vector<br />
+<div class="outline-text-6" id="text-2-3-8-5-1">
+<p>
+where
+\[ \overline{\Delta} = \text{rotation rate increments for the jet of interest} \]
+\[ I = \text{the angular inertia matrix for the composite
+payload/orbiter/deployment device system in a position requiring control} \]
+\[ \overline{\tau} = \text{the torque vector for the jet of interest in body
+coordinates} \]
+</p>
+
+<p>
+Table 29 lists the jet identification codes corresponding to these elements.
+The remaining Jet Selection module inputs are outlined in Table 30.
+</p>
+</div>
+</li>
+</ol>
+</li>
+
+
+<li><a id="org74f6525"></a>Output List<br />
+<div class="outline-text-5" id="text-2-3-8-6">
+<p>
+The Jet Selection module outputs are listed in Table 31.
+</p>
+
+
+<table id="org14356e6" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 27:</span> Rotation rate increment values*.</caption>
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">Element</td>
+<td class="org-right">Value (deq/s)</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">Roll</td>
+<td class="org-right">Pitch</td>
+<td class="org-right">Yaw</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">-0.03389</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">-0.01775</td>
+<td class="org-right">0.02513</td>
+<td class="org-right">-0.02364</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">0.01778</td>
+<td class="org-right">0.02514</td>
+<td class="org-right">0.02363</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">-0.03573</td>
+<td class="org-right">0.01901</td>
+<td class="org-right">-0.00293</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-right">0.03607</td>
+<td class="org-right">0.01904</td>
+<td class="org-right">0.00294</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-right">0.02849</td>
+<td class="org-right">-0.01281</td>
+<td class="org-right">-0.00458</td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-right">-0.02876</td>
+<td class="org-right">-0.01284</td>
+<td class="org-right">0.00457</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-right">0.00547</td>
+<td class="org-right">-0.00037</td>
+<td class="org-right">0.03194</td>
+</tr>
+
+<tr>
+<td class="org-right">9</td>
+<td class="org-right">-0.00547</td>
+<td class="org-right">-0.00036</td>
+<td class="org-right">-0.03194</td>
+</tr>
+
+<tr>
+<td class="org-right">10</td>
+<td class="org-right">0.02112</td>
+<td class="org-right">0</td>
+<td class="org-right">-0.01763</td>
+</tr>
+
+<tr>
+<td class="org-right">11</td>
+<td class="org-right">-0.02113</td>
+<td class="org-right">0</td>
+<td class="org-right">0.01763</td>
+</tr>
+
+<tr>
+<td class="org-right">12</td>
+<td class="org-right">-0.0004152</td>
+<td class="org-right">0.0007067</td>
+<td class="org-right">-0.0006653</td>
+</tr>
+
+<tr>
+<td class="org-right">13</td>
+<td class="org-right">0.0004162</td>
+<td class="org-right">0.0007069</td>
+<td class="org-right">0.0006652</td>
+</tr>
+
+<tr>
+<td class="org-right">14</td>
+<td class="org-right">-0.0006727</td>
+<td class="org-right">-0.0000146</td>
+<td class="org-right">0.0005203</td>
+</tr>
+
+<tr>
+<td class="org-right">15</td>
+<td class="org-right">0.0006724</td>
+<td class="org-right">-0.0000138</td>
+<td class="org-right">-0.0005203</td>
+</tr>
+
+<tr>
+<td class="org-right">16</td>
+<td class="org-right">-0.0005994</td>
+<td class="org-right">-0.0003125</td>
+<td class="org-right">-0.0000201</td>
+</tr>
+
+<tr>
+<td class="org-right">17</td>
+<td class="org-right">0.0005942</td>
+<td class="org-right">-0.0003120</td>
+<td class="org-right">0.0000200</td>
+</tr>
+</tbody>
+</table>
+<p>
+*Based on STS-5 data.
+</p>
+
+<table id="org91c9e4a" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 28:</span> Jet identification codes.</caption>
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">Primary</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">Vernier</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">Element</td>
+<td class="org-left">Jet ID</td>
+<td class="org-right">Element</td>
+<td class="org-right">Index</td>
+<td class="org-left">Jet ID</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">F3U</td>
+<td class="org-right">12</td>
+<td class="org-right">1</td>
+<td class="org-left">F5R</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">F4D</td>
+<td class="org-right">13</td>
+<td class="org-right">2</td>
+<td class="org-left">FSL</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">F30</td>
+<td class="org-right">14</td>
+<td class="org-right">3</td>
+<td class="org-left">R5R</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">L1U</td>
+<td class="org-right">15</td>
+<td class="org-right">4</td>
+<td class="org-left">L5L</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-left">R1U</td>
+<td class="org-right">16</td>
+<td class="org-right">5</td>
+<td class="org-left">RSD</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-left">L3D</td>
+<td class="org-right">17</td>
+<td class="org-right">6</td>
+<td class="org-left">LSD</td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-left">R3D</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-left">F3L</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">9</td>
+<td class="org-left">F4R</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">10</td>
+<td class="org-left">L1L</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">11</td>
+<td class="org-left">R3R</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Moding Discretes
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Name</td>
+<td class="org-left">Source</td>
+<td class="org-left">Qualities</td>
+</tr>
+
+<tr>
+<td class="org-left">INIT JET SELECTION</td>
+<td class="org-left">Executive</td>
+<td class="org-left">Boolean</td>
+</tr>
+
+<tr>
+<td class="org-left">NO PLUS Z JETS</td>
+<td class="org-left">User Input</td>
+<td class="org-left">Boolean</td>
+</tr>
+
+<tr>
+<td class="org-left">PAYLOAD EXTENDED</td>
+<td class="org-left">User Input</td>
+<td class="org-left">Integer</td>
+</tr>
+
+<tr>
+<td class="org-left">PITCH HI-LOW SW</td>
+<td class="org-left">User Input</td>
+<td class="org-left">Boolean</td>
+</tr>
+
+<tr>
+<td class="org-left">PITCH TAIL-NOSE SW</td>
+<td class="org-left">User Input</td>
+<td class="org-left">Boolean</td>
+</tr>
+
+<tr>
+<td class="org-left">PRIMARY VERNIER SW</td>
+<td class="org-left">User Input</td>
+<td class="org-left">Boolean</td>
+</tr>
+
+<tr>
+<td class="org-left">YAW HI-LOW SW</td>
+<td class="org-left">User Input</td>
+<td class="org-left">Boolean</td>
+</tr>
+
+<tr>
+<td class="org-left">YAW TAIL-NOSE SW</td>
+<td class="org-left">User Input</td>
+<td class="org-left">Boolean</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Parameters
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Name</td>
+<td class="org-left">Source</td>
+<td class="org-left">Qualities</td>
+</tr>
+
+<tr>
+<td class="org-left">DIAGONAL INERTIA RATIO</td>
+<td class="org-left">User Input</td>
+<td class="org-left">3 vector</td>
+</tr>
+
+<tr>
+<td class="org-left">OFF-AXIS COMP THRESHOLD</td>
+<td class="org-left">User Input</td>
+<td class="org-left">scalar</td>
+</tr>
+</tbody>
+</table>
+<p>
+Variables
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Name</td>
+<td class="org-left">Source</td>
+<td class="org-left">Qualities</td>
+</tr>
+
+<tr>
+<td class="org-left">ROTATION COMMAND</td>
+<td class="org-left">Phase Plane</td>
+<td class="org-left">3 vector</td>
+</tr>
+</tbody>
+</table>
+
+<table id="orgaf8a0a3" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 29:</span> Jet Selection module outputs.</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Name</td>
+<td class="org-left">Destination</td>
+<td class="org-left">Qualities</td>
+</tr>
+
+<tr>
+<td class="org-left">DELTA OMEGA RCS</td>
+<td class="org-left">State Estimator</td>
+<td class="org-left">3 vector</td>
+</tr>
+
+<tr>
+<td class="org-left">PRIMARY JET COMMAND</td>
+<td class="org-left">Jet Model</td>
+<td class="org-left">11 vector of Booleans</td>
+</tr>
+
+<tr>
+<td class="org-left">VERNIER JET COMMAND</td>
+<td class="org-left">Jet Model</td>
+<td class="org-left">6 vector of Booleans</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-org5ccb5c8" class="outline-3">
+<h3 id="org5ccb5c8"><span class="section-number-3">2.4</span> <span class="todo TODO">TODO</span> FCS Hardware Models</h3>
+<div class="outline-text-3" id="text-2-4">
+</div>
+<ol class="org-ol">
+<li><a id="orga853693"></a><span class="todo TODO">TODO</span> IMU Model<br />
+<ol class="org-ol">
+<li><a id="orgba8be16"></a><span class="todo TODO">TODO</span> Introduction<br /></li>
+<li><a id="org0f54a55"></a><span class="todo TODO">TODO</span> IMU Model for Rigid Orbiter<br /></li>
+<li><a id="org26e774b"></a><span class="todo TODO">TODO</span> IMU Model for Flexible Orbiter<br /></li>
+<li><a id="org8e80564"></a><span class="todo TODO">TODO</span> IMU Transport Lag<br /></li>
+</ol>
+</li>
+
+<li><a id="orgbff2200"></a><span class="todo TODO">TODO</span> Effector (Jet) Model<br />
+<ol class="org-ol">
+<li><a id="org7739bf1"></a>RCS Jet System<br /></li>
+<li><a id="org6a4b49c"></a>Thrust Buildup and Decay<br /></li>
+<li><a id="orgbde5f5b"></a>Propellant Consumption<br /></li>
+<li><a id="org846a4f4"></a>Jet Plume Impingement<br /></li>
+<li><a id="org929f919"></a>Input/Output for RCS Model<br /></li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgb8dccb7" class="outline-2">
+<h2 id="orgb8dccb7"><span class="section-number-2">3</span> <span class="todo TODO">TODO</span> Appendix</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org3953f40" class="outline-3">
+<h3 id="org3953f40"><span class="section-number-3">3.1</span> <span class="todo TODO">TODO</span> SDAP CONSTANTS AND PARAMETERS</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<ol class="org-ol">
+<li><a id="org999f5ff"></a>Introduction<br /></li>
+<li><a id="orgb0419b9"></a>Tables<br /></li>
+</ol>
+</div>
+
+<div id="outline-container-org79ca0b2" class="outline-3">
+<h3 id="org79ca0b2"><span class="section-number-3">3.2</span> ATTITUDE DATA GENERATION AND TRANSFER</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<ol class="org-ol">
+<li><a id="org2c5fb76"></a>Introduction<br />
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+The SDAP uses two forms of attitude information.  One is the inertial attitude
+used by the Auto Maneuver module; the other is the body attitude increment used
+by the State Estimator module.  This appendix provides an overview of how
+attitude information would be processed in an orbiter behavior simulation.
+</p>
+</div>
+</li>
+
+<li><a id="org6f2296b"></a>Attitude Data Processing<br />
+<div class="outline-text-4" id="text-3-2-2">
+<p>
+Figure B-1 shows the attitude processing structure.  The vehicle dynamics model
+integrates the equations of motion and provides a rotation matrix which defines
+the relative orientation between the vehicle body axes and the inertial
+reference (which can be chosen as aligned with the body axes at the beginning of
+the simulation).
+</p>
+
+<p>
+If orbiter flexure is modeled, the flex motion the (perfect) IMU will sense is
+added to the transformation matrix \(R_I^B\).  The IMU model adds a data delay
+that mimics real processing delays in the flight code and passes \(R_I^B\) to the
+Attitude Processor module.  The Attitude Processor module converts the Euler
+matrix \(R_I^B\) to the quaternion for the Auto Maneuver module to use and
+computes an attitude increment, \(\delta\theta\) for the State Estimator module to
+use (see Section 3.2 for discussion).
+</p>
+
+
+
+<div id="org55a0aee" class="figure">
+<p><img src="./figs/figB1.png" alt="figB1.png" width="40%" />
+</p>
+<p><span class="figure-number">Figure 9: </span>Attitude processing overview.</p>
+</div>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-org09aae49" class="outline-3">
+<h3 id="org09aae49"><span class="section-number-3">3.3</span> <span class="todo TODO">TODO</span> USE OF QUATERNIONS FOR AUTO MANEUVER AND THE ATTITUDE PROCESSOR</h3>
+</div>
+
+<div id="outline-container-org3a5b825" class="outline-3">
+<h3 id="org3a5b825"><span class="section-number-3">3.4</span> <span class="todo TODO">TODO</span> VEHICLE RIGID-BODY MOTION MODEL</h3>
+<div class="outline-text-3" id="text-3-4">
+</div>
+<ol class="org-ol">
+<li><a id="org1d98b75"></a>Introduction<br />
+<div class="outline-text-4" id="text-3-4-1">
+<p>
+The SDAP is not configured to include translational
+control, therefore only the rotational dynamics are modeled.
+</p>
+</div>
+</li>
+
+<li><a id="org0e074ec"></a><span class="todo TODO">TODO</span> Rotational Dynamics<br />
+<div class="outline-text-4" id="text-3-4-2">
+<p>
+The angular acceleration of the orbiter about its center of gravity is expressed by the Euler equation
+dwv/dt
+=
+I -1 (-
+T
+</p>
+<ul class="org-ul">
+<li></li>
+
+<li>w</li>
+</ul>
+<p>
+V
+X
+I
+</p>
+<ul class="org-ul">
+<li>w )</li>
+</ul>
+<p>
+V
+where
+</p>
+<ul class="org-ul">
+<li>T =</li>
+</ul>
+<p>
+=
+</p>
+<ul class="org-ul">
+<li>WV =</li>
+</ul>
+<p>
+I
+total moment acting on the vehicle
+vehicle inertia tensor
+vehicle angular velocity about its center of
+gravity
+The following differential equation updates the transforma-
+tion matrix from vehicle body coordinates to the reference
+inertial coordinates R~
+</p>
+
+<p>
+RB
+I
+dt
+=
+RB•
+I
+0
+1-wvz
+WV
+y
+z
+-w
+vx
+-w
+-,
+Vy
+WV
+X
+0
+The recommended procedure is to perform numerically
+the first integral of the Euler equation, then, using the
+resultant wV' numerically integrate the dR/dt equation.
+At
+the start of the simulation, the vehicle coordinate system
+can be aligned with the inertial system so that R~(O) is the
+identity matrix.
+Experience has shown that a fourth-order Runge-Kutta
+integration is adequate for the previous equations.
+</p>
+</div>
+</li>
+
+
+<li><a id="org7d731a9"></a>Input/Output for the Rigid-Body Dynamical Model<br />
+<div class="outline-text-4" id="text-3-4-3">
+<p>
+Inputs to the model include the torques from the RCS jet system and the inertia
+tensor and its inverse.
+</p>
+
+<p>
+The output consists of the elements of a rotation matrix that transform vehicle
+body coordinates to inertial coordinates.
+</p>
+</div>
+</li>
+
+<li><a id="org2f34419"></a>Closed-Loop Rigid Body Response<br />
+<div class="outline-text-4" id="text-3-4-4">
+<p>
+Phase Plane module response to a steady disturbance smaller than the control
+authority consists of intermittent firings which tend to drive a trajectory loop
+or limit cycle.  If a limit cycle is traversed with high repeatability, the
+firings will be highly periodic.  The State Estimator outputs of estimated rate
+and disturbance acceleration must converge to achieve a repeating cycle.  Before
+the rate estimate converges on the true rate, the attitude and rate estimates
+are inconsistent, the Phase Plane is not controlling attitude divergence, and a
+limit cycle may not even form.  This is especially true for "unmodeled"
+disturbances, i.e., accelerations that are not commanded (and predicted) by the
+Jet Selection logic.  A failed-ON jet is a typical example.  During onset of a
+modeled disturbance, the rate estimate is more accurate.
+</p>
+
+<p>
+The acceleration estimate is always slow to converge.  Since it determines the
+placement of disturbance switching line S13, periodicity of firings in both
+modeled and unmodeled disturbance cases is likely to be greater after
+convergence.  However, for large unmodeled disturbances, S13 can reach an
+essentially saturated value (see Figure D-1) well before convergence.  Both the
+rate and acceleration estimates have convergence times on the order of 1 minute.
+(This time is also considered to be the approximate upper limit for a failed-ON
+jet disturbance.  The crew is expected to have reconfigured the RCS by then.)
+</p>
+
+<p>
+Phase-plane cyclic behavior in the presence of a disturbance can be broken down
+into four classes.  Two of these are limit cycles, which theoretically are
+infinitely repeatable.  The other two are transitional, tending eventually to
+evolve into one of the limit cycles, and capable of producing periodic firings
+while in transit.  In the following descriptions, references to specific
+polarities assume a positive disturbing torque.  Descriptions of typical
+behavior assume the use of typical values of phase-plane rate limit and
+deadband.  (Refer to the Phase Plane module logic description, Section 3.7, for
+details of operation.)
+</p>
+
+<ol class="org-ol">
+<li>Two-Sided Limit Cycle-Figure D-2 shows the phase-plane trajectory. This kind
+of limit cycle is only obtained with little or no disturbance; ideally, it
+consists of minimum-impulse firings with relatively long OFF-times.</li>
+<li>One-Sided Limit Cycle-Figure D-3 shows trajectories for small and large
+disturbances. In the established cycle, the disturbance drives the rate
+positive from \(\omega_1\). When the positive deadband is exceeded, a
+compensating jet firing drives the rate negative from \(\omega_2\) to
+\(\omega_1\). (\(\omega_1\) is the approximate intercept of the trajectory with
+S13.) The duration and average period of the firings depends on the
+magnitudes of the disturbance alone and the disturbance plus effective
+compensation, together with the rate change (\(\omega_1 -
+   \omega_2\)). Frequencies typically range from a very low rate to about 1 Hz.</li>
+<li>Rate Hysteresis Cycle-Figure D-4 shows a typical traiectory. The disturbance
+drives the rate to the positive rate limit, whereupon a compensation jet
+firing drives the rate to S13. The trajectory tends to move toward the
+positive deadband and evolve into either a one-sided limit cycle or a rate
+threshold cycle. The rate hysteresis cycle typically produces relatively long
+compensating firings with periods on the order of 0.1 to 1 Hz.</li>
+<li>Rate Threshold Cycle-Figure D-5 shows a typical trajectory. This cycle is
+encountered outside the deadband. A compensating firing is initiated each
+time the rate is more positive than the coast-zone threshold and terminated
+when the rate is driven more negative than the threshold. Normally this
+action should drive the trajectory back inside the deadband. However, if the
+estimated rate has not converged on the actual rate, the attitude may
+diverge. When the rate estimate converges, the trajectory is likely to evolve
+into a one-sided limit cycle. Typically, the rate threshold cycle produces
+relatively high-frequency compensation firing rates with either
+minimum-impulse ON-times or minimum-impulse OFF-times (depending on the
+relative magnitudes of the disturbance alone and the disturbance plus
+effective compensation).</li>
+</ol>
+
+
+<div id="orgc4c7a20" class="figure">
+<p><img src="./figs/figD1.png" alt="figD1.png" width="40%" />
+</p>
+<p><span class="figure-number">Figure 10: </span>Typical evolution of switching line S13 with large positive unmodeled disturbance.</p>
+</div>
+
+
+<div id="org7687fd2" class="figure">
+<p><img src="./figs/figD2.png" alt="figD2.png" width="40%" />
+</p>
+<p><span class="figure-number">Figure 11: </span>Two-sided limit cycle phase-plane trajectory.</p>
+</div>
+
+
+<div id="org55552e4" class="figure">
+<p><img src="./figs/figD3a.png" alt="figD3a.png" width="40%" />
+</p>
+<p><span class="figure-number">Figure 12: </span>One-sided limit cycle phase-plane trajectory. &#x2013; Small disturbance.</p>
+</div>
+
+
+<div id="org4769fc5" class="figure">
+<p><img src="./figs/figD3b.png" alt="figD3b.png" width="40%" />
+</p>
+<p><span class="figure-number">Figure 13: </span>One-sided limit cycle phase-plane trajectory. &#x2013; Large disturbance.</p>
+</div>
+
+
+<div id="org56ae8c8" class="figure">
+<p><img src="./figs/figD4.png" alt="figD4.png" width="40%" />
+</p>
+<p><span class="figure-number">Figure 14: </span>Rate hysteresis cycle phase-plane trajectory.</p>
+</div>
+
+
+<div id="org3a0a8de" class="figure">
+<p><img src="./figs/figD5.png" alt="figD5.png" width="40%" />
+</p>
+<p><span class="figure-number">Figure 15: </span>Rate threshold cycle phase plane trajectory.</p>
+</div>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-org8c7eab6" class="outline-3">
+<h3 id="org8c7eab6"><span class="section-number-3">3.5</span> SDAP TEST CONSIDERATIONS</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+In order to make more effective use of the SDAP when evaluating payload/FCS
+compatibility, care must be taken to define test cases that will produce
+informative results. A discussion of the test conditions follows.
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org87f349e"></a>Motivation<br />
+<div class="outline-text-4" id="text-3-5-1">
+<p>
+There are two possible SDAP RCS operations: rotational maneuvers and attitude
+hold.  Options to use vernier jets or primary jets exist, along with options
+specific to which type of thruster is used, that affect jet selections.  These
+include a payload manipulation mode for vernier jets and forward/aft choices or
++z jet inhibit for primary jets (more details are given in Subsections 3.8.2.1
+and 3.8.2.2).
+</p>
+
+<p>
+Attitude hold causes near periodic jet activity if long-term disturbances are
+considered.  Payload excitation can occur if the induced jet activity rates are
+close to significant payload modal frequencies.  FCS/flexure interaction is
+possible if damping is low and excited structural modes are not well above the
+State Estimator bandwidth.  Disturbance magnitude and direction (discussed in
+E.2), parameter values, such as rate limit and deadband (discussed in E.3), and
+jet control authority determine jet activity rates.
+</p>
+
+<p>
+Rotational maneuvers cause an extended start-up torque followed by dynamic
+attitude hold (maintaining a rate vector) until an extended torque ends the
+maneuver.  Near periodic excitations, resulting from rotation cross-coupling
+control firings, can occur during maneuvers due to accelera- tion, deceleration,
+or Euler coupling torques with sufficiently high maneuver rates.  With the
+verniers, multi-DAP-period jet cycling can result from the effect of the duty
+cycle limiting feature which forces the same jets to be selected for up to five
+minor cycles, without consideration of off-axis coupling, if commands are
+constant (see Subsection 3.8.2.2 for details).
+</p>
+
+<p>
+A combination of attitude hold and maneuver cases must be studied with the
+payload in any configuration requiring FCS operation where significant flexure
+is possible. A realistic variety of disturbances and parameter variations must
+be accounted for.
+</p>
+</div>
+</li>
+
+<li><a id="org988d85d"></a>Disturbances<br />
+<div class="outline-text-4" id="text-3-5-2">
+<p>
+Disturbance torques arise from failures and environmental effects.  Jet
+failures, gravity gradients, and aerodynamic effects are most significant.  In
+addition, all fluid systems on the orbiter have controlled failure venting
+modes, generally to prevent dangerous pressure buildups.
+</p>
+
+<p>
+Jet ON failures produce a torque disturbance that is close to the magnitude of
+the SDAP control authority.  Any jet can fail ON, and all cases should be
+considered.  ON failures should be modeled as an external disturbance, fixed in
+body axes, acting in the direction that would result from the jet if commanded.
+(Data to compute the disturbances are given in Tables 32, 33, and 35.)
+Disturbance duration depends on crew response time, but it is not generally
+expected to exceed 60 seconds.
+</p>
+
+<p>
+Jet OFF failures affect jet cycle frequency as a result of unmodeled control
+authority reductions.  They should be implemented by inhibiting the vehicle
+dynamics from incorporating any activity from the failed jet.  All cases should
+be considered.  Disturbance duration can be brief (less than 1 second) when
+vehicle failure detection can function.  Detection would effectively end the
+failure by reconfiguration.  In cases where failure detection is inhibited, the
+disturbance can last indefinitely.
+</p>
+
+<p>
+Gravity gradients and aerodynamic torques are earth centered.  Gravity gradients
+vary strongly with attitude, but they vary weakly with altitude for the range of
+space shuttle operations.  Aerodynamic torques vary strongly with altitude as
+well as attitude due to exponential atmospheric attenuation as a function of
+distance from the earth's surface.  Gravity-gradient torque ranges are given in
+Tables E-1 and E-2.  Table E-1 specifies peak per body axis values of
+gravity-gradient torques for a vehicle rotating about any one axis at a time of
+the principal LVLH system defined in a velocity vector +X, vehicle to earth
+center +Z triad.  Zero crossings for torques within each rotation axis are also
+given with angles referenced to an initial attitude aligned in the above
+mentioned triad.  Table E-2 specifies peak gravity gradient per body-axis
+torques for arbitrary attitudes.  Approximate aerodynamic torque ranges for
+arbitrary attitudes are given in Table E-3.  Gravity gradients vary harmonically
+with attitude. Aerodynamic effects vary non-linearly with attitude.  Disturbance
+duration is continuous.
+</p>
+
+<p>
+Venting disturbances originate from fixed ports in the shuttle fuselage and
+result in body-centered torques.  Most nominal venting requirements can be
+scheduled around payload operations.  However, venting is possible as a result
+of failures or contingency procedures.  Some cases can tax the vernier control
+authority.  If a payload has load limitations that prevent selection of primary
+jets or if a flexural response is possible near frequencies that would be
+excited by unscheduled vent-induced jet activity, then study of cases involving
+venting disturbances will be necessary.  Current vent models may be obtained
+from appropriate NASA sources including flight techniques panels.
+Disturbance-duration information is specific to each type of event.
+</p>
+
+<p>
+Altitude= 150 nmi
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">LVLH Rotation Axis</th>
+<th scope="col" class="org-left">Torque Body Axis</th>
+<th scope="col" class="org-right">Maximum Torque (ft-lbf)</th>
+<th scope="col" class="org-right">Minimum Torque (ft-lbf)</th>
+<th scope="col" class="org-left">Zero Crossings (deg)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Roll</td>
+<td class="org-left">X</td>
+<td class="org-right">0.61</td>
+<td class="org-right">-0.61</td>
+<td class="org-left">0, &plusmn; 90, 180</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Y</td>
+<td class="org-right">1.05</td>
+<td class="org-right">0.00</td>
+<td class="org-left">--</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Z</td>
+<td class="org-right">0.53</td>
+<td class="org-right">-0.57</td>
+<td class="org-left">0, +92, -88, 180</td>
+</tr>
+
+<tr>
+<td class="org-left">Pitch</td>
+<td class="org-left">X</td>
+<td class="org-right">0.02</td>
+<td class="org-right">-0.02</td>
+<td class="org-left">0, &plusmn;90, 180</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Y</td>
+<td class="org-right">13.42</td>
+<td class="org-right">-13.42</td>
+<td class="org-left">0, &plusmn;90, 180</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Z</td>
+<td class="org-right">0.04</td>
+<td class="org-right">-0.04</td>
+<td class="org-left">0, 180</td>
+</tr>
+
+<tr>
+<td class="org-left">Yaw</td>
+<td class="org-left">X</td>
+<td class="org-right">0.0</td>
+<td class="org-right">0.0</td>
+<td class="org-left">--</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Y</td>
+<td class="org-right">1.05</td>
+<td class="org-right">1.05</td>
+<td class="org-left">--</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Z</td>
+<td class="org-right">0.0</td>
+<td class="org-right">0.0</td>
+<td class="org-left">--</td>
+</tr>
+</tbody>
+</table>
+<p>
+Altitude= 100 nmi
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Roll</td>
+<td class="org-left">X</td>
+<td class="org-right">0.63</td>
+<td class="org-right">-0.63</td>
+<td class="org-left">0, &plusmn; 90, 180</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Y</td>
+<td class="org-right">1.10</td>
+<td class="org-right">0.00</td>
+<td class="org-left">--</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Z</td>
+<td class="org-right">0.51</td>
+<td class="org-right">-0.55</td>
+<td class="org-left">0, +92, -88, 180</td>
+</tr>
+
+<tr>
+<td class="org-left">Pitch</td>
+<td class="org-left">X</td>
+<td class="org-right">0.02</td>
+<td class="org-right">-0.02</td>
+<td class="org-left">0, &plusmn;90, 180</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Y</td>
+<td class="org-right">14.00</td>
+<td class="org-right">-14.00</td>
+<td class="org-left">0, &plusmn;90, 180</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Z</td>
+<td class="org-right">0.04</td>
+<td class="org-right">-0.04</td>
+<td class="org-left">0, 180</td>
+</tr>
+
+<tr>
+<td class="org-left">Yaw</td>
+<td class="org-left">X</td>
+<td class="org-right">0.0</td>
+<td class="org-right">0.0</td>
+<td class="org-left">--</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Y</td>
+<td class="org-right">1.10</td>
+<td class="org-right">1.10</td>
+<td class="org-left">--</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Z</td>
+<td class="org-right">0.0</td>
+<td class="org-right">0.0</td>
+<td class="org-left">--</td>
+</tr>
+</tbody>
+</table>
+
+<table id="org421c9cb" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 30:</span> Peak body axis gravity gradient torques for arbitrary rotation; orbiter alone.</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Body Axis</td>
+<td class="org-right">Peak Torque Magnitude (ft-lbf)</td>
+</tr>
+
+<tr>
+<td class="org-left">Roll</td>
+<td class="org-right">1.3</td>
+</tr>
+
+<tr>
+<td class="org-left">Pitch</td>
+<td class="org-right">14.0</td>
+</tr>
+
+<tr>
+<td class="org-left">Yaw</td>
+<td class="org-right">14.0</td>
+</tr>
+</tbody>
+</table>
+
+
+<table id="org2a9d94f" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 31:</span> Aerodynamic torques.</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Body Axis</th>
+<th scope="col" class="org-right">Altitude (nmi)</th>
+<th scope="col" class="org-right">Maximum Torque (ft-lbf)</th>
+<th scope="col" class="org-right">Minimum Torque (ft-lbf)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Roll</td>
+<td class="org-right">100</td>
+<td class="org-right">7.2</td>
+<td class="org-right">-7.2</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">150</td>
+<td class="org-right">0.7</td>
+<td class="org-right">-0.7</td>
+</tr>
+
+<tr>
+<td class="org-left">Pitch</td>
+<td class="org-right">100</td>
+<td class="org-right">16.4</td>
+<td class="org-right">-16.4</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">150</td>
+<td class="org-right">1.6</td>
+<td class="org-right">-1.6</td>
+</tr>
+
+<tr>
+<td class="org-left">Yaw</td>
+<td class="org-right">100</td>
+<td class="org-right">7.6</td>
+<td class="org-right">-7.6</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">150</td>
+<td class="org-right">0.8</td>
+<td class="org-right">-0.8</td>
+</tr>
+</tbody>
+</table>
+<p>
+(The maxima/minima do not occur simultaneously in the different axes.)
+</p>
+</div>
+</li>
+
+
+<li><a id="org52688b7"></a>Setting Parameters<br />
+<div class="outline-text-4" id="text-3-5-3">
+<p>
+A group of parameters affects the level of jet activity during maneuvers and
+attitude hold.  These include maneuver rate, deadband, rate limit, and open-loop
+rotation-compensation threshold.  The system software requires that all axes
+have the same rate limit and deadband.  The maneuver rate is either a total rate
+for automatic rotation or a per axis rate, identical in all axes, for discrete
+rate rotation.  Off-axis compensation is selected by specifying a threshold that
+exceeds half of the largest minimum impulse.  (Except when inadvertently
+selected, compensation is only used for manual open-loop rotation.)  Table E-4
+lists the permissible range of the parameters for the real flight code.
+</p>
+
+<table id="org05fa796" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 32:</span> Permissible parameter range.</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Parameter</td>
+<td class="org-left">Units</td>
+<td class="org-left">Primary Jets Min</td>
+<td class="org-right">Primary Jets Max</td>
+<td class="org-right">Vernier Jets Min</td>
+<td class="org-right">Vernier Jets Max</td>
+</tr>
+
+<tr>
+<td class="org-left">Maneuver Rate</td>
+<td class="org-left">deg/s</td>
+<td class="org-left">0.05\(^1\)</td>
+<td class="org-right">2.00\(^2\)</td>
+<td class="org-right">0.002\(^{1}\)</td>
+<td class="org-right">1.000\(^3\)</td>
+</tr>
+
+<tr>
+<td class="org-left">Compensation Threshold</td>
+<td class="org-left">deg/s</td>
+<td class="org-left">0.00</td>
+<td class="org-right">0.99</td>
+<td class="org-right">0.000</td>
+<td class="org-right">0.999</td>
+</tr>
+
+<tr>
+<td class="org-left">Deadband</td>
+<td class="org-left">deg</td>
+<td class="org-left">0. 1</td>
+<td class="org-right">40.0</td>
+<td class="org-right">0.01</td>
+<td class="org-right">40.00</td>
+</tr>
+
+<tr>
+<td class="org-left">Rate Limit</td>
+<td class="org-left">deg/s</td>
+<td class="org-left">0.2</td>
+<td class="org-right">5.0</td>
+<td class="org-right">0.01</td>
+<td class="org-right">0.50</td>
+</tr>
+</tbody>
+</table>
+<ol class="org-ol">
+<li>The maneuver rate should not normally be set less than the rate limit.</li>
+<li>Not generally greater than 1. 00.</li>
+<li>Not generally greater than 0.200.</li>
+</ol>
+
+
+<p>
+A variety of parameter selections must be evaluated to study payload/FCS
+interaction effects.  The following rules may help decide the most significant
+cases.
+</p>
+
+<ol class="org-ol">
+<li>Small rate limit and deadband increase thechance of flex rate &#x2013; and
+attitude-oscillation &#x2013; induced RCS activity.</li>
+<li>Rate limit is almost always less than or equal to the maneuver rates.</li>
+<li>Vernier jets are generally used for low rate maneuvers, tight deadband, and
+long-term attitude hold.</li>
+<li>Compensation is designed for use in conjunction with the manual pulse or
+accel mode. Procedural errors can cause compensation firings during
+manual-discrete rate or automatic maneuvers.</li>
+</ol>
+
+<p>
+Within the bounds of these rules, one should try ranges of the parameters in
+both maneuver and attitude-hold situations.  A group of compensation runs should
+be performed if manual control is likely during payload opera- tions.  Maneuvers
+must be selected to cause rotation coupling correction jet activity at a variety
+of frequencies.  Special consideration should be given to yaw/roll and
+roll/pitch coupling effects.  For vernier jets, yaw couples with both pitch and
+roll due to forward jet locations.
+</p>
+</div>
+</li>
+
+
+<li><a id="orgbdb96c1"></a>Screening Results<br />
+<div class="outline-text-4" id="text-3-5-4">
+<p>
+Two types of effects must be considered when evaluating SDAP/payload
+interaction: payload excitation due to jet activity at frequencies near payload
+modal response and flexure passing through the State Estimator at frequencies
+below the estimator bandwidth.
+</p>
+
+<p>
+The probability of payload excitation can be determined by inspecting payload
+modal data and comparing that with SDAP-derived jet pulsing frequencies.  Even
+if a significant response was not found in SDAP tests, an overlap of frequencies
+may suggest that slightly different test conditions could amplify the flexure.
+An ambiguous result of this type would merit more testing and perhaps higher
+fidelity modeling.
+</p>
+
+<p>
+Low-frequency flexure can feed through the State Estimator.  If low-frequency
+amplitudes are sufficient to approach the rate limit or deadband, then a
+significant payload/PCS interaction is possible.  A larger dead zone will help
+resolve the problem if flight rules permit.  Otherwise, detailed studies may be
+required of the permissible operating envelope of the orbiter/payload
+combination.
+</p>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-org2028dd9" class="outline-3">
+<h3 id="org2028dd9"><span class="section-number-3">3.6</span> COORDINATE FRAMES</h3>
+<div class="outline-text-3" id="text-3-6">
+</div>
+<ol class="org-ol">
+<li><a id="org0a5f293"></a>Discussion<br />
+<div class="outline-text-4" id="text-3-6-1">
+<p>
+An inertial frame, defined by the vehicle frame orientation at the beginning of
+the simulation, a vehicle frame, and a linear frame definition for calculating
+torques and inertias, are the only requirements for coordinate-frame
+simulations.
+</p>
+</div>
+</li>
+
+
+<li><a id="orge3f8080"></a>Linear (Fabrication) Frame<br />
+<div class="outline-text-4" id="text-3-6-2">
+<p>
+This is a standard frame located in front of and below the shuttle orbiter. It
+is located 238 inches in front of the vehicle nose, 400 inches below the
+approximate body center line, and in the plane of symmetry. Jet locations
+(Table 33) are given in manufacturing coordinates as are flexure nodes and
+vehicle CG location. Positive X is from nose to tail, and positive Z is from
+main engine bell to tip of rudder. Y forms a right handed triad (see Figure
+F-1).
+</p>
+</div>
+</li>
+
+<li><a id="orgcca6384"></a>Rotational (Body) Frame<br />
+<div class="outline-text-4" id="text-3-6-3">
+<p>
+The origin is chosen at the CG.  The X axis has its positive direction from tail
+to nose; Y is chosen positive from the body center line through the right wing
+tip; and Z is downward, forming a right-handed triad. This is illustrated in
+Figure F-2.
+</p>
+
+
+<div id="org3cd20c0" class="figure">
+<p><img src="./figs/figF1.png" alt="figF1.png" width="40%" />
+</p>
+<p><span class="figure-number">Figure 16: </span>Fabrication frame.</p>
+</div>
+
+
+<div id="org5cb71fd" class="figure">
+<p><img src="./figs/figF2.png" alt="figF2.png" width="40%" />
+</p>
+<p><span class="figure-number">Figure 17: </span>Body coordinate system.</p>
+</div>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-orgd1f1f2a" class="outline-3">
+<h3 id="orgd1f1f2a"><span class="section-number-3">3.7</span> List of acronyms</h3>
+<div class="outline-text-3" id="text-3-7">
+<ul class="org-ul">
+<li>ACCEL &#x2013; Acceleration</li>
+<li>AUTO &#x2013; Automatic</li>
+<li>B &#x2013; Body Referenced</li>
+<li>CG &#x2013; Center of Gravity</li>
+<li>CSDL &#x2013; The Charles Stark Draper Laboratory, Inc.</li>
+<li>DAP &#x2013; Digital Auto Pilot</li>
+<li>DAP RECON &#x2013; DAP Reconfiguration</li>
+<li>DB &#x2013; Dead band</li>
+<li>DISC &#x2013; Discrete Rate</li>
+<li>EST &#x2013; Estimate</li>
+<li>FCS &#x2013; Flight Control System (DAP, Effectors, Sensors)</li>
+<li>FSSR &#x2013; Functional Subsystem Software Requirements</li>
+<li>I &#x2013; Inertial</li>
+<li>IC &#x2013; Initial Condition</li>
+<li>I-LOAD &#x2013; Stored quantity which affects FCS performance</li>
+<li>IMO &#x2013; Inertial Measurement Unit (measures inertial attitude changes in this context)</li>
+<li>INIT &#x2013; Initialize</li>
+<li>I/0 &#x2013; Input-Output</li>
+<li>LVLH TRACK &#x2013; Local Vertical/Local Horizontal Tracking Module</li>
+<li>MNVR &#x2013; Maneuver</li>
+<li>MSID &#x2013; Measurement Stimulus Identifier</li>
+<li>nmi &#x2013;  Nautical Miles</li>
+<li>OMS &#x2013; Orbital Maneuvering System</li>
+<li>PBI &#x2013; Push Button Indicator</li>
+<li>PRCS &#x2013; Primary Reaction Control System (Primary Rotation Jets)</li>
+<li>\(Q_R\) &#x2013; Quaternion Rotation Matrix</li>
+<li>RCS &#x2013; Reaction Control System (Rotation Jets)</li>
+<li>RECON &#x2013; Reconfiguration logic</li>
+<li>RHC &#x2013; Rotational Hand Controller</li>
+<li>RL &#x2013; Rate Limit</li>
+<li>ROT &#x2013; Rotation</li>
+<li>ROT ACCEL &#x2013; Rotational Acceleration</li>
+<li>ROT DISC &#x2013; Discrete Rate Rotation</li>
+<li>ROT PULSE &#x2013; Pulsed Rotation</li>
+<li>SDAP &#x2013; Simplified Digital Auto Pilot</li>
+<li>TVC &#x2013; Thrust Vector Control</li>
+<li>VRCS &#x2013; Vernier Reaction Control System (Vernier Rotation)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: July 1982</p>
+<p class="author">Author: P. Hattis, C. Kirchwey, H. Malchow, D. Sargent, S. Tavan.</p>
+<p class="date">Created: 2018-12-18 Tue 12:04</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

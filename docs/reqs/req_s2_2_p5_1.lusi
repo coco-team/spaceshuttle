@@ -1,0 +1,27 @@
+(* Req Id: Req_s2_2_p5_1
+
+   Text:  When the steering mode is manual open-loop, the State Error and Phase Plane modules can be bypassed; jets are fired directly by moving the rotational hand controller (RHC) out of detent. 
+   Comment: This property is general and describe how the flow of values is propagated. The Figure 3 describe the general flow. 
+   Origin: Section 2.1 SDAP Internal Structure (Basic)
+
+   Scope: SDAP_Exec_Prop(   -- inputs
+            manual_open_mode: bool;
+    	    RHC: int;
+    	    ) returns (     -- outputs
+    	    initialize_state_error: bool;
+    	    );
+	
+	Simulink Component Name: spaceShuttleCocoSim.slx
+*)
+contract req_s2_2_p5_1 ( -- inputs
+       manual_open_mode: bool;
+       RHC: int;
+	   ) returns (       -- outputs
+	   initialize_state_error: bool;
+	   );
+let
+	guarantees (if manual_open_mode) => initialize_state_error;
+tel	   
+
+
+

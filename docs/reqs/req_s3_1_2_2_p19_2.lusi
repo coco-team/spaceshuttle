@@ -1,0 +1,33 @@
+(* Req Id: Req_s3_1_2_2_p19_2
+
+   Text:  On the first pass, the jet select initialization flag is set 
+
+   Comment: no comment
+
+   Origin: Section 3.1 SDAP Executive, p19 
+
+   Scope: SDAP_Exec_Prop(   -- inputs
+    	    auto_manual_switch: bool;
+    	    bypass_in: bool^3;
+    	    rhc_state: int^3; -- only 0, +/-1
+    	    ) returns (     -- outputs
+    	    bypass_out: bool^3;
+    	    initialize_auto_maneuver: bool;
+    	    initialize_jet_selection: bool;
+    	    initialize_state_error: bool;
+    	    );
+	
+	Simulink Component Name: FirstPass.slx
+*)
+
+contract Req_s3_1_2_2_p19_2 ( -- inputs
+  	   first_pass: bool;
+	   ) returns (       -- outputs
+	   initialize_jet_selection: bool;
+	   );
+let
+	guarantees (first_pass) => initialize_jet_selection;
+tel	   
+
+
+

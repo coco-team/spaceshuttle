@@ -1,0 +1,31 @@
+(* Req Id: req_s3_1_2_1_p19_1
+
+   Text:  A clock is maintained that increments time at intervals of 80 ms, 
+          the SDAP time step 
+
+   Comment: no comment
+
+   Origin: Section 3.1 SDAP Executive, p19 
+
+   Scope: SDAP_Exec_Prop(   -- inputs
+    	    sample_time: real;
+    	    ) returns (     -- outputs
+    	    bypass_out: bool^3;
+    	    initialize_auto_maneuver: bool;
+    	    initialize_jet_selection: bool;
+    	    initialize_state_error: bool;
+    	    );
+	
+	Simulink Component Name: AutoManualManeuver.slx
+*)
+contract req_s3_1_2_1_p19_1 ( -- inputs
+  	   sample_time: real;
+	   ) returns (       -- outputs
+	   initialize_auto_maneuver: bool;
+	   );
+let
+	guarantees (rhc_state[1] <> 0 or rhc_state[2] <>0 or rhc_state[3] <> 0) => initialize_auto_maneuver;
+tel	   
+
+
+

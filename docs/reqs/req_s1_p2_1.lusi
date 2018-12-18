@@ -1,0 +1,28 @@
+(* Req Id: Req_s1_p2_1
+
+   Text:  at very small rate limits and deadbands, e.g., 0.01 deg/s and 0.01 deg for vernier jets, simulation results using the models presented here may not represent real vehicle behavior
+   Comment: Do we have to do anything. Like check that rate limits and deadband should be above the thresholds? 
+
+   Origin: Section 2.1 Introduction, p? 
+
+   Scope: SDAP_Exec_Prop(   -- inputs
+            rate_limit: real;
+    	    deadband: real;
+    	    ) returns (     -- outputs
+    	    initialize_state_error: bool;
+    	    );
+	
+	Simulink Component Name: spaceShuttleCocoSim.slx
+*)
+contract req_s1_p2_1 ( -- inputs
+       rate_limit: real;
+       deadband: real;
+	   ) returns (       -- outputs
+	   initialize_state_error: bool;
+	   );
+let
+	guarantees (if rate_limit < 0.01 or deadband < 0.01) => initialize_state_error;
+tel	   
+
+
+

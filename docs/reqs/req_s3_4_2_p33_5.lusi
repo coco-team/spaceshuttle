@@ -1,0 +1,39 @@
+(* Req Id: req_s3_4_2_p33_5
+
+   Text: When the closed-loop submode is operating, the Manual Maneuver 
+         module issues an INITIALIZE STATE ERROR discrete whenever a 
+         change occurs in RHC state. This allows an attitude hold to be 
+         effected at the attitude attained when the RHC is returned to 
+         detent, by zeroing the attitude error. 
+
+   Comment: no comment
+
+   Origin: Section 3.1 SDAP Executive, p19 
+
+   Scope: SDAP_Exec_Prop(   -- inputs
+    	    auto_manual_switch: bool;
+    	    bypass_in: bool^3;
+    	    rhc_state: int^3; -- only 0, +/-1
+    	    ) returns (     -- outputs
+    	    bypass_out: bool^3;
+    	    initialize_auto_maneuver: bool;
+    	    initialize_jet_selection: bool;
+    	    initialize_state_error: bool;
+    	    );
+	
+	Simulink Component Name: AutoManualManeuver.slx
+*)
+contract req_s3_4_2_p33_5 ( -- inputs
+  	   auto_manual_switch: bool;
+	   bypass_in: bool^3;
+	   ) returns (       -- outputs
+	   bypass_out: bool^3;
+	   initialize_auto_maneuver: bool;
+	   );
+let
+
+
+tel	   
+
+
+

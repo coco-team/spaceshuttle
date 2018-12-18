@@ -1,0 +1,34 @@
+(* Req Id: req_s3_1_2_2_p19_1
+
+   Text:  If the hand controller is deflected in any axis, 
+			the SDAP automatically switches to manual mode 
+
+   Comment: no comment
+
+   Origin: Section 3.1 SDAP Executive, p19 
+
+   Scope: SDAP_Exec_Prop(   -- inputs
+    	    auto_manual_switch: bool;
+    	    bypass_in: bool^3;
+    	    rhc_state: int^3; -- only 0, +/-1
+    	    ) returns (     -- outputs
+    	    bypass_out: bool^3;
+    	    initialize_auto_maneuver: bool;
+    	    initialize_jet_selection: bool;
+    	    initialize_state_error: bool;
+    	    );
+	
+	Simulink Component Name: UpdateAutoManualSwitch.slx
+	Req Contract PATH: UpdateAutoManualSwitch/Req_s3_1_2_2_p19_1
+*)
+contract req_s3_1_2_2_p19_1 ( -- inputs
+  	   rhc_state: int^3;
+	   ) returns (       -- outputs
+	   auto_manual_switch: bool;
+	   );
+let
+	guarantees (rhc_state[1] <> 0 or rhc_state[2] <>0 or rhc_state[3] <> 0) => not auto_manual_switch;
+tel	   
+
+
+

@@ -1,0 +1,39 @@
+(* Req Id: req_s3_7_2_p53_6
+
+   Text: When inside region 4 or 8, after S13 has been crossed once, the 
+         ROTATION COMMAND magnitude will be less than unity since |S13|?|RL|. 
+         In fact, it will be less than 0.8 because of the 0.8 multiplication 
+         factor. When no ROTATION COMMANDS are issued, vernier jet 
+         preferences usually are computed. 
+
+   Comment: 
+
+   Origin: Section 3.1 SDAP Executive, p19 
+
+   Scope: SDAP_Exec_Prop(   -- inputs
+    	    auto_manual_switch: bool;
+    	    bypass_in: bool^3;
+    	    rhc_state: int^3; -- only 0, +/-1
+    	    ) returns (     -- outputs
+    	    bypass_out: bool^3;
+    	    initialize_auto_maneuver: bool;
+    	    initialize_jet_selection: bool;
+    	    initialize_state_error: bool;
+    	    );
+	
+	Simulink Component Name: AutoManualManeuver.slx
+*)
+contract req_s3_7_2_p53_6 ( -- inputs
+  	   auto_manual_switch: bool;
+	   bypass_in: bool^3;
+	   ) returns (       -- outputs
+	   bypass_out: bool^3;
+	   initialize_auto_maneuver: bool;
+	   );
+let
+
+
+tel	   
+
+
+

@@ -1,0 +1,24 @@
+(* Req Id: Req_s2_6_p13_5
+
+   Text:  Pulses in close proximity to one another generally will all be based on one rate change value 
+   Comment: 
+   Origin: Section 2.6 Mode Possibilities
+   Scope: SDAP_Exec_Prop(   -- inputs
+            maneuver_rate: real;
+    	    ) returns (     -- outputs
+    	    initialize_state_error: bool;
+    	    );
+	
+	Simulink Component Name: spaceShuttleCocoSim.slx
+*)
+contract req_s2_6_p13_5 ( -- inputs
+       maneuver_rate: real;
+	   ) returns (       -- outputs
+	   initialize_state_error: bool;
+	   );
+let
+	guarantees (if AUTO_MANUAL_SW_IS_AUTO) => initialize_state_error;
+tel	   
+
+
+

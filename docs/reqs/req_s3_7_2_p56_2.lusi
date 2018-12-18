@@ -1,0 +1,37 @@
+(* Req Id: req_s3_7_2_p56_2
+
+   Text: The FORCE FIRE flag initiates a firing if a command was not being 
+         set by Phase Plane when the RHC changed state in the closed-loop 
+         Manual Maneuver module. 
+
+   Comment: 
+
+   Origin: Section 3.1 SDAP Executive, p19 
+
+   Scope: SDAP_Exec_Prop(   -- inputs
+    	    auto_manual_switch: bool;
+    	    bypass_in: bool^3;
+    	    rhc_state: int^3; -- only 0, +/-1
+    	    ) returns (     -- outputs
+    	    bypass_out: bool^3;
+    	    initialize_auto_maneuver: bool;
+    	    initialize_jet_selection: bool;
+    	    initialize_state_error: bool;
+    	    );
+	
+	Simulink Component Name: AutoManualManeuver.slx
+*)
+contract req_s3_7_2_p56_2 ( -- inputs
+  	   auto_manual_switch: bool;
+	   bypass_in: bool^3;
+	   ) returns (       -- outputs
+	   bypass_out: bool^3;
+	   initialize_auto_maneuver: bool;
+	   );
+let
+
+
+tel	   
+
+
+

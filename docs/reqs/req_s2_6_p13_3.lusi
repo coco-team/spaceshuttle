@@ -1,0 +1,25 @@
+(* Req Id: Req_s2_6_p13_3
+
+   Text:  The flight code pulse mode can be emulated by an appropriate choice of RHC deflection interval 
+   Comment: 
+   Origin: Section 2.6 Mode Possibilities
+   Scope: SDAP_Exec_Prop(   -- inputs
+            AUTO_MANUAL_SW_IS_AUTO: bool;
+    	    ) returns (     -- outputs
+    	    initialize_state_error: bool;
+    	    );
+	
+	Simulink Component Name: spaceShuttleCocoSim.slx
+*)
+contract req_s2_6_p13_3 ( -- inputs
+       AUTO_MANUAL_SW_IS_AUTO: bool;
+       RHC: int;
+	   ) returns (       -- outputs
+	   initialize_state_error: bool;
+	   );
+let
+	guarantees (if AUTO_MANUAL_SW_IS_AUTO) => initialize_state_error;
+tel	   
+
+
+

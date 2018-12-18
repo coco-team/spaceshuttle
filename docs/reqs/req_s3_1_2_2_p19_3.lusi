@@ -1,0 +1,29 @@
+(* Req Id: Req_s3_1_2_2_p19_3
+
+   Text:  On the first pass, if the mode is manual, the state error initialization flag is set 
+
+   Comment: no comment
+
+   Origin: Section 3.1 SDAP Executive, p19 
+
+   Scope: SDAP_Exec_Prop(   -- inputs
+    	    auto_manual_switch: bool;
+    	    ) returns (     -- outputs
+    	    initialize_state_error: bool;
+    	    );
+	
+	Simulink Component Name: FirstPass.slx
+	Req Path = FirstPass/Req_s3_1_2_2_p19_3
+*)
+contract req_s3_1_2_2_p19_3 ( -- inputs
+  	   auto_manual_switch: bool;
+		 first_pass:bool;
+	   ) returns (       -- outputs
+	   initialize_state_error: bool^3;
+	   );
+let
+	guarantees (first_pass) and (not auto_manual_switch) => initialize_state_error[0] and initialize_state_error[1] and initialize_state_error[2];
+tel	   
+
+
+

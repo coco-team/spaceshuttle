@@ -1,0 +1,38 @@
+(* Req Id: req_s3_8_2_p63_1
+
+   Text: The two types of thrusters may not be used simultaneously 
+
+   Comment: 
+
+   Origin: Section 3.1 SDAP Executive, p63 
+
+   Scope: SDAP_Exec_Prop(   -- inputs
+    	    auto_manual_switch: bool;
+    	    bypass_in: bool^3;
+    	    rhc_state: int^3; -- only 0, +/-1
+    	    ) returns (     -- outputs
+    	    bypass_out: bool^3;
+    	    initialize_auto_maneuver: bool;
+    	    initialize_jet_selection: bool;
+    	    initialize_state_error: bool;
+    	    );
+	
+	Simulink Component Name: CallJetSelect.slx
+	Requirement PATH: "CallJetSelect/ PRIMARY VERNIER Req"
+*)
+contract req_s3_8_2_p63_1 (
+  	   PRIMARY_VERNIER_SW: bool;
+	   ) returns ( 
+		   PRIMARY_JET_COMMAND:bool^11; 
+		   VERNIER_JET_COMMAND:bool^6;
+	   );
+let
+	var is_primary : bool = (PRIMARY_JET_COMMAND[0] or PRIMARY_JET_COMMAND[1] or ... or PRIMARY_JET_COMMAND[10]);
+	var is_vernier : bool = (VERNIER_JET_COMMAND[0] or VERNIER_JET_COMMAND[1] or ... or VERNIER_JET_COMMAND[5]);
+	guarantee  is_primary => PRIMARY_VERNIER_SW; 
+	guarantee  is_vernier => not PRIMARY_VERNIER_SW;
+	guarantee is_primary NAND is_vernier;
+tel	   
+
+
+

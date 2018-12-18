@@ -1,0 +1,41 @@
+(* Req Id: req_s3_3_2_p27_1
+
+   Text: Auto Maneuver tests the rotation angle rotation_angle_delta_theta against two 
+         numerical criteria. If rotation_angle_delta_theta is larger than 
+         y=SCALAR BIAS+2*Deadband, the module places itself in the 
+         maneuver mode; if rotation_angle_delta_theta is less than 
+         x=SCALAR BIAS+Deadband, the hold mode results. 
+
+   Comment: no comment
+
+   Origin: Section 3.1 SDAP Executive, p19 
+
+   Scope: SDAP_Exec_Prop(   -- inputs
+    	    auto_manual_switch: bool;
+    	    bypass_in: bool^3;
+    	    rhc_state: int^3; -- only 0, +/-1
+    	    ) returns (     -- outputs
+    	    bypass_out: bool^3;
+    	    initialize_auto_maneuver: bool;
+    	    initialize_jet_selection: bool;
+    	    initialize_state_error: bool;
+    	    );
+	
+	Simulink Component Name: AutoManualManeuver.slx
+    Requirement PATH: "AutoManualManeuver/if AUTO/AUTO MANEUVER MODULE/req_s3_3_2_p27_1"
+*)
+contract req_s3_3_2_p27_1 ( -- inputs
+    	    rotation_angle_delta_theta: real;
+    	    x: real;
+    	    y: real;
+	   ) returns (       -- outputs
+    	    MANEUVER_HOLD_SW: bool;
+	   );
+let
+	assume y >= x;
+    guarantees (rotation_angle_delta_theta > y) => ( MANEUVER_HOLD_SW);
+    guarantees (rotation_angle_delta_theta < x) => (not MANEUVER_HOLD_SW);
+tel	   
+
+
+

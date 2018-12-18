@@ -1,0 +1,39 @@
+(* Req Id: req_s3_4_2_p33_2
+
+   Text: The user can simulate acceleration and pulse actions by choosing 
+         an appropriate RHC deflection interval. In this submode, the 
+         module sets a BYPASS discrete and consequently, the Phase Plane 
+         module output is ignored. The rotation command is sent directly 
+         to the Jet Selection module 
+
+   Comment: no comment
+
+   Origin: Section 3.1 SDAP Executive, p19 
+
+   Scope: SDAP_Exec_Prop(   -- inputs
+    	    auto_manual_switch: bool;
+    	    bypass_in: bool^3;
+    	    rhc_state: int^3; -- only 0, +/-1
+    	    ) returns (     -- outputs
+    	    bypass_out: bool^3;
+    	    initialize_auto_maneuver: bool;
+    	    initialize_jet_selection: bool;
+    	    initialize_state_error: bool;
+    	    );
+	
+	Simulink Component Name: AutoManualManeuver.slx
+*)
+contract req_s3_4_2_p33_2 ( -- inputs
+  	   auto_manual_switch: bool;
+	   bypass_in: bool^3;
+	   ) returns (       -- outputs
+	   bypass_out: bool^3;
+	   initialize_auto_maneuver: bool;
+	   );
+let
+
+
+tel	   
+
+
+

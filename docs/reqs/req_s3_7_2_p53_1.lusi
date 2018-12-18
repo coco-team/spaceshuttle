@@ -1,0 +1,38 @@
+(* Req Id: req_s3_7_2_p53_1
+
+   Text: Crossing a switch line usually requires redetermination of jet 
+         command status. The command status is decided by determining the 
+         current state region shown in Table 22 and the required action 
+         shown in Table 23. 
+
+   Comment: Encode the logic of Tables 22 and 23
+
+   Origin: Section 3.1 SDAP Executive, p19 
+
+   Scope: SDAP_Exec_Prop(   -- inputs
+    	    auto_manual_switch: bool;
+    	    bypass_in: bool^3;
+    	    rhc_state: int^3; -- only 0, +/-1
+    	    ) returns (     -- outputs
+    	    bypass_out: bool^3;
+    	    initialize_auto_maneuver: bool;
+    	    initialize_jet_selection: bool;
+    	    initialize_state_error: bool;
+    	    );
+	
+	Simulink Component Name: AutoManualManeuver.slx
+*)
+contract req_s3_7_2_p53_1 ( -- inputs
+  	   auto_manual_switch: bool;
+	   bypass_in: bool^3;
+	   ) returns (       -- outputs
+	   bypass_out: bool^3;
+	   initialize_auto_maneuver: bool;
+	   );
+let
+
+
+tel	   
+
+
+

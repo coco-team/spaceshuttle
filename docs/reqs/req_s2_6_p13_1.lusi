@@ -1,0 +1,26 @@
+(* Req Id: Req_s2_6_p13_1
+
+   Text:  If in AUTO, the desired state comes from the auto maneuver logic
+   Comment: 
+   Origin: Section 2.1 SDAP Internal Structure (Basic)
+
+   Scope: SDAP_Exec_Prop(   -- inputs
+            AUTO_MANUAL_SW_IS_AUTO: bool;
+    	    ) returns (     -- outputs
+    	    initialize_state_error: bool;
+    	    );
+	
+	Simulink Component Name: spaceShuttleCocoSim.slx
+*)
+contract req_s2_6_p13_1 ( -- inputs
+       AUTO_MANUAL_SW_IS_AUTO: bool;
+       RHC: int;
+	   ) returns (       -- outputs
+	   initialize_state_error: bool;
+	   );
+let
+	guarantees (if AUTO_MANUAL_SW_IS_AUTO) => initialize_state_error;
+tel	   
+
+
+

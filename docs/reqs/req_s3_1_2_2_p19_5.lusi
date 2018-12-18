@@ -1,0 +1,53 @@
+(* Req Id: req_s3_1_2_2_p19_5
+
+   Text: When the maneuver mode is changed from manual to auto, if the bypass
+         flag is ON, it is set to OFF and the auto maneuver
+         initialization flag is set to ON.
+	
+	Comment: initialization flag is set to ON, but will be set to OFF at the end of AUTO MANEUVER in the same timestep.
+	So Basically, checking this initialization has been checked in the Simulink Model.
+
+   Comment: no comment
+
+   Origin: Section 3.1 SDAP Executive, p19 
+
+   Scope: SDAP_Exec_Prop(   -- inputs
+    	    auto_manual_switch: bool;
+    	    bypass_in: bool^3;
+    	    rhc_state: int^3; -- only 0, +/-1
+    	    ) returns (     -- outputs
+    	    bypass_out: bool^3;
+    	    initialize_auto_maneuver: bool;
+    	    initialize_jet_selection: bool;
+    	    initialize_state_error: bool;
+    	    );
+	
+	Simulink Component Name: AutoManualManeuver.slx
+*)
+contract req_s3_1_2_2_p19_5 ( -- inputs
+  	   auto_manual_switch: bool;
+	   bypass_in: bool^3;
+	   ) returns (       -- outputs
+	   bypass_out: bool^3;
+	   );
+let
+
+-- Req_s3_1_2_2_p19_5 is refined into 3 sub-properties, one for each dimension
+-- Local Variables
+-- switching from manual to auto 
+var manual_to_auto : bool = not (pre auto_manual_switch) and auto_manual_switch;
+var req_s3_1_2_2_p19_5_1 : bool =
+   manual_to_auto and bypass_in[1] => not bypass_out[1];
+var req_s3_1_2_2_p19_5_2 : bool =
+   manual_to_auto and bypass_in[2] => not bypass_out[2];
+var req_s3_1_2_2_p19_5_3 : bool =
+   manual_to_auto and bypass_in[3] => not bypass_out[3];
+
+
+guarantees req_s3_1_2_2_p19_5_1;
+guarantees req_s3_1_2_2_p19_5_2;
+guarantees req_s3_1_2_2_p19_5_3;
+tel	   
+
+
+
