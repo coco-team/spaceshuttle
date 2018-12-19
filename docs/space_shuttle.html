@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-12-18 Tue 12:04 -->
+<!-- 2018-12-19 Wed 17:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>SIMPLIFIED MODEL OF THE SPACE SHUTTLE ON-ORBIT FLIGHT CONTROL SYSTEM</title>
@@ -265,18 +265,18 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#orgc1ced2f">2. MainMatter</a>
 <ul>
-<li><a href="#orgee36eb4">2.1. Introduction</a></li>
+<li><a href="#org5f715e1">2.1. Introduction</a></li>
 <li><a href="#orga149d6b">2.2. SDAP Structure</a></li>
 <li><a href="#org55e70c4">2.3. Module descriptions</a></li>
-<li><a href="#org5ccb5c8">2.4. <span class="todo TODO">TODO</span> FCS Hardware Models</a></li>
+<li><a href="#org5ccb5c8">2.4. FCS Hardware Models</a></li>
 </ul>
 </li>
-<li><a href="#orgb8dccb7">3. <span class="todo TODO">TODO</span> Appendix</a>
+<li><a href="#orgb8dccb7">3. Appendix</a>
 <ul>
-<li><a href="#org3953f40">3.1. <span class="todo TODO">TODO</span> SDAP CONSTANTS AND PARAMETERS</a></li>
+<li><a href="#org3953f40">3.1. SDAP CONSTANTS AND PARAMETERS</a></li>
 <li><a href="#org79ca0b2">3.2. ATTITUDE DATA GENERATION AND TRANSFER</a></li>
-<li><a href="#org09aae49">3.3. <span class="todo TODO">TODO</span> USE OF QUATERNIONS FOR AUTO MANEUVER AND THE ATTITUDE PROCESSOR</a></li>
-<li><a href="#org3a5b825">3.4. <span class="todo TODO">TODO</span> VEHICLE RIGID-BODY MOTION MODEL</a></li>
+<li><a href="#org09aae49">3.3. USE OF QUATERNIONS FOR AUTO MANEUVER AND THE ATTITUDE PROCESSOR</a></li>
+<li><a href="#org3a5b825">3.4. VEHICLE RIGID-BODY MOTION MODEL</a></li>
 <li><a href="#org8c7eab6">3.5. SDAP TEST CONSIDERATIONS</a></li>
 <li><a href="#org2028dd9">3.6. COORDINATE FRAMES</a></li>
 <li><a href="#orgd1f1f2a">3.7. List of acronyms</a></li>
@@ -394,8 +394,8 @@ resolving broad configurational and operational issues.
 <h2 id="orgc1ced2f"><span class="section-number-2">2</span> MainMatter</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgee36eb4" class="outline-3">
-<h3 id="orgee36eb4"><span class="section-number-3">2.1</span> Introduction</h3>
+<div id="outline-container-org5f715e1" class="outline-3">
+<h3 id="org5f715e1"><span class="section-number-3">2.1</span> Introduction</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 This report documents a simplified model of the shuttle orbital flight-control
@@ -547,18 +547,19 @@ Figure 4 is a detailed SDAP diagram with module I/0. The structure is basically
 that of Figure 3, except that the Attitude Processor is treated as an external
 module.
 </p>
+
+
+
+<div id="org87af04e" class="figure">
+<p><img src="./figs/fig1.png" alt="fig1.png" width="0%" />
+</p>
+<p><span class="figure-number">Figure 4: </span>Unknown figure 4</p>
 </div>
 
-
-<ol class="org-ol">
-<li><a id="org127fa94"></a><span class="todo TODO">TODO</span> <br />
-<div class="outline-text-5" id="text-2-2-3-1">
 <p>
-{{{color(red,We are missing Figure 4 and pages 7 and 8 !}}}
+<span style="color: red">We are missing Figure 4 and pages 7 and 8 !</span>
 </p>
 </div>
-</li>
-</ol>
 </li>
 
 <li><a id="org45e84a7"></a>SDAP Input Description<br />
@@ -890,7 +891,7 @@ Tables 6 and 7 describe the moding options.
 <div id="org6eaeffd" class="figure">
 <p><img src="./figs/fig5.png" alt="fig5.png" width="40%" />
 </p>
-<p><span class="figure-number">Figure 4: </span>SDAP moding possibilities.</p>
+<p><span class="figure-number">Figure 5: </span>SDAP moding possibilities.</p>
 </div>
 
 <table id="org900e218" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -1053,7 +1054,7 @@ I/0 list.
 <ol class="org-ol">
 <li><a id="org8e58c5e"></a>SDAP Executive.<br />
 <ol class="org-ol">
-<li><a id="org308f960"></a>Purpose<br />
+<li><a id="org7e37c29"></a>Purpose<br />
 <div class="outline-text-5" id="text-2-3-1-1">
 <p>
 The SDAP Executive routine serves two functions. It calls the SDAP modules
@@ -1062,7 +1063,7 @@ in proper sequence [<a href="requirements.html#orgbbdc459">Req.s3.1.1.p18.1</a>]
 </div>
 </li>
 
-<li><a id="org9cb1d92"></a>Functional Description<br />
+<li><a id="orgb6250d6"></a>Functional Description<br />
 <ol class="org-ol">
 <li><a id="org9d42120"></a>Relation of SDAP Executive to Simulation Executive<br />
 <div class="outline-text-6" id="text-2-3-1-2-1">
@@ -1099,7 +1100,7 @@ discussion of IMU lags.
 <div id="orgf4339d1" class="figure">
 <p><img src="./figs/fig6.png" alt="fig6.png" width="40%" />
 </p>
-<p><span class="figure-number">Figure 5: </span>Simulation executive.</p>
+<p><span class="figure-number">Figure 6: </span>Simulation executive.</p>
 </div>
 </div>
 </li>
@@ -1141,14 +1142,21 @@ state estimates.
 </ol>
 </li>
 
-<li><a id="orgcff6405"></a>Logical Structure<br />
+<li><a id="orgc78d63e"></a>Logical Structure<br />
 <div class="outline-text-5" id="text-2-3-1-3">
 <p>
 Figure 7 shows the logical structure of the SDAP
 Executive.
 </p>
 
-<pre class="example" id="orgbcf3410">
+
+<div id="orgbcf3410" class="figure">
+<p><img src="./figs/fig1.png" alt="fig1.png" width="0%" />
+</p>
+<p><span class="figure-number">Figure 7: </span>SDAP Executive logical structure</p>
+</div>
+
+<pre class="example">
 IF ANY ELEMENT OF RHC STATE \neq 0 THEN AUTO MANUAL SWITCH = MANUAL
 IF FIRST PASS THEN
    INIT JET SELECT = ON
@@ -1176,7 +1184,7 @@ CALLCOUNTER=CALLCOUNTER-1
 </div>
 </li>
 
-<li><a id="orgdc2a65c"></a>Interface Summary<br />
+<li><a id="org3e17480"></a>Interface Summary<br />
 <div class="outline-text-5" id="text-2-3-1-4">
 <p>
 The Executive receives the RHC state, the auto/manual switch, and the bypass
@@ -1187,7 +1195,7 @@ modifies the auto/manual switch based on the RHC state.
 </div>
 </li>
 
-<li><a id="org1b14340"></a>Input List<br />
+<li><a id="orga772368"></a>Input List<br />
 <div class="outline-text-5" id="text-2-3-1-5">
 <p>
 The quantities listed in Table 8 are the subset of
@@ -1235,7 +1243,7 @@ calling sequence.
 </div>
 </li>
 
-<li><a id="org4c715c6"></a>Output List<br />
+<li><a id="orgbe7639a"></a>Output List<br />
 <div class="outline-text-5" id="text-2-3-1-6">
 <p>
 Table 9 shows the subset of the quantities in Table 4 that are outputs of the
@@ -1293,7 +1301,7 @@ Executive.
 
 <li><a id="org75f482c"></a>Attitude Processor.<br />
 <ol class="org-ol">
-<li><a id="org35dda23"></a>Purpose<br />
+<li><a id="org5c580d1"></a>Purpose<br />
 <div class="outline-text-5" id="text-2-3-2-1">
 <p>
 The flight-code attitude processor module reads IMU gimbal angles.  From these,
@@ -1323,7 +1331,7 @@ Estimator is called [<a href="requirements.html#org3d59726">Req.s3.2.2.p23.1</a>
 </div>
 </li>
 
-<li><a id="orgee6227b"></a>Logical Structure<br />
+<li><a id="orgef70322"></a>Logical Structure<br />
 <div class="outline-text-5" id="text-2-3-2-3">
 <p>
 The logic carries out the indicated transform algebra (see Appendix B for
@@ -1387,7 +1395,7 @@ denotes a particular body axis.
 </ol>
 </li>
 
-<li><a id="org7a44590"></a>Interface Summary<br />
+<li><a id="org43b9801"></a>Interface Summary<br />
 <div class="outline-text-5" id="text-2-3-2-4">
 <p>
 The Attitude Processor module receives an Euler rotation matrix representing
@@ -1400,7 +1408,7 @@ to use.
 </div>
 </li>
 
-<li><a id="orgb0b315f"></a>Input List<br />
+<li><a id="org3ac3fee"></a>Input List<br />
 <div class="outline-text-5" id="text-2-3-2-5">
 <p>
 See Table 10.
@@ -1434,7 +1442,7 @@ See Table 10.
 </div>
 </li>
 
-<li><a id="org8cfd1cb"></a>Output List<br />
+<li><a id="org7bd6917"></a>Output List<br />
 <div class="outline-text-5" id="text-2-3-2-6">
 <table id="org7ca155c" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Table 11:</span> Attitude processor output list.</caption>
@@ -1475,7 +1483,7 @@ See Table 10.
 
 <li><a id="org7865fb0"></a>Auto Maneuver.<br />
 <ol class="org-ol">
-<li><a id="orga692bcd"></a>Purpose<br />
+<li><a id="org3d37917"></a>Purpose<br />
 <div class="outline-text-5" id="text-2-3-3-1">
 <p>
 The Auto Maneuver module performs attitude change maneuvers or attitude hold.  A
@@ -1487,7 +1495,7 @@ attitude [<a href="requirements.html#org8122bcd">Req.s3.3.1.p26.1</a>].
 </div>
 </li>
 
-<li><a id="orgadf8185"></a>Functional Description<br />
+<li><a id="orgd7ceb8d"></a>Functional Description<br />
 <div class="outline-text-5" id="text-2-3-3-2">
 <p>
 The two driving inputs are CURRENT ATTITUDE and COMMANDED ATTITUDE.
@@ -1553,6 +1561,10 @@ where
 
 <p>
 where the underscore indicates a vector, and
+</p>
+
+<p>
+<span style="color: red"> TODO: problem to display the equations</span>
 </p>
 
 <p>
@@ -1667,13 +1679,20 @@ the acceleration phase of the maneuver.
 </div>
 </li>
 
-<li><a id="org1647bab"></a>Logical Structure<br />
+<li><a id="org99160d7"></a>Logical Structure<br />
 <div class="outline-text-5" id="text-2-3-3-3">
 <p>
 See Figure 8.
 </p>
 
-<pre class="example" id="orge01710a">
+
+<div id="orge01710a" class="figure">
+<p><img src="./figs/fig1.png" alt="fig1.png" width="0%" />
+</p>
+<p><span class="figure-number">Figure 8: </span>Auto maneuver module logical structure.</p>
+</div>
+
+<pre class="example">
 IF FIRST PASS THEN
    MANEUVER HOLD SWITCH = OFF
    OLD MANEUVER HOLD SWITCH = OFF
@@ -1702,7 +1721,7 @@ OLD MANEUVER HOLD SWITCH = MANEUVER HOLD SWITCH
 </div>
 </li>
 
-<li><a id="orgaa02368"></a>Interface Summary<br />
+<li><a id="orgfa85aa0"></a>Interface Summary<br />
 <div class="outline-text-5" id="text-2-3-3-4">
 <p>
 The basic dynamical inputs to the Auto Maneuver module are the quaternions
@@ -1720,7 +1739,7 @@ module.
 </div>
 </li>
 
-<li><a id="org21b3a1b"></a>Input List<br />
+<li><a id="org117b3a2"></a>Input List<br />
 <div class="outline-text-5" id="text-2-3-3-5">
 <p>
 Table 13 lists the Auto Maneuver module inputs.
@@ -1866,7 +1885,7 @@ Table 13 lists the Auto Maneuver module inputs.
 </li>
 
 
-<li><a id="org4663ca5"></a>Output List<br />
+<li><a id="org1b4a9e7"></a>Output List<br />
 <div class="outline-text-5" id="text-2-3-3-6">
 <p>
 Table 14 lists the Auto Maneuver module outputs.
@@ -1909,7 +1928,7 @@ Table 14 lists the Auto Maneuver module outputs.
 
 <li><a id="org729c4b5"></a>Manual Maneuver.<br />
 <ol class="org-ol">
-<li><a id="orgb1cead7"></a>Purpose<br />
+<li><a id="org7918fcd"></a>Purpose<br />
 <div class="outline-text-5" id="text-2-3-4-1">
 <p>
 This module executes open- and closed-loop manual rotation commands. The
@@ -1920,7 +1939,7 @@ constant rotation rate about chosen axes.
 </div>
 </li>
 
-<li><a id="org41bbdcb"></a>Functional Description<br />
+<li><a id="org0575781"></a>Functional Description<br />
 <div class="outline-text-5" id="text-2-3-4-2">
 <p>
 The Manual Maneuver module incorporates three of the regular on-orbit autopilot
@@ -1963,14 +1982,21 @@ discrete CLOSED LOOP.  The ON setting selects the closed-loop function [<a href=
 </div>
 </li>
 
-<li><a id="org15f1f83"></a>Logical Structure<br />
+<li><a id="org6e8626b"></a>Logical Structure<br />
 <div class="outline-text-5" id="text-2-3-4-3">
 <p>
 See Figure 9.
 </p>
 
 
-<pre class="example" id="org4f257fb">
+
+<div id="org4f257fb" class="figure">
+<p><img src="./figs/fig1.png" alt="fig1.png" width="0%" />
+</p>
+<p><span class="figure-number">Figure 9: </span>Manual maneuver module logical structure</p>
+</div>
+
+<pre class="example">
 DO FOR EACH AXIS IN TURN
    IF CLOSED LOOP = ON THEN
       BYPASS = OFF
@@ -1989,7 +2015,7 @@ OLD RHC STATE is an internally-defined variable which keeps current the RHC hist
 </div>
 </li>
 
-<li><a id="orgdd9cb37"></a>Interface Summary<br />
+<li><a id="org693e4d4"></a>Interface Summary<br />
 <div class="outline-text-5" id="text-2-3-4-4">
 <p>
 The Manual Maneuver module receives user inputs of RHC state and the choice of
@@ -2000,7 +2026,7 @@ module.  The flags FORCE FIRE and BYPASS are sent to the Phase Plane module.
 </div>
 </li>
 
-<li><a id="orgf0aa539"></a>Input List<br />
+<li><a id="org95a58de"></a>Input List<br />
 <div class="outline-text-5" id="text-2-3-4-5">
 <p>
 Table 15 defines the Manual Maneuver module inputs.
@@ -2092,7 +2118,7 @@ Table 15 defines the Manual Maneuver module inputs.
 </div>
 </li>
 
-<li><a id="orgb366598"></a>Output List<br />
+<li><a id="orge6b171f"></a>Output List<br />
 <div class="outline-text-5" id="text-2-3-4-6">
 <p>
 Table 16 shows the Manual Maneuver module outputs.
@@ -2176,7 +2202,7 @@ Table 16 shows the Manual Maneuver module outputs.
 
 <li><a id="orgfd1bb93"></a>State Estimator.<br />
 <ol class="org-ol">
-<li><a id="org74e50f7"></a>Purpose<br />
+<li><a id="orgf79c57a"></a>Purpose<br />
 <div class="outline-text-5" id="text-2-3-5-1">
 <p>
 The State Estimator module filters IMU angle data to provide smoothed estimates
@@ -2197,23 +2223,23 @@ aerodynamic torques.
 </p>
 
 
-<div id="org4354894" class="figure">
+<div id="org0228e74" class="figure">
 <p><img src="./figs/fig10.png" alt="fig10.png" width="40%" />
 </p>
-<p><span class="figure-number">Figure 6: </span>State Estimator rate estimate attenuation versus frequency.</p>
+<p><span class="figure-number">Figure 10: </span>State Estimator rate estimate attenuation versus frequency.</p>
 </div>
 
 
 <div id="org3510f4f" class="figure">
 <p><img src="./figs/fig11.png" alt="fig11.png" width="40%" />
 </p>
-<p><span class="figure-number">Figure 7: </span>State Estimator rate estimate phase lag versus frequency.</p>
+<p><span class="figure-number">Figure 11: </span>State Estimator rate estimate phase lag versus frequency.</p>
 </div>
 </div>
 </li>
 
 
-<li><a id="orgb8ee15c"></a>Functional Description<br />
+<li><a id="org82059b4"></a>Functional Description<br />
 <div class="outline-text-5" id="text-2-3-5-2">
 <p>
 The State Estimator module logic is in the following two parts:
@@ -2288,7 +2314,7 @@ projection
 </div>
 </li>
 
-<li><a id="orgde6f6dc"></a>Logical Structure<br />
+<li><a id="org7269175"></a>Logical Structure<br />
 <div class="outline-text-5" id="text-2-3-5-3">
 <p>
 Part 1 of the estimator is executed on alternate SDAP
@@ -2348,7 +2374,7 @@ and the extrapolation (Part 2 Filter) is carried out at the end of the SDAP when
 </div>
 </li>
 
-<li><a id="orga1e1ddf"></a>Interface Summary<br />
+<li><a id="orgc8a47fb"></a>Interface Summary<br />
 <div class="outline-text-5" id="text-2-3-5-4">
 <p>
 The State Estimator module receives angle increment data from the attitude
@@ -2360,151 +2386,158 @@ undesired acceleration estimate used by the Phase Plane module.
 </div>
 </li>
 
-<li><a id="orgc40e9e7"></a>Input List<br />
+<li><a id="orgf0fc4ce"></a>Input List<br />
 <div class="outline-text-5" id="text-2-3-5-5">
 <p>
 Table 17 outlines the State Estimator module inputs.
 </p>
 
-<table id="org0ebbf33" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">Table 16:</span> State Estimator module inputs &#x2013; Constants*</caption>
+<table id="orgf56dfd9" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 16:</span> State Estimator module inputs</caption>
 
 <colgroup>
 <col  class="org-left" />
 
 <col  class="org-right" />
+
+<col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
+<th scope="col" class="org-left">Constants*</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+
+<tr>
 <th scope="col" class="org-left">Name</th>
 <th scope="col" class="org-right">Value</th>
+<th scope="col" class="org-left">&#xa0;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="org-left">\(K_{\theta a}\) (primary)</td>
 <td class="org-right">1.0</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">\(K_{\theta a}\) (vernier)</td>
 <td class="org-right">1.0</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">\(K_{\omega a}\) (primary)</td>
 <td class="org-right">0.013</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">\(K_{\omega a}\) (vernier)</td>
 <td class="org-right">0.013</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">\(K_{\alpha a}\) (primary)</td>
 <td class="org-right">0.000064</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">\(K_{\alpha a}\) (vernier)</td>
 <td class="org-right">0.000064</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">\(K_{\theta r}\) (primary)</td>
 <td class="org-right">0.18</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">\(K_{\theta r}\) (vernier)</td>
 <td class="org-right">0.064</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">\(K_{\omega r}\) (primary)</td>
 <td class="org-right">0.013</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">\(K_{\omega r}\) (vernier)</td>
 <td class="org-right">0.0016</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
-</table>
-<p>
-*Gains are dimensionless; division by \(T^n\) maintains equation dimension.
-</p>
-
-<table id="org8ecc756" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">Table 17:</span> State Estimator module inputs &#x2013; Moding Discretes</caption>
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
+<tbody>
 <tr>
-<th scope="col" class="org-left">Name</th>
-<th scope="col" class="org-left">Source</th>
-<th scope="col" class="org-left">Qualities</th>
+<td class="org-left"><b>Moding Discretes</b></td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
-</thead>
+
+<tr>
+<td class="org-left">Name</td>
+<td class="org-right">Source</td>
+<td class="org-left">Qualities</td>
+</tr>
+</tbody>
 <tbody>
 <tr>
 <td class="org-left">PRIMARY VERNIER SW</td>
-<td class="org-left">User Input</td>
+<td class="org-right">User Input</td>
 <td class="org-left">Boolean</td>
 </tr>
 </tbody>
-</table>
-
-<table id="org4a530f7" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">Table 18:</span> State Estimator module inputs &#x2013; Variables</caption>
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
+<tbody>
 <tr>
-<th scope="col" class="org-left">Name</th>
-<th scope="col" class="org-left">Source</th>
-<th scope="col" class="org-left">Qualities</th>
+<td class="org-left"><b>Variables</b></td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
-</thead>
+
+<tr>
+<td class="org-left">Name</td>
+<td class="org-right">Source</td>
+<td class="org-left">Qualities</td>
+</tr>
+</tbody>
 <tbody>
 <tr>
 <td class="org-left">ATTITUDE INCREMENT</td>
-<td class="org-left">Attitude Processor</td>
+<td class="org-right">Attitude Processor</td>
 <td class="org-left">3 vector</td>
 </tr>
 
 <tr>
 <td class="org-left">DELTA OMEGA RCS</td>
-<td class="org-left">Jet Selection</td>
+<td class="org-right">Jet Selection</td>
 <td class="org-left">3 vector</td>
 </tr>
 </tbody>
 </table>
+
+<p>
+*Gains are dimensionless; division by \(T^n\) maintains equation dimension.
+</p>
 </div>
 </li>
 
-
-<li><a id="orge19811f"></a>Output List<br />
+<li><a id="org32fad9e"></a>Output List<br />
 <div class="outline-text-5" id="text-2-3-5-6">
 <p>
 The State Estimator module outputs are shown in Table 18.
 </p>
 
 <table id="orga3a7214" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">Table 19:</span> State Estimator module outputs.</caption>
+<caption class="t-above"><span class="table-number">Table 17:</span> State Estimator module outputs.</caption>
 
 <colgroup>
 <col  class="org-left" />
@@ -2553,7 +2586,7 @@ The State Estimator module outputs are shown in Table 18.
 
 <li><a id="org62b1524"></a>State Error Module.<br />
 <ol class="org-ol">
-<li><a id="org6d8a813"></a>Purpose<br />
+<li><a id="orge707c60"></a>Purpose<br />
 <div class="outline-text-5" id="text-2-3-6-1">
 <p>
 This module performs the simple but essential function of comparing the
@@ -2564,7 +2597,7 @@ control action.
 </div>
 </li>
 
-<li><a id="org38ae5e1"></a>Functional Description<br />
+<li><a id="org10cb87a"></a>Functional Description<br />
 <div class="outline-text-5" id="text-2-3-6-2">
 <p>
 The module performs the calculation
@@ -2602,14 +2635,21 @@ module when a change of RHC state occurs [<a href="requirements.html#orgf453b94"
 </div>
 </li>
 
-<li><a id="orgf084f18"></a>Logical Structure<br />
+<li><a id="orgab509fe"></a>Logical Structure<br />
 <div class="outline-text-5" id="text-2-3-6-3">
 <p>
 The State Error module logical structure is shown in
 Figure 12.
 </p>
 
-<pre class="example" id="org495a19f">
+
+<div id="org495a19f" class="figure">
+<p><img src="./figs/fig1.png" alt="fig1.png" width="0%" />
+</p>
+<p><span class="figure-number">Figure 12: </span>State Error module logical structure.</p>
+</div>
+
+<pre class="example">
 DO FOR EACH OF THREE BODY AXES:
   IF INITIALIZE STATE ERROR = ON, THEN
     DESIRED ATTITUDE = ATTITUDE EST
@@ -2621,7 +2661,7 @@ DO FOR EACH OF THREE BODY AXES:
 </div>
 </li>
 
-<li><a id="orgf56af64"></a>Interface Summary<br />
+<li><a id="orgf9f622e"></a>Interface Summary<br />
 <div class="outline-text-5" id="text-2-3-6-4">
 <p>
 The State Error module receives inputs from the steering modules Auto Maneuver
@@ -2636,14 +2676,14 @@ Output of errors in the vehicle state goes solely to the Phase Plane module.
 </li>
 
 
-<li><a id="orgd340630"></a>Input List<br />
+<li><a id="org51c3d8a"></a>Input List<br />
 <div class="outline-text-5" id="text-2-3-6-5">
 <p>
 Table 19 shows the State Error module inputs.
 </p>
 
-<table id="org0b7415a" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">Table 20:</span> State Error module inputs. Moding Discrete</caption>
+<table id="org00cf711" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 18:</span> State Error module inputs.</caption>
 
 <colgroup>
 <col  class="org-left" />
@@ -2653,6 +2693,12 @@ Table 19 shows the State Error module inputs.
 <col  class="org-left" />
 </colgroup>
 <thead>
+<tr>
+<th scope="col" class="org-left">Moding Discrete</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+
 <tr>
 <th scope="col" class="org-left">Name</th>
 <th scope="col" class="org-left">Source</th>
@@ -2672,25 +2718,19 @@ Table 19 shows the State Error module inputs.
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
-</table>
-
-<table id="orgffd1011" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">Table 21:</span> State Error module inputs. Variables</caption>
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
+<tbody>
 <tr>
-<th scope="col" class="org-left">Name</th>
-<th scope="col" class="org-left">Source</th>
-<th scope="col" class="org-left">Qualities</th>
+<td class="org-left">Variables</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
-</thead>
+
+<tr>
+<td class="org-left">Name</td>
+<td class="org-left">Source</td>
+<td class="org-left">Qualities</td>
+</tr>
+</tbody>
 <tbody>
 <tr>
 <td class="org-left">ATTITUDE ESTIMATE</td>
@@ -2726,14 +2766,14 @@ Table 19 shows the State Error module inputs.
 </div>
 </li>
 
-<li><a id="org5403488"></a>Output List<br />
+<li><a id="orgd266a01"></a>Output List<br />
 <div class="outline-text-5" id="text-2-3-6-6">
 <p>
 Table 20 shows the State Error module outputs.
 </p>
 
 <table id="org9fed7b3" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">Table 22:</span> State Error module outputs.</caption>
+<caption class="t-above"><span class="table-number">Table 19:</span> State Error module outputs.</caption>
 
 <colgroup>
 <col  class="org-left" />
@@ -2769,10 +2809,9 @@ Table 20 shows the State Error module outputs.
 </li>
 
 
-
 <li><a id="orgd81bd8f"></a>Phase Plane Module<br />
 <ol class="org-ol">
-<li><a id="org4d2551c"></a>Purpose<br />
+<li><a id="orga832977"></a>Purpose<br />
 <div class="outline-text-5" id="text-2-3-7-1">
 <p>
 The Phase Plane module determines, on a per-axis basis, whether a rotation
@@ -2787,7 +2826,7 @@ axis may be generated based on a function of Phase Plane state.
 </div>
 </li>
 
-<li><a id="org5fb72d9"></a>Functional Description<br />
+<li><a id="org2da65be"></a>Functional Description<br />
 <div class="outline-text-5" id="text-2-3-7-2">
 <p>
 The Phase Plane module generates rotational acceleration commands on a
@@ -2805,7 +2844,7 @@ and the numbered boundaries.  Note the symmetry about the \(\omega_e = 0\) axis.
 <div id="orgdee1e9a" class="figure">
 <p><img src="./figs/fig13.png" alt="fig13.png" width="40%" />
 </p>
-<p><span class="figure-number">Figure 8: </span>Phase Plane switch lines and regions.</p>
+<p><span class="figure-number">Figure 13: </span>Phase Plane switch lines and regions.</p>
 </div>
 
 <p>
@@ -2854,16 +2893,16 @@ the off-axis preferences.
 Define:
 </p>
 <ul class="org-ul">
-<li>$&alpha;<sub>C</sub> = $ Phase Plane control acceleration in the axis of interest</li>
-<li>$&alpha;<sub>d</sub> = $ State Estimator generated undesired (disturbance) acceleration</li>
-<li>$RL = $ angular rate limit</li>
-<li>$DB = $ attitude deadband</li>
-<li>$&omega;<sub>min</sub> = minimum rotation rate change in the axis of interest</li>
+<li>\(\alpha_C\) = Phase Plane control acceleration in the axis of interest</li>
+<li>\(\alpha_d\) =  State Estimator generated undesired (disturbance) acceleration</li>
+<li>\(RL\) =  angular rate limit</li>
+<li>\(DB\) =  attitude deadband</li>
+<li>\(\omega_{min}\) = minimum rotation rate change in the axis of interest</li>
 <li>\(C = 1.25\) if ABS (rotation command last cycle) &ne; 1
 \(= 1.0\) if ABS (rotation command last cycle) = 1</li>
 <li>\(\alpha'_C = \alpha_C - SIGN(\omega_e)\alpha_d\)</li>
-<li>$&omega;<sub>e</sub> = $ rate error</li>
-<li>$&theta;<sub>e</sub> = $ attitude error</li>
+<li>\(\omega_e\) =  rate error</li>
+<li>\(\theta_e\) =  attitude error</li>
 </ul>
 
 <p>
@@ -2929,7 +2968,7 @@ curve definitions and the SDAP-defined quantities for the Phase Plane module.
 </p>
 
 <table id="orgc60c963" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">Table 23:</span> Phase Plane region boundaries.</caption>
+<caption class="t-above"><span class="table-number">Table 20:</span> Phase Plane region boundaries.</caption>
 
 <colgroup>
 <col  class="org-right" />
@@ -2991,7 +3030,7 @@ curve definitions and the SDAP-defined quantities for the Phase Plane module.
 
 
 <table id="org7f2aeac" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">Table 24:</span> Phase Plane region actions.</caption>
+<caption class="t-above"><span class="table-number">Table 21:</span> Phase Plane region actions.</caption>
 
 <colgroup>
 <col  class="org-right" />
@@ -3053,7 +3092,7 @@ curve definitions and the SDAP-defined quantities for the Phase Plane module.
 
 
 <table id="org558ae75" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">Table 25:</span> I/0 named quantity and symbol.</caption>
+<caption class="t-above"><span class="table-number">Table 22:</span> I/0 named quantity and symbol.</caption>
 
 <colgroup>
 <col  class="org-left" />
@@ -3125,7 +3164,7 @@ logic [<a href="requirements.html#orgde973a7">Req.s3.7.2.p56.3</a>].
 </ol>
 </li>
 
-<li><a id="org10d30c8"></a>Logical Structure<br />
+<li><a id="orge87b629"></a>Logical Structure<br />
 <div class="outline-text-5" id="text-2-3-7-3">
 <p>
 Figures 14, 15, and 16 specify the logical structure of the Phase Plane in terms
@@ -3142,7 +3181,7 @@ region for the current state based on the switch curve results.
 </li>
 
 
-<li><a id="org1b93c9e"></a>Interface Summary<br />
+<li><a id="org6c7ed04"></a>Interface Summary<br />
 <div class="outline-text-5" id="text-2-3-7-4">
 <p>
 The Phase Plane module receives inputs from the Executive module, from the user,
@@ -3156,7 +3195,7 @@ The output from the Phase Plane module goes to the Jet Selection module.
 </div>
 </li>
 
-<li><a id="orgaea4c16"></a>Input List<br />
+<li><a id="orgbfcad72"></a>Input List<br />
 <div class="outline-text-5" id="text-2-3-7-5">
 <p>
 Table 25 lists the Phase Plane module inputs.
@@ -3164,14 +3203,21 @@ Table 25 lists the Phase Plane module inputs.
 </div>
 </li>
 
-<li><a id="org182637e"></a>Output List<br />
+<li><a id="org9d82b95"></a>Output List<br />
 <div class="outline-text-5" id="text-2-3-7-6">
 <p>
 Table 26 outlines the phase plane module outputs.
 </p>
 
 
-<pre class="example" id="orgd5bbcbb">
+
+<div id="orgd5bbcbb" class="figure">
+<p><img src="./figs/fig1.png" alt="fig1.png" width="0%" />
+</p>
+<p><span class="figure-number">Figure 14: </span>Phase Plane logic construction.</p>
+</div>
+
+<pre class="example">
 DO FOR n = 1 TO 3
   IF BYPASS_n = OFF THEN DO
     ASSIGN SWITCH CURVE VALUES (Figure 15)
@@ -3224,7 +3270,14 @@ INPUT LIST FOR INTERNAL PHASE PLANE VARIABLES
 </tbody>
 </table>
 
-<pre class="example" id="orgd480260">
+
+<div id="orgd480260" class="figure">
+<p><img src="./figs/fig1.png" alt="fig1.png" width="0%" />
+</p>
+<p><span class="figure-number">Figure 15: </span>Switch curve evaluation.</p>
+</div>
+
+<pre class="example">
 \alpha'_C = \alpha_c - SIGN (\omega_e) \alpha_d
 S1 = DB - \omega_e^2/2\alpha'_C
 S7 = -S1
@@ -3275,7 +3328,14 @@ OUTPUT LIST FOR INTERNAL PHASE PLANE VARIABLES
 </tbody>
 </table>
 
-<pre class="example" id="org3cb6e5e">
+
+<div id="org3cb6e5e" class="figure">
+<p><img src="./figs/fig1.png" alt="fig1.png" width="0%" />
+</p>
+<p><span class="figure-number">Figure 16: </span>Region index evaluation.</p>
+</div>
+
+<pre class="example">
 (\theta_e &gt; S1 AND \omega_e \geq 0) OR (\theta_e &gt; S8 AND \omega_e&gt; S11) OR \omega_e&gt; S3 THEN REGION INDEX = 1
 (\theta_e &lt; S7 AND \omega_e\leq  0) OR (\theta_e &lt; S2 AND \omega_e&lt; S5) OR \omega_e&lt; S9 THEN REGION INDEX = 5
 \theta_e &lt; S2 THEN DO
@@ -3545,7 +3605,7 @@ Variables (All SDAP Internal)
 
 
 <table id="org0ea47a8" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">Table 26:</span> Phase Plane module outputs.</caption>
+<caption class="t-above"><span class="table-number">Table 23:</span> Phase Plane module outputs.</caption>
 
 <colgroup>
 <col  class="org-left" />
@@ -3573,9 +3633,9 @@ Variables (All SDAP Internal)
 </ol>
 </li>
 
-<li><a id="org6fa8064"></a><span class="todo TODO">TODO</span> Jet Selection.<br />
+<li><a id="org6fa8064"></a>Jet Selection.<br />
 <ol class="org-ol">
-<li><a id="orgb6e57ef"></a>Purpose<br />
+<li><a id="orgc39a1af"></a>Purpose<br />
 <div class="outline-text-5" id="text-2-3-8-1">
 <p>
 The Jet Selection module logic processes commands from the Phase Plane and/or
@@ -3588,17 +3648,25 @@ algorithm.
 </div>
 </li>
 
-<li><a id="orgad65268"></a>Functional Description<br />
+<li><a id="org775ac49"></a>Functional Description<br />
 <div class="outline-text-5" id="text-2-3-8-2">
 <p>
 The Jet Selection logic (Figure 17) commands either primary jets, producing
 about 870 pounds of force each, or vernier jets, producing about 24 pounds of
-force each. The two types of thrusters may not be used simultaneously [<a href="requirements.html#orgc1bdef6">Req.s3.8.2.p63.1</a>].  Moding
-between primary and vernier jets is accomplished by choosing a value for the
-discrete PRIMARY VERNIER SW (a simulation input) [<a href="requirements.html#orgb21b6c6">Req.s3.8.2.p63.2</a>].
+force each. The two types of thrusters may not be used simultaneously
+[<a href="requirements.html#orgc1bdef6">Req.s3.8.2.p63.1</a>].  Moding between primary and vernier jets is accomplished by
+choosing a value for the discrete PRIMARY VERNIER SW (a simulation input)
+[<a href="requirements.html#orgb21b6c6">Req.s3.8.2.p63.2</a>].
 </p>
 
-<pre class="example" id="org90cd320">
+
+<div id="org90cd320" class="figure">
+<p><img src="./figs/fig1.png" alt="fig1.png" width="0%" />
+</p>
+<p><span class="figure-number">Figure 17: </span>Jet Selection logic construction.</p>
+</div>
+
+<pre class="example">
 IF PRIMARY VERNIER SW = ON THEN DO
   PERFORM PRIMARY JET LOGIC (Figure 18)
   VERNIER JET COMMAND = OFF
@@ -3647,7 +3715,14 @@ tolerance.
 </p>
 
 
-<pre class="example" id="org92c509f">
+
+<div id="org92c509f" class="figure">
+<p><img src="./figs/fig1.png" alt="fig1.png" width="0%" />
+</p>
+<p><span class="figure-number">Figure 18: </span>Primary jet logic.</p>
+</div>
+
+<pre class="example">
 DO FOR I = 1 TO 3
    J = 2 I
    IF |ROTATION COMMAND_I| = 1 OR |COMPENSATION COMMAND_I| = 1 THEN 
@@ -3799,7 +3874,14 @@ off-diagonal inertia matrix components.</li>
 </ol>
 
 
-<pre class="example" id="orgcf5f877">
+
+<div id="orgcf5f877" class="figure">
+<p><img src="./figs/fig1.png" alt="fig1.png" width="0%" />
+</p>
+<p><span class="figure-number">Figure 19: </span>Primary jet selection.</p>
+</div>
+
+<pre class="example">
 C1 = NOT TAIL PITCH
 PRIMARY JET COMMAND_1 = BIT COMMAND_3 AND BIT COMMAND_4 AND C1 AND NOT NO PLUS Z JETS
 PRIMARY JET COMMAND_2 = NOT BIT COMMAND_3 AND BIT COMMAND_4 AND C1
@@ -3861,7 +3943,14 @@ INPUT LIST FOR INTERNAL JET SELECTION VARIABLES
 </table>
 
 
-<pre class="example" id="org4da8ea3">
+
+<div id="org4da8ea3" class="figure">
+<p><img src="./figs/fig1.png" alt="fig1.png" width="0%" />
+</p>
+<p><span class="figure-number">Figure 20: </span>Vernier jet logic.</p>
+</div>
+
+<pre class="example">
 IF INIT JET SELECTION = ON THEN DELTA OMEGA RCS = 0
    DO FOR I = 1 TO 3
       IF |ROTATION COMMAND_I| = 1 THEN VECTOR COMMAND_I = ROTATION COMMAND_I
@@ -3952,7 +4041,14 @@ Only rotation control is possible with this jet configuration, and failure
 tolerance exists for only two of the thrusters, which fire into the Y axis.
 </p>
 
-<pre class="example" id="orgb296a7f">
+
+<div id="orgb296a7f" class="figure">
+<p><img src="./figs/fig1.png" alt="fig1.png" width="0%" />
+</p>
+<p><span class="figure-number">Figure 21: </span>Vernier jet selection.</p>
+</div>
+
+<pre class="example">
 IF INIT JET SELECTION = ON THEN DO
    OLD VERNIER JET COMMAND = OFF
    OLD VECTOR COMMAND = 0
@@ -4165,7 +4261,14 @@ outside the compensation logic. Any previous cycle compensation command will be
 overridden by an external command.
 </p>
 
-<pre class="example" id="org2eca703">
+
+<div id="org2eca703" class="figure">
+<p><img src="./figs/fig1.png" alt="fig1.png" width="0%" />
+</p>
+<p><span class="figure-number">Figure 22: </span>Open-loop rotation compensation.</p>
+</div>
+
+<pre class="example">
 IF PRIMARY VERNIER SW = ON THEN LARGEST MIN IMPULSE = PRIMARY JET
    LARGEST ROTATION MINIMUM IMPULSE
 ELSE LARGEST MIN IMPULSE = VERNIER JET LARGEST ROTATION MINIMUM IMPULSE
@@ -4227,7 +4330,7 @@ OUTPUT LIST FOR INTERNAL JET SELECTION VARIABLES
 
 
 
-<li><a id="orgc50991b"></a>Logical Structure<br />
+<li><a id="org429486c"></a>Logical Structure<br />
 <div class="outline-text-5" id="text-2-3-8-3">
 <p>
 Figures 17 through 22 specify the logical structure for the Jet Selection logic
@@ -4248,7 +4351,7 @@ been selected to fire for the next cycle.
 </div>
 </li>
 
-<li><a id="orgf5107b1"></a>Interface Summary<br />
+<li><a id="orgb83cbd7"></a>Interface Summary<br />
 <div class="outline-text-5" id="text-2-3-8-4">
 <p>
 The Jet Selection module receives rotation commands from the Phase Plane module,
@@ -4262,17 +4365,14 @@ commanded ON jet firings which is sent to the State Estimator module.
 </div>
 </li>
 
-<li><a id="org985d393"></a><span class="todo TODO">TODO</span> Input List<br />
+<li><a id="orgf79f04f"></a>Input List<br />
 <div class="outline-text-5" id="text-2-3-8-5">
 <p>
 Table 27 lists the Jet Selection module constant inputs.
 </p>
 
-<p>
-Constants
-</p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
+<table id="orge4ab2e5" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 24:</span> Jet Selection module constant inputs.</caption>
 
 <colgroup>
 <col  class="org-left" />
@@ -4280,6 +4380,11 @@ Constants
 <col  class="org-left" />
 </colgroup>
 <thead>
+<tr>
+<th scope="col" class="org-left">Constants</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+
 <tr>
 <th scope="col" class="org-left">Name</th>
 <th scope="col" class="org-left">Value</th>
@@ -4312,19 +4417,40 @@ EXTENDED = O.  Elements 18 through 23 are for vernier jets with PAYLOAD EXTENDED
 \overline{\Delta} = 0.08 I^{-1} \overline{\tau}
 \]
 </p>
-</div>
 
-<ol class="org-ol">
-<li><a id="orgee61579"></a><span class="todo TODO">TODO</span> Check the notation about the torque vector<br />
-<div class="outline-text-6" id="text-2-3-8-5-1">
 <p>
 where
-\[ \overline{\Delta} = \text{rotation rate increments for the jet of interest} \]
-\[ I = \text{the angular inertia matrix for the composite
-payload/orbiter/deployment device system in a position requiring control} \]
-\[ \overline{\tau} = \text{the torque vector for the jet of interest in body
-coordinates} \]
 </p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">\(\overline{\Delta}\)</td>
+<td class="org-left">=</td>
+<td class="org-left">rotation rate increments for the jet of interest</td>
+</tr>
+
+<tr>
+<td class="org-left">\(I\)</td>
+<td class="org-left">=</td>
+<td class="org-left">the angular inertia matrix for the composite payload/orbiter/deployment device system in a position requiring control</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\overline{\tau}\)</td>
+<td class="org-left">=</td>
+<td class="org-left">the torque vector for the jet of interest in body coordinates</td>
+</tr>
+</tbody>
+</table>
 
 <p>
 Table 29 lists the jet identification codes corresponding to these elements.
@@ -4332,11 +4458,9 @@ The remaining Jet Selection module inputs are outlined in Table 30.
 </p>
 </div>
 </li>
-</ol>
-</li>
 
 
-<li><a id="org74f6525"></a>Output List<br />
+<li><a id="orgabb3196"></a>Output List<br />
 <div class="outline-text-5" id="text-2-3-8-6">
 <p>
 The Jet Selection module outputs are listed in Table 31.
@@ -4344,7 +4468,7 @@ The Jet Selection module outputs are listed in Table 31.
 
 
 <table id="org14356e6" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">Table 27:</span> Rotation rate increment values*.</caption>
+<caption class="t-above"><span class="table-number">Table 25:</span> Rotation rate increment values*.</caption>
 
 <colgroup>
 <col  class="org-right" />
@@ -4495,7 +4619,7 @@ The Jet Selection module outputs are listed in Table 31.
 </p>
 
 <table id="org91c9e4a" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">Table 28:</span> Jet identification codes.</caption>
+<caption class="t-above"><span class="table-number">Table 26:</span> Jet identification codes.</caption>
 
 <colgroup>
 <col  class="org-right" />
@@ -4747,7 +4871,7 @@ Variables
 </table>
 
 <table id="orgaf8a0a3" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">Table 29:</span> Jet Selection module outputs.</caption>
+<caption class="t-above"><span class="table-number">Table 27:</span> Jet Selection module outputs.</caption>
 
 <colgroup>
 <col  class="org-left" />
@@ -4790,26 +4914,1257 @@ Variables
 </div>
 
 <div id="outline-container-org5ccb5c8" class="outline-3">
-<h3 id="org5ccb5c8"><span class="section-number-3">2.4</span> <span class="todo TODO">TODO</span> FCS Hardware Models</h3>
+<h3 id="org5ccb5c8"><span class="section-number-3">2.4</span> FCS Hardware Models</h3>
 <div class="outline-text-3" id="text-2-4">
 </div>
 <ol class="org-ol">
-<li><a id="orga853693"></a><span class="todo TODO">TODO</span> IMU Model<br />
+<li><a id="orga853693"></a>IMU Model<br />
 <ol class="org-ol">
-<li><a id="orgba8be16"></a><span class="todo TODO">TODO</span> Introduction<br /></li>
-<li><a id="org0f54a55"></a><span class="todo TODO">TODO</span> IMU Model for Rigid Orbiter<br /></li>
-<li><a id="org26e774b"></a><span class="todo TODO">TODO</span> IMU Model for Flexible Orbiter<br /></li>
-<li><a id="org8e80564"></a><span class="todo TODO">TODO</span> IMU Transport Lag<br /></li>
+<li><a id="orgbc4f0fb"></a>Introduction<br />
+<div class="outline-text-5" id="text-2-4-1-1">
+<p>
+The IMU model produces measurements of the vehicle attitude expressed as a set
+of gimbal angles.  The attitude-measurement portion of the real IMU hardware
+consists of an inertially stabilized platform, gyros, and resolvers.  However,
+for applications involving the SDAP, the IMU model can be simplified
+considerably.  IMU noise and quantization effects are small (&lt;0.01 degree)
+compared to typical SDAP deadbands and rate limits.  Therefore, they are not
+included in the IMU model. The IMU model will be discussed separately for a
+rigid orbiter and for cases where orbiter flexibility is included in the
+attitude measurement.  Section 4.1.4 discusses IMU information transport lag
+modeling.
+</p>
+</div>
+</li>
+
+<li><a id="org0f54a55"></a>IMU Model for Rigid Orbiter<br />
+<div class="outline-text-5" id="text-2-4-1-2">
+<p>
+For applications involving the SDAP and a rigid orbiter, the IMU can be
+considered to be aligned with the vehicle body axes. The IMU model is therefore
+reduced to reading the perfect vehicle attitude matrix from the vehicle
+rotational dynamics model and transferring this matrix to the attitude processor
+with the appropriate time lags (see Section 4.1.4).
+</p>
+</div>
+</li>
+
+<li><a id="org26e774b"></a>IMU Model for Flexible Orbiter<br />
+<div class="outline-text-5" id="text-2-4-1-3">
+<p>
+When the effects of vehicle flexure are included in the simulation, the
+consequently induced bending rotation at the navigation base must be added to
+the rigid-body rotation sensed by the IMU.  If \(\overline{ROTNB}\) is the modal
+rotation due to bending at the navigation base, then the orthonormal rotation
+matrix is constructed as follows
+</p>
+
+<p>
+\[
+R^B_I (flex + rigid°) = R^B_I(rigid) \cdot \begin{pmatrix}\overline{VEC1}\\\overline{VEC2}\\\overline{VEC3}\end{pmatrix}
+\]
+</p>
+
+<p>
+where 
+\[\begin{array}{l}
+\overline{VEC1} = UNIT(1,-ROTNB_Z, -ROTNB_Y)\\
+\overline{VEC2} = UNIT((ROTNB_Y, -ROTNB_X, 1) \times \overline{VEC1})\\
+\overline{VEC3} = \overline{VEC1} \times \overline{VEC2}
+\end{array}\]
+</p>
+
+<p>
+The "UNIT" function creates a unit vector from the argument vector, and \(\times\)
+represents the vector cross product.
+</p>
+</div>
+</li>
+
+<li><a id="org8e80564"></a>IMU Transport Lag<br />
+<div class="outline-text-5" id="text-2-4-1-4">
+<p>
+A transport lag of 240 ms (232 ms is the current baseline, but 240 ms is
+sufficiently close) is recommended for elapsed time from an IMO read to the
+issuance of RCS jet commands based on that data.
+</p>
+
+<p>
+Leeway exists in the actual times of SDAP execution.  Only the following must be
+observed to.ensure realistic transport lags.  The jet commands issued 240 ms
+after a given IMU read must be the output of an SDAP cycle which
+</p>
+
+<p>
+included that IMU data in the estimates through execution of the "measurement
+incorporation" portion of the State Estimator.  The delay can be obtained by
+presenting delayed data to the SDAP, delaying the SDAP output jet commands, or a
+combination of these delays.  Figure 23 shows the relative timing of the IMU
+read and the implementation of the resulting jet commands, including RCS
+hardware on- and off-delays.  The illustration assumes that IMU data read at "A"
+causes a minimum-impulse jet command to be issued at "A", 240 ms later.
+</p>
+
+
+<div id="org9e41464" class="figure">
+<p><img src="./figs/fig23.png" alt="fig23.png" width="40%" />
+</p>
+<p><span class="figure-number">Figure 23: </span>Relative timing requirements for SDAP I/O.</p>
+</div>
+</div>
+</li>
 </ol>
 </li>
 
-<li><a id="orgbff2200"></a><span class="todo TODO">TODO</span> Effector (Jet) Model<br />
+<li><a id="orgbff2200"></a>Effector (Jet) Model<br />
+<div class="outline-text-4" id="text-2-4-2">
+<p>
+RCS thrusters are the only effectors the SDAP uses. Of the 44 jets, 17 are
+sufficient for SDAP needs.
+</p>
+</div>
+
 <ol class="org-ol">
-<li><a id="org7739bf1"></a>RCS Jet System<br /></li>
-<li><a id="org6a4b49c"></a>Thrust Buildup and Decay<br /></li>
-<li><a id="orgbde5f5b"></a>Propellant Consumption<br /></li>
-<li><a id="org846a4f4"></a>Jet Plume Impingement<br /></li>
-<li><a id="org929f919"></a>Input/Output for RCS Model<br /></li>
+<li><a id="org7739bf1"></a>RCS Jet System<br />
+<div class="outline-text-5" id="text-2-4-2-1">
+<p>
+The RCS jet system consists of 44 thrusters, or jets, used on-orbit for vehicle
+attitude and rotational rate control.  There are 38 primary jets of
+approximately 870 pounds force, and 6 vernier jets of approximately 24 pounds
+force.  All jets of each type have the same specific impulse, and their thrust
+vectors are a function of the nominal thrust magnitude, mounting cant angles,
+scarfed nozzle effects, nozzle extensions, and mounting orientations.  Scarfing
+also moves the thrust vector application point down the nozzle centerline from
+the thrust mount attach point.  Jet vacuum impingement effects on the orbiter
+reduce thrust and chanqe thrust direction for some jets.
+</p>
+
+<p>
+The RCS model calculates the forces and moments on the vehicle due to individual
+jet firings and sums them to produce the total force and torque due to RCS jets.
+These values are included in the equations that calculate the rotational motion
+of the vehicle.  The nominal force vectors for all jets, including the various
+effects listed above, appear in Table 32.  Figure 24 is a schematic for
+identifying each thruster.
+</p>
+
+<p>
+Table 33 shows the locations of each thruster in the vehicle body coordinate
+frame.  The moment on the vehicle due to each jet is calculated as
+\[
+\overline{JETTORQ_j} = (\overline{JETPOS_{VEH_j}} - \overline{CG_{VEH}} ) \times \overline{JETFORCE_j}
+\]
+</p>
+
+<table id="orgf4cf259" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 28:</span> RCS jet forces.</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Force (lbf )</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Force (lbf)</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">(With Impingement )</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">(With Impingement )</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Jet</td>
+<td class="org-right">X</td>
+<td class="org-right">Y</td>
+<td class="org-right">Z</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Jet</td>
+<td class="org-right">X</td>
+<td class="org-right">Y</td>
+<td class="org-right">Z</td>
+</tr>
+
+<tr>
+<td class="org-left">F1F</td>
+<td class="org-right">-879.4</td>
+<td class="org-right">26.2</td>
+<td class="org-right">119.9</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">*L1U</td>
+<td class="org-right">0.1</td>
+<td class="org-right">76.3</td>
+<td class="org-right">872.2</td>
+</tr>
+
+<tr>
+<td class="org-left">F3F</td>
+<td class="org-right">-879.5</td>
+<td class="org-right">0.0</td>
+<td class="org-right">122.7</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">L4D</td>
+<td class="org-right">210.6</td>
+<td class="org-right">318.4</td>
+<td class="org-right">-576.0</td>
+</tr>
+
+<tr>
+<td class="org-left">F2F</td>
+<td class="org-right">-879.4</td>
+<td class="org-right">-26.2</td>
+<td class="org-right">119.9</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">L2D</td>
+<td class="org-right">210.6</td>
+<td class="org-right">318.4</td>
+<td class="org-right">-576.0</td>
+</tr>
+
+<tr>
+<td class="org-left">F1L</td>
+<td class="org-right">-26.3</td>
+<td class="org-right">873.6</td>
+<td class="org-right">18.2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">*L3D</td>
+<td class="org-right">210.6</td>
+<td class="org-right">318.4</td>
+<td class="org-right">-576.0</td>
+</tr>
+
+<tr>
+<td class="org-left">*F3L</td>
+<td class="org-right">-21.0</td>
+<td class="org-right">870.3</td>
+<td class="org-right">0.5</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R1A</td>
+<td class="org-right">856.8</td>
+<td class="org-right">0.0</td>
+<td class="org-right">151.1</td>
+</tr>
+
+<tr>
+<td class="org-left">F1U</td>
+<td class="org-right">-32.3</td>
+<td class="org-right">11.7</td>
+<td class="org-right">874.4</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R3A</td>
+<td class="org-right">856.8</td>
+<td class="org-right">0.0</td>
+<td class="org-right">151.1</td>
+</tr>
+
+<tr>
+<td class="org-left">*F3U</td>
+<td class="org-right">-31.9</td>
+<td class="org-right">0.0</td>
+<td class="org-right">873.5</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R4R</td>
+<td class="org-right">3.3</td>
+<td class="org-right">-868.8</td>
+<td class="org-right">4.8</td>
+</tr>
+
+<tr>
+<td class="org-left">F2U</td>
+<td class="org-right">-32.3</td>
+<td class="org-right">-11.7</td>
+<td class="org-right">874.4</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R2R</td>
+<td class="org-right">3.3</td>
+<td class="org-right">-868.8</td>
+<td class="org-right">4.8</td>
+</tr>
+
+<tr>
+<td class="org-left">F1D</td>
+<td class="org-right">-28.0</td>
+<td class="org-right">616.4</td>
+<td class="org-right">-639.5</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">*R3R</td>
+<td class="org-right">3.3</td>
+<td class="org-right">-868.8</td>
+<td class="org-right">4.8</td>
+</tr>
+
+<tr>
+<td class="org-left">*F3D</td>
+<td class="org-right">-24.8</td>
+<td class="org-right">612.6</td>
+<td class="org-right">-639.4</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R1R</td>
+<td class="org-right">3.3</td>
+<td class="org-right">-868.8</td>
+<td class="org-right">4.8</td>
+</tr>
+
+<tr>
+<td class="org-left">F2R</td>
+<td class="org-right">-26.3</td>
+<td class="org-right">-873.6</td>
+<td class="org-right">18.2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R4U</td>
+<td class="org-right">0.1</td>
+<td class="org-right">-76.3</td>
+<td class="org-right">872.2</td>
+</tr>
+
+<tr>
+<td class="org-left">*F4R</td>
+<td class="org-right">-21.0</td>
+<td class="org-right">-870.3</td>
+<td class="org-right">0.5</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R2U</td>
+<td class="org-right">0.1</td>
+<td class="org-right">-76.3</td>
+<td class="org-right">872.2</td>
+</tr>
+
+<tr>
+<td class="org-left">F2D</td>
+<td class="org-right">-28.0</td>
+<td class="org-right">-616.4</td>
+<td class="org-right">-639.5</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">*R1U</td>
+<td class="org-right">0.1</td>
+<td class="org-right">-76.3</td>
+<td class="org-right">872.2</td>
+</tr>
+
+<tr>
+<td class="org-left">*F4D</td>
+<td class="org-right">-24.8</td>
+<td class="org-right">-612.6</td>
+<td class="org-right">-639.3</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R4D</td>
+<td class="org-right">210.6</td>
+<td class="org-right">-318.4</td>
+<td class="org-right">-576.0</td>
+</tr>
+
+<tr>
+<td class="org-left">L1A</td>
+<td class="org-right">856.8</td>
+<td class="org-right">0.0</td>
+<td class="org-right">151.1</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R2D</td>
+<td class="org-right">210.6</td>
+<td class="org-right">-318.4</td>
+<td class="org-right">-576.0</td>
+</tr>
+
+<tr>
+<td class="org-left">L3A</td>
+<td class="org-right">856.8</td>
+<td class="org-right">0.0</td>
+<td class="org-right">151.1</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">*R3D</td>
+<td class="org-right">210.6</td>
+<td class="org-right">-318.4</td>
+<td class="org-right">-576.0</td>
+</tr>
+
+<tr>
+<td class="org-left">L4L</td>
+<td class="org-right">3.3</td>
+<td class="org-right">868.8</td>
+<td class="org-right">4.8</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">**F5L</td>
+<td class="org-right">-0.8</td>
+<td class="org-right">17.0</td>
+<td class="org-right">-17.6</td>
+</tr>
+
+<tr>
+<td class="org-left">L2L</td>
+<td class="org-right">3.3</td>
+<td class="org-right">868.8</td>
+<td class="org-right">4.8</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">**F5R</td>
+<td class="org-right">-0.8</td>
+<td class="org-right">-17.0</td>
+<td class="org-right">-17.6</td>
+</tr>
+
+<tr>
+<td class="org-left">L3L</td>
+<td class="org-right">3.3</td>
+<td class="org-right">868.8</td>
+<td class="org-right">4.8</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">**L5L</td>
+<td class="org-right">0.0</td>
+<td class="org-right">24.0</td>
+<td class="org-right">-0.6</td>
+</tr>
+
+<tr>
+<td class="org-left">*L1L</td>
+<td class="org-right">3.3</td>
+<td class="org-right">868.8</td>
+<td class="org-right">4.8</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">**L5D</td>
+<td class="org-right">0.4</td>
+<td class="org-right">4.3</td>
+<td class="org-right">-13.1</td>
+</tr>
+
+<tr>
+<td class="org-left">L4U</td>
+<td class="org-right">0.1</td>
+<td class="org-right">76.3</td>
+<td class="org-right">872.2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">**R5R</td>
+<td class="org-right">0.0</td>
+<td class="org-right">-24.0</td>
+<td class="org-right">-0.6</td>
+</tr>
+
+<tr>
+<td class="org-left">L2U</td>
+<td class="org-right">0.1</td>
+<td class="org-right">76.3</td>
+<td class="org-right">872.2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">**R5D</td>
+<td class="org-right">0.4</td>
+<td class="org-right">-4.3</td>
+<td class="org-right">-13.1</td>
+</tr>
+</tbody>
+</table>
+<p>
+*The SDAP requires only these primary jets. **Vernier jets.
+</p>
+
+
+<div id="orgb0ca047" class="figure">
+<p><img src="./figs/fig24.png" alt="fig24.png" width="60%" />
+</p>
+<p><span class="figure-number">Figure 24: </span>RCS jet locations and plume directions.</p>
+</div>
+
+
+<table id="org8ed87fa" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 29:</span> RCS jet locations-vehicle fabrication frame (inches).</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Jet</th>
+<th scope="col" class="org-right">X</th>
+<th scope="col" class="org-right">Y</th>
+<th scope="col" class="org-right">Z</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Jet</th>
+<th scope="col" class="org-right">X</th>
+<th scope="col" class="org-right">Y</th>
+<th scope="col" class="org-right">Z</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">F1F</td>
+<td class="org-right">306.7</td>
+<td class="org-right">-14.7</td>
+<td class="org-right">393.0</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">*L1U</td>
+<td class="org-right">1542.0</td>
+<td class="org-right">-132.0</td>
+<td class="org-right">480.5</td>
+</tr>
+
+<tr>
+<td class="org-left">F3F</td>
+<td class="org-right">306.7</td>
+<td class="org-right">0.0</td>
+<td class="org-right">394.5</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">L4D</td>
+<td class="org-right">1516.0</td>
+<td class="org-right">-112.0</td>
+<td class="org-right">437.4</td>
+</tr>
+
+<tr>
+<td class="org-left">F2F</td>
+<td class="org-right">306.7</td>
+<td class="org-right">14.7</td>
+<td class="org-right">393.0</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">L2D</td>
+<td class="org-right">1529.0</td>
+<td class="org-right">-111.0</td>
+<td class="org-right">440.0</td>
+</tr>
+
+<tr>
+<td class="org-left">F1L</td>
+<td class="org-right">362.7</td>
+<td class="org-right">-69.5</td>
+<td class="org-right">373.7</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">*L3D</td>
+<td class="org-right">1542.9</td>
+<td class="org-right">-110.1</td>
+<td class="org-right">442.6</td>
+</tr>
+
+<tr>
+<td class="org-left">*F3L</td>
+<td class="org-right">364.7</td>
+<td class="org-right">-71.7</td>
+<td class="org-right">359.3</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R1A</td>
+<td class="org-right">1555.3</td>
+<td class="org-right">124.0</td>
+<td class="org-right">473.1</td>
+</tr>
+
+<tr>
+<td class="org-left">F1U</td>
+<td class="org-right">350.9</td>
+<td class="org-right">-14.4</td>
+<td class="org-right">413.5</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R3A</td>
+<td class="org-right">1555.3</td>
+<td class="org-right">137.0</td>
+<td class="org-right">473.1</td>
+</tr>
+
+<tr>
+<td class="org-left">*F3U</td>
+<td class="org-right">350.9</td>
+<td class="org-right">0.0</td>
+<td class="org-right">414.5</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R4R</td>
+<td class="org-right">1516.0</td>
+<td class="org-right">149.9</td>
+<td class="org-right">459.0</td>
+</tr>
+
+<tr>
+<td class="org-left">F2U</td>
+<td class="org-right">350.9</td>
+<td class="org-right">14.4</td>
+<td class="org-right">413.5</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R2R</td>
+<td class="org-right">1529.0</td>
+<td class="org-right">149.9</td>
+<td class="org-right">459.0</td>
+</tr>
+
+<tr>
+<td class="org-left">F1D</td>
+<td class="org-right">333.8</td>
+<td class="org-right">-61.4</td>
+<td class="org-right">357.0</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">*R3R</td>
+<td class="org-right">1542.0</td>
+<td class="org-right">149.9</td>
+<td class="org-right">459.0</td>
+</tr>
+
+<tr>
+<td class="org-left">*F3D</td>
+<td class="org-right">348.4</td>
+<td class="org-right">-66.2</td>
+<td class="org-right">358.4</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R1R</td>
+<td class="org-right">1555.0</td>
+<td class="org-right">149.9</td>
+<td class="org-right">459.0</td>
+</tr>
+
+<tr>
+<td class="org-left">F2R</td>
+<td class="org-right">362.7</td>
+<td class="org-right">69.5</td>
+<td class="org-right">373.7</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R4U</td>
+<td class="org-right">1516.0</td>
+<td class="org-right">132.0</td>
+<td class="org-right">480.5</td>
+</tr>
+
+<tr>
+<td class="org-left">*F4R</td>
+<td class="org-right">364.7</td>
+<td class="org-right">71.7</td>
+<td class="org-right">359.3</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R2U</td>
+<td class="org-right">1529.0</td>
+<td class="org-right">132.0</td>
+<td class="org-right">480.5</td>
+</tr>
+
+<tr>
+<td class="org-left">F2D</td>
+<td class="org-right">333.8</td>
+<td class="org-right">61.4</td>
+<td class="org-right">357.0</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">*R1U</td>
+<td class="org-right">1542.0</td>
+<td class="org-right">132.0</td>
+<td class="org-right">480.5</td>
+</tr>
+
+<tr>
+<td class="org-left">*F4D</td>
+<td class="org-right">348.4</td>
+<td class="org-right">66.2</td>
+<td class="org-right">358.4</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R4D</td>
+<td class="org-right">1516.0</td>
+<td class="org-right">112.0</td>
+<td class="org-right">437.4</td>
+</tr>
+
+<tr>
+<td class="org-left">L1A</td>
+<td class="org-right">1555.3</td>
+<td class="org-right">-124.0</td>
+<td class="org-right">473.1</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R2D</td>
+<td class="org-right">1529.0</td>
+<td class="org-right">111.0</td>
+<td class="org-right">440.0</td>
+</tr>
+
+<tr>
+<td class="org-left">L3A</td>
+<td class="org-right">1555.3</td>
+<td class="org-right">-137.0</td>
+<td class="org-right">473.1</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">*R3D</td>
+<td class="org-right">1542.0</td>
+<td class="org-right">110.1</td>
+<td class="org-right">442.6</td>
+</tr>
+
+<tr>
+<td class="org-left">L4L</td>
+<td class="org-right">1516.0</td>
+<td class="org-right">-149.9</td>
+<td class="org-right">459.0</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">**F5L</td>
+<td class="org-right">324.4</td>
+<td class="org-right">-59.7</td>
+<td class="org-right">350.1</td>
+</tr>
+
+<tr>
+<td class="org-left">L2L</td>
+<td class="org-right">1529.0</td>
+<td class="org-right">-149.9</td>
+<td class="org-right">459.0</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">**F5R</td>
+<td class="org-right">324.4</td>
+<td class="org-right">59.7</td>
+<td class="org-right">350.1</td>
+</tr>
+
+<tr>
+<td class="org-left">L3L</td>
+<td class="org-right">1542.0</td>
+<td class="org-right">-149.9</td>
+<td class="org-right">459.0</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">**L5L</td>
+<td class="org-right">1565.0</td>
+<td class="org-right">-149.9</td>
+<td class="org-right">459.0</td>
+</tr>
+
+<tr>
+<td class="org-left">*L1L</td>
+<td class="org-right">1555.0</td>
+<td class="org-right">-149.9</td>
+<td class="org-right">459.0</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">**L5D</td>
+<td class="org-right">1565.0</td>
+<td class="org-right">-118.0</td>
+<td class="org-right">455.4</td>
+</tr>
+
+<tr>
+<td class="org-left">L4U</td>
+<td class="org-right">1516.0</td>
+<td class="org-right">-132.0</td>
+<td class="org-right">480.5</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">**R5R</td>
+<td class="org-right">1565.0</td>
+<td class="org-right">149.9</td>
+<td class="org-right">459.0</td>
+</tr>
+
+<tr>
+<td class="org-left">L2U</td>
+<td class="org-right">1529.0</td>
+<td class="org-right">-132.0</td>
+<td class="org-right">480.5</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">**R5D</td>
+<td class="org-right">1565.0</td>
+<td class="org-right">118.0</td>
+<td class="org-right">455.4</td>
+</tr>
+</tbody>
+</table>
+<p>
+*The SDAP requires only these primary jets. **Vernier jets.
+</p>
+
+
+<p>
+Figure 25 shows the relationship between the center of gravity (CG), jet
+locations, and the vehicle fabrication and body frames.  A typical orbiter CG
+location in the fabrication frame is 1112.6, -0.4, 376.4 inches.  Appendix F
+describes the origin location of the fabrication and body frames.
+</p>
+
+
+<div id="org1bdaafd" class="figure">
+<p><img src="./figs/fig25.png" alt="fig25.png" width="40%" />
+</p>
+<p><span class="figure-number">Figure 25: </span>Relationship between CG, jet locations, and vehicle frames.</p>
+</div>
+</div>
+</li>
+
+
+
+<li><a id="org6a4b49c"></a>Thrust Buildup and Decay<br />
+<div class="outline-text-5" id="text-2-4-2-2">
+<p>
+Each RCS jet may be individually commanded ON and OFF.  The buildup of thrust
+that occurs when a jet is turned ON and the tailoff that occurs during shutdown
+are modeled by instantaneous (step) changes in the thrust and moment magnitudes,
+shifted in time from the electrical command.  The net firing time, allowing for
+the ON-delay and OFF-delay, is calculated to give the same total impulse during
+a transient firing as would be obtained from an actual thruster.  Table 34 shows
+appropriate delay times for each type of jet.
+</p>
+
+<table id="org1034e63" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 30:</span> Jet delay times.</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Type of Jet</td>
+<td class="org-right">ON-Delay (s)</td>
+<td class="org-right">OFF-Delay (s)</td>
+</tr>
+
+<tr>
+<td class="org-left">Primary</td>
+<td class="org-right">0.034</td>
+<td class="org-right">0.022</td>
+</tr>
+
+<tr>
+<td class="org-left">Vernier</td>
+<td class="org-right">0.015</td>
+<td class="org-right">0.010</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+
+
+<li><a id="orgbde5f5b"></a>Propellant Consumption<br />
+<div class="outline-text-5" id="text-2-4-2-3">
+<p>
+Each primary iet consumes approximately 0.25 lbm of propellant for each
+commanded cycle.  Each vernier jet consumes approximately 0.00735 lbm of
+propellant for each commanded cycle.
+</p>
+</div>
+</li>
+
+<li><a id="org846a4f4"></a>Jet Plume Impingement<br />
+<div class="outline-text-5" id="text-2-4-2-4">
+<p>
+Plume impingement effects have been observed to cause different orbiter flexure
+responses when different models of the impingement are used.  Because of this
+observation, the following discussion of impingement modeling is included.
+</p>
+
+<p>
+The plume expansion fan effect for a single thruster can be predicted
+theoretically, but the net thrust direction change can be affected by a number
+of uncertainties.  These include the following:
+</p>
+<ol class="org-ol">
+<li>Simultaneous use of thrusters close to one another can cause complex plume
+interaction effects, changing the expansion fan shape.</li>
+<li>The orbiter geometry varies since aerosurface positions are not controlled
+during orbital flight.</li>
+<li>The emission properties of the obstruction surface materials are poorly
+understood theoretically.</li>
+</ol>
+
+<p>
+The impingement-included jet force model in Table 32 relies on the following
+simplifications:
+</p>
+<ol class="org-ol">
+<li>Impingement effects of any jet are independent of other jet firings.</li>
+<li>Aerosurfaces are at null position.</li>
+<li>The model surface properties accurately represent the shuttle surface
+properties.</li>
+</ol>
+
+<p>
+The true impingement effect occurs over a wide area on the shuttle.  The
+assumption that the force change occurs at the jet location does not accurately
+represent the effect for moment computations, but is adequate for most purposes.
+If orbiter flexure is considered in a simulation, then the structure loading is
+most conservatively modeled if the impingement-force change is not included in
+the bending dynamics.  (The unimpinged jet forces are given in Table 35.)
+However, the changed force must be incorporated into the rigid-body dynamics.
+</p>
+
+<table id="orgb068aba" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 31:</span> RCS jet forces without impingement (for use only in flexible orbiter models).</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Force (lbf )</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Force (lbf)</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">(With Impingement )</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">(With Impingement )</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Jet</td>
+<td class="org-right">X</td>
+<td class="org-right">Y</td>
+<td class="org-right">Z</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Jet</td>
+<td class="org-right">X</td>
+<td class="org-right">Y</td>
+<td class="org-right">Z</td>
+</tr>
+
+<tr>
+<td class="org-left">F1F</td>
+<td class="org-right">-879.4</td>
+<td class="org-right">26.2</td>
+<td class="org-right">119.9</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">*L1U</td>
+<td class="org-right">0.0</td>
+<td class="org-right">0.0</td>
+<td class="org-right">870.0</td>
+</tr>
+
+<tr>
+<td class="org-left">F3F</td>
+<td class="org-right">-879.5</td>
+<td class="org-right">0.0</td>
+<td class="org-right">122.7</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">L4D</td>
+<td class="org-right">170.4</td>
+<td class="org-right">291.8</td>
+<td class="org-right">-801.7</td>
+</tr>
+
+<tr>
+<td class="org-left">F2F</td>
+<td class="org-right">-879.4</td>
+<td class="org-right">-26.2</td>
+<td class="org-right">119.9</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">L2D</td>
+<td class="org-right">170.4</td>
+<td class="org-right">291.8</td>
+<td class="org-right">-801.7</td>
+</tr>
+
+<tr>
+<td class="org-left">F1L</td>
+<td class="org-right">-26.3</td>
+<td class="org-right">873.6</td>
+<td class="org-right">18.2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">*L3D</td>
+<td class="org-right">170.4</td>
+<td class="org-right">291.8</td>
+<td class="org-right">-801.7</td>
+</tr>
+
+<tr>
+<td class="org-left">*F3L</td>
+<td class="org-right">-21.0</td>
+<td class="org-right">870.3</td>
+<td class="org-right">0.5</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R1A</td>
+<td class="org-right">856.8</td>
+<td class="org-right">0.0</td>
+<td class="org-right">151.1</td>
+</tr>
+
+<tr>
+<td class="org-left">F1U</td>
+<td class="org-right">-32.3</td>
+<td class="org-right">11.7</td>
+<td class="org-right">874.4</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R3A</td>
+<td class="org-right">856.8</td>
+<td class="org-right">0.0</td>
+<td class="org-right">151.1</td>
+</tr>
+
+<tr>
+<td class="org-left">*F3U</td>
+<td class="org-right">-31.9</td>
+<td class="org-right">0.0</td>
+<td class="org-right">873.5</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R4R</td>
+<td class="org-right">0.0</td>
+<td class="org-right">-870.5</td>
+<td class="org-right">-22.4</td>
+</tr>
+
+<tr>
+<td class="org-left">F2U</td>
+<td class="org-right">-32.3</td>
+<td class="org-right">-11.7</td>
+<td class="org-right">874.4</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R2R</td>
+<td class="org-right">0.0</td>
+<td class="org-right">-870.5</td>
+<td class="org-right">-22.4</td>
+</tr>
+
+<tr>
+<td class="org-left">F1D</td>
+<td class="org-right">-28.0</td>
+<td class="org-right">616.4</td>
+<td class="org-right">-639.5</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">*R3R</td>
+<td class="org-right">0.0</td>
+<td class="org-right">-870.5</td>
+<td class="org-right">-22.4</td>
+</tr>
+
+<tr>
+<td class="org-left">*F3D</td>
+<td class="org-right">-24.8</td>
+<td class="org-right">612.6</td>
+<td class="org-right">-639.4</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R1R</td>
+<td class="org-right">0.0</td>
+<td class="org-right">-870.5</td>
+<td class="org-right">-22.4</td>
+</tr>
+
+<tr>
+<td class="org-left">F2R</td>
+<td class="org-right">-26.3</td>
+<td class="org-right">-873.6</td>
+<td class="org-right">18.2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R4U</td>
+<td class="org-right">0.0</td>
+<td class="org-right">0.0</td>
+<td class="org-right">870.0</td>
+</tr>
+
+<tr>
+<td class="org-left">*F4R</td>
+<td class="org-right">-21.0</td>
+<td class="org-right">-870.3</td>
+<td class="org-right">0.5</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R2U</td>
+<td class="org-right">0.0</td>
+<td class="org-right">0.0</td>
+<td class="org-right">870.0</td>
+</tr>
+
+<tr>
+<td class="org-left">F2D</td>
+<td class="org-right">-28.0</td>
+<td class="org-right">-616.4</td>
+<td class="org-right">-639.5</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">*R1U</td>
+<td class="org-right">0.0</td>
+<td class="org-right">0.0</td>
+<td class="org-right">870.0</td>
+</tr>
+
+<tr>
+<td class="org-left">*F4D</td>
+<td class="org-right">-24.8</td>
+<td class="org-right">-612.6</td>
+<td class="org-right">-639.4</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R4D</td>
+<td class="org-right">170.4</td>
+<td class="org-right">-291.8</td>
+<td class="org-right">-801.7</td>
+</tr>
+
+<tr>
+<td class="org-left">L1A</td>
+<td class="org-right">856.8</td>
+<td class="org-right">0.0</td>
+<td class="org-right">151.1</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R2D</td>
+<td class="org-right">170.4</td>
+<td class="org-right">-291.8</td>
+<td class="org-right">-801.7</td>
+</tr>
+
+<tr>
+<td class="org-left">L3A</td>
+<td class="org-right">856.8</td>
+<td class="org-right">0.0</td>
+<td class="org-right">151.1</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">*R3D</td>
+<td class="org-right">170.4</td>
+<td class="org-right">-291.8</td>
+<td class="org-right">-801.7</td>
+</tr>
+
+<tr>
+<td class="org-left">L4L</td>
+<td class="org-right">0.0</td>
+<td class="org-right">870.5</td>
+<td class="org-right">-22.4</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">**F5L</td>
+<td class="org-right">-0.8</td>
+<td class="org-right">17.0</td>
+<td class="org-right">-17.6</td>
+</tr>
+
+<tr>
+<td class="org-left">L2L</td>
+<td class="org-right">0.0</td>
+<td class="org-right">870.5</td>
+<td class="org-right">-22.4</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">**F5R</td>
+<td class="org-right">-0.8</td>
+<td class="org-right">-17.0</td>
+<td class="org-right">-17.6</td>
+</tr>
+
+<tr>
+<td class="org-left">L3L</td>
+<td class="org-right">0.0</td>
+<td class="org-right">870.5</td>
+<td class="org-right">-22.4</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">**L5L</td>
+<td class="org-right">0.0</td>
+<td class="org-right">24.0</td>
+<td class="org-right">-0.6</td>
+</tr>
+
+<tr>
+<td class="org-left">*L1L</td>
+<td class="org-right">0.0</td>
+<td class="org-right">870.5</td>
+<td class="org-right">-22.4</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">**L5D</td>
+<td class="org-right">0.0</td>
+<td class="org-right">0.0</td>
+<td class="org-right">-24.0</td>
+</tr>
+
+<tr>
+<td class="org-left">L4U</td>
+<td class="org-right">0.0</td>
+<td class="org-right">0.0</td>
+<td class="org-right">870.0</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">**R5R</td>
+<td class="org-right">0.0</td>
+<td class="org-right">-24.0</td>
+<td class="org-right">-0.6</td>
+</tr>
+
+<tr>
+<td class="org-left">L2U</td>
+<td class="org-right">0.0</td>
+<td class="org-right">0.0</td>
+<td class="org-right">870.0</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">**R5D</td>
+<td class="org-right">0.0</td>
+<td class="org-right">0.0</td>
+<td class="org-right">-24.0</td>
+</tr>
+</tbody>
+</table>
+<p>
+*The SDAP requires only these primary jets. **Vernier jets.
+</p>
+</div>
+</li>
+
+
+<li><a id="org929f919"></a>Input/Output for RCS Model<br />
+<div class="outline-text-5" id="text-2-4-2-5">
+<p>
+The RCS model, in response to commands from the autopilot to fire jets,
+calculates the resultant forces and mo- ments acting on the vehicle.  These are
+used by the vehicle-dynamics model in the orbiter's equations of motion.  The
+model also should maintain the number of jet firings, and their durations, for
+calculating RCS propellant usage during a simulation.
+</p>
+</div>
+</li>
 </ol>
 </li>
 </ol>
@@ -4817,25 +6172,423 @@ Variables
 </div>
 
 <div id="outline-container-orgb8dccb7" class="outline-2">
-<h2 id="orgb8dccb7"><span class="section-number-2">3</span> <span class="todo TODO">TODO</span> Appendix</h2>
+<h2 id="orgb8dccb7"><span class="section-number-2">3</span> Appendix</h2>
 <div class="outline-text-2" id="text-3">
 </div>
 <div id="outline-container-org3953f40" class="outline-3">
-<h3 id="org3953f40"><span class="section-number-3">3.1</span> <span class="todo TODO">TODO</span> SDAP CONSTANTS AND PARAMETERS</h3>
+<h3 id="org3953f40"><span class="section-number-3">3.1</span> SDAP CONSTANTS AND PARAMETERS</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
 <ol class="org-ol">
-<li><a id="org999f5ff"></a>Introduction<br /></li>
-<li><a id="orgb0419b9"></a>Tables<br /></li>
+<li><a id="org583066e"></a>Introduction<br />
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+This appendix provides a cross reference for relating SDAP constants and
+parameters to the names and numbers listed in the on-orbit flight control level
+C FSSR: STS 81-0009.
+</p>
+</div>
+</li>
+
+<li><a id="orgb0419b9"></a>Tables<br />
+<div class="outline-text-4" id="text-3-1-2">
+<p>
+Tables A-1 through A-3 list the SDAP constants along with various attributes.
+The FSSR references (FSSR name, type, initial value, and MSID) are to the
+antecedent I-loads to which the flight code applies selection and scaling as
+required.  Where four values and MSIDs are given, they correspond to PRCS DAP A,
+PRCS DAP B, VRCS DAP A, and VRCS DAP B.  Where three values and MSIDs are given
+they correspond to the roll, pitch, and yaw components. STS-5 I-load are given.
+</p>
+
+
+<table id="orgc65c9ab" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 32:</span> SDAP constants and parameters FSSR reference.</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">SDAP Name</th>
+<th scope="col" class="org-left">FSSR Name</th>
+<th scope="col" class="org-left">Type (see Note 1)</th>
+<th scope="col" class="org-left">Initial Value</th>
+<th scope="col" class="org-left">I-load MSID</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">CONTROL ACCELRATION (see Note 2)</td>
+<td class="org-left">MAG<sub>CONTROL</sub><sub>ACCL</sub><sub>REF</sub><sub>PRIM</sub></td>
+<td class="org-left">B</td>
+<td class="org-left">0.8,    0.9 ,    0.6</td>
+<td class="org-left">V98U9941C-43C</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">MAG<sub>CONTROL</sub><sub>ACCL</sub><sub>REF</sub><sub>VERN</sub></td>
+<td class="org-left">B</td>
+<td class="org-left">0.019,  0.013 ,  0.014</td>
+<td class="org-left">V98U9944C-46C</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">MAG<sub>CONTROL</sub><sub>ACCL</sub><sub>VERN</sub><sub>ALT</sub></td>
+<td class="org-left">C</td>
+<td class="org-left">0.0167, 0.0237 , 0.0174</td>
+<td class="org-left">V97U2941C-43C</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">DEADBAND</td>
+<td class="org-left">ARRAY<sub>DB</sub></td>
+<td class="org-left">A</td>
+<td class="org-left">5.0 ,    3.0 , 1.0, 1.0</td>
+<td class="org-left">V93H5766C-69C</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">DIAGONAL INERTIA RATION</td>
+<td class="org-left">INERTIA<sub>RATIO</sub></td>
+<td class="org-left">B</td>
+<td class="org-left">1.0, 1.0, 1.0</td>
+<td class="org-left">V97U2907C-09C</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">MANEUVER RATE</td>
+<td class="org-left">ARRAY<sub>MNVR</sub><sub>RATE</sub></td>
+<td class="org-left">A</td>
+<td class="org-left">0.2, 0.5, 0.2, 0.2</td>
+<td class="org-left">V93R5705C, 06C, 09C, 1OC</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">MIN DELTA OMEGA</td>
+<td class="org-left">DELTAV<sub>MINIMP</sub></td>
+<td class="org-left">B</td>
+<td class="org-left">0.08 * CONTROL ACCELERATION</td>
+<td class="org-left">none</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">OFF AXIS COMP THRESHOLD</td>
+<td class="org-left">ARRAY<sub>COMP</sub><sub>THRESHOLD</sub></td>
+<td class="org-left">A</td>
+<td class="org-left">0.0, 0.0, 0.0, 0.0</td>
+<td class="org-left">V93H5741C, 42C, 45C, 46C</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">PHASE PLANCE ACCEL</td>
+<td class="org-left">PHASE<sub>PLANE</sub><sub>ACCEL</sub></td>
+<td class="org-left">B</td>
+<td class="org-left">0.08 * CONTROL ACCELERATION</td>
+<td class="org-left">none</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">PRIMARY JET LARGEST ROTATION MINIMUM IMPULSE</td>
+<td class="org-left">PRIMARY<sub>ROT</sub><sub>MIN</sub><sub>IMPULSE</sub></td>
+<td class="org-left">C</td>
+<td class="org-left">0.112</td>
+<td class="org-left">V97U2797C</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">RATE LIMIT</td>
+<td class="org-left">ARRAY<sub>RATE</sub><sub>LIMIT</sub></td>
+<td class="org-left">A</td>
+<td class="org-left">0.2, 0.2, 0.02, 0.02</td>
+<td class="org-left">V93R5726C, 27C,30C, 31C</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">ROTATION RATE INCREMENT</td>
+<td class="org-left">see Table A-2</td>
+<td class="org-left">C</td>
+<td class="org-left">see Table 28</td>
+<td class="org-left">see Table A-2</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">STATE ESTIMATOR GAINS</td>
+<td class="org-left">see Table A-3</td>
+<td class="org-left">C</td>
+<td class="org-left">see Table 17</td>
+<td class="org-left">see Table A-3</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">VERNIER JET LARGEST ROTATION MINIMUM IMPULSE</td>
+<td class="org-left">VERNIER<sub>ROT</sub><sub>MIN</sub><sub>IMPULSE</sub></td>
+<td class="org-left">C</td>
+<td class="org-left">0.002</td>
+<td class="org-left">V97U2882C</td>
+</tr>
+</tbody>
+</table>
+<p>
+NOTES:
+</p>
+<ol class="org-ol">
+<li><ul class="org-ul">
+<li>Type A: Explicitly changeable by crew via display.</li>
+<li>Type B: Not explicitly changeable via display, but derived quantity used in
+DAP is affected by crew-entered inertia changes.</li>
+<li>Type C: Not changeable via display and not affected by crew-entered data.</li>
+</ul></li>
+<li>If PAYLOAD EXTENDED=0, flight code selects control acceleration from either
+MAG<sub>CONTROL</sub><sub>ACCEL</sub><sub>REF</sub><sub>PRIM</sub> (if PRCS selected) or MAG<sub>CONTROL</sub><sub>ACCEL</sub><sub>REF</sub><sub>VERN</sub>
+(if VRCS selected), and multiplies by INERTIA<sub>RATIO</sub>. If PAYLOAD EXTENDED=1,
+control acceleration is set equal to vector No. 1 of
+MAG<sub>CONTROL</sub><sub>ACCEL</sub><sub>VERN</sub><sub>ALT</sub> with no INERTIA<sub>RATIO</sub> scaling (supporting VRCS
+operation only).</li>
+</ol>
+
+
+<table id="org3a2a413" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 33:</span> Rotation rate increment FSSR reference.</caption>
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">Rotation Rate Increment Element No.</td>
+<td class="org-right">FSSR Definition (ANG<sub>INCREMENTS</sub> Element No.)</td>
+<td class="org-left">MSID</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">4</td>
+<td class="org-left">V97U2969C - 71C</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">5</td>
+<td class="org-left">V97U2972C - 74C</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">6</td>
+<td class="org-left">V97U2975C - 77C</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">11</td>
+<td class="org-left">V97U2990C - 92C</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-right">12</td>
+<td class="org-left">V97U2993C - 95C</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-right">13</td>
+<td class="org-left">V97U2996C - 98C</td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-right">14</td>
+<td class="org-left">V97U2999C, V98U9828C - 29C</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-right">2</td>
+<td class="org-left">V97U2963C - 65C</td>
+</tr>
+
+<tr>
+<td class="org-right">9</td>
+<td class="org-right">3</td>
+<td class="org-left">V97U2966C - 68C</td>
+</tr>
+
+<tr>
+<td class="org-right">10</td>
+<td class="org-right">9</td>
+<td class="org-left">V97U2984C - 86C</td>
+</tr>
+
+<tr>
+<td class="org-right">11</td>
+<td class="org-right">10</td>
+<td class="org-left">V97U2987C - 89C</td>
+</tr>
+
+<tr>
+<td class="org-right">12</td>
+<td class="org-right">15</td>
+<td class="org-left">V98U9830C - 32C</td>
+</tr>
+
+<tr>
+<td class="org-right">13</td>
+<td class="org-right">16</td>
+<td class="org-left">V98U9833C  - 35C</td>
+</tr>
+
+<tr>
+<td class="org-right">14</td>
+<td class="org-right">17</td>
+<td class="org-left">V98U9836C - 38C</td>
+</tr>
+
+<tr>
+<td class="org-right">15</td>
+<td class="org-right">18</td>
+<td class="org-left">V98U9839C - 41C</td>
+</tr>
+
+<tr>
+<td class="org-right">16</td>
+<td class="org-right">19</td>
+<td class="org-left">V98U9842C - 44C</td>
+</tr>
+
+<tr>
+<td class="org-right">17</td>
+<td class="org-right">20</td>
+<td class="org-left">V98U9845C - 47C</td>
+</tr>
+</tbody>
+</table>
+
+
+<table id="org9df0d3d" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 34:</span> .State estimator gains FSSR reference</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">State Estimator Gain</td>
+<td class="org-left">FSSR Name</td>
+<td class="org-left">MSID</td>
+</tr>
+
+<tr>
+<td class="org-left">\(K_{\theta a}\) (primary)</td>
+<td class="org-left">ATTITUDE GAIN2 PRIMARY</td>
+<td class="org-left">V97U2658C</td>
+</tr>
+
+<tr>
+<td class="org-left">\(K_{\theta a}\) (vernier)</td>
+<td class="org-left">ATTITUDE GAIN2 VERNIER</td>
+<td class="org-left">V97U2660C</td>
+</tr>
+
+<tr>
+<td class="org-left">\(K_{\omega a}\) (primary)</td>
+<td class="org-left">RATE GAIN2 PRIMARY</td>
+<td class="org-left">V97U2823C</td>
+</tr>
+
+<tr>
+<td class="org-left">\(K_{\omega a}\)  (vernier)</td>
+<td class="org-left">RATE GAIN2 VERNIER</td>
+<td class="org-left">V97U2825C</td>
+</tr>
+
+<tr>
+<td class="org-left">\(K_{\alpha a}\) (primary)</td>
+<td class="org-left">ACCEL GAIN PRIMARY</td>
+<td class="org-left">V97U2500C</td>
+</tr>
+
+<tr>
+<td class="org-left">\(K_{\alpha a}\) (vernier)</td>
+<td class="org-left">ACCEL GAIN VERNIER</td>
+<td class="org-left">V97U2502C</td>
+</tr>
+
+<tr>
+<td class="org-left">\(K_{\theta r}\) (primary)</td>
+<td class="org-left">ATTITUDE GAIN1 PRIMARY</td>
+<td class="org-left">V97U2655C</td>
+</tr>
+
+<tr>
+<td class="org-left">\(K_{\theta r}\) (vernier)</td>
+<td class="org-left">ATTITUDE GAIN1 VERNIER</td>
+<td class="org-left">V97U2657C</td>
+</tr>
+
+<tr>
+<td class="org-left">\(K_{\omega r}\) (primary)</td>
+<td class="org-left">RATE GAIN1 PRIMARY</td>
+<td class="org-left">V97U2952C</td>
+</tr>
+
+<tr>
+<td class="org-left">\(K_{\omega r}\) (vernier)</td>
+<td class="org-left">RATE GAIN1 VERNIER</td>
+<td class="org-left">V97U2822C</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
 </ol>
 </div>
+
 
 <div id="outline-container-org79ca0b2" class="outline-3">
 <h3 id="org79ca0b2"><span class="section-number-3">3.2</span> ATTITUDE DATA GENERATION AND TRANSFER</h3>
 <div class="outline-text-3" id="text-3-2">
 </div>
 <ol class="org-ol">
-<li><a id="org2c5fb76"></a>Introduction<br />
+<li><a id="org44e8173"></a>Introduction<br />
 <div class="outline-text-4" id="text-3-2-1">
 <p>
 The SDAP uses two forms of attitude information.  One is the inertial attitude
@@ -4871,7 +6624,7 @@ use (see Section 3.2 for discussion).
 <div id="org55a0aee" class="figure">
 <p><img src="./figs/figB1.png" alt="figB1.png" width="40%" />
 </p>
-<p><span class="figure-number">Figure 9: </span>Attitude processing overview.</p>
+<p><span class="figure-number">Figure 26: </span>Attitude processing overview.</p>
 </div>
 </div>
 </li>
@@ -4879,15 +6632,178 @@ use (see Section 3.2 for discussion).
 </div>
 
 <div id="outline-container-org09aae49" class="outline-3">
-<h3 id="org09aae49"><span class="section-number-3">3.3</span> <span class="todo TODO">TODO</span> USE OF QUATERNIONS FOR AUTO MANEUVER AND THE ATTITUDE PROCESSOR</h3>
+<h3 id="org09aae49"><span class="section-number-3">3.3</span> USE OF QUATERNIONS FOR AUTO MANEUVER AND THE ATTITUDE PROCESSOR</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+The standard DAP Auto Maneuver module operates with quaternion algebra.  In body
+coordinates, a general three-axis rotation is defined by a single rotation angle
+about the Eulerian eigen axis.  The rotation angle and eigen axis unit vector
+elements are simply related to the quaternion rotational operator, however, they
+can be obtained using any representation of the three-dimensional rotational
+group such as Euler rotations, Pauli spin matrices, or simple quaternions.
+</p>
+
+<p>
+Two transformations are involved in the problem, namely the rotation from
+inertial to commanded attitude, designated by Euler rotation matrix \(R_I^C\) or
+quaternion \(Q_I^C\), and the rotation from inertial to current body attitude,
+designated by Euler matrix \(R_I^B\) or quaternion \(Q_I^B\).
+</p>
+
+<p>
+The control problem is concerned with the transform
+from current body to commanded attitude, i.e., either
+\[
+R_B^C = R_I^C (R_I^B)^\intercal
+\]
+or
+\[
+Q_B^C = Q_I^C (Q_I^B)^*
+\]
+</p>
+
+<p>
+The rotation angle required to get from current body 
+orientation to commanded orientation can be obtained from either
+the Euler rotation matrix \(R_B^C\) as
+\[
+\Delta \theta = cos^{-1} (\frac{1}{2}(Tr(R_B^C) - 1 ))
+\]
+or from the quaternion \(Q_B^C\) as
+\[
+\Delta \theta = 2 sin^{-1} (q_1^2 + q_2^2 + q_3^2)^{1/2}
+\]
+</p>
+
+<p>
+where \(q_1\), \(q_2\) and \(q_3\) are elements of the quaternion. The
+unit vector along the axis of rotation is obtained from the
+Euler rotation matrix \(R_B^C\) as
+\[
+\hat{u} = C_1 \hat{i} + C_2 \hat{j} + C_3 \hat{k}
+\]
+with
+</p>
+
+<p>
+<span style="color: red"> TODO: problem to display the equations</span>
+</p>
+
+<p>
+\[
+</p>
+\begin{array}{l}
+C_1 = \frac{R_{32} - R_{23}}{2 sin \Delta \theta}\\
+C_2 = \frac{R_{13} - R_{31}}{2 sin \Delta \theta}\\
+C_3 = \frac{R_{21} - R_{12}}{2 sin \Delta \theta}\\
+\end{array}
+<p>
+\]
+</p>
+
+<p>
+or from the quaternion \(Q_B^C\) as
+</p>
+
+<p>
+\[
+\hat{u} = -( q_1 \hat{i} + q_2 \hat{j} + q_3 \hat{k}) / (q_1^2 + q_2^2 + q_3^2)^{1/2}
+\]
+</p>
+
+<p>
+The quantities \(\hat{u}\) and \(\Delta \theta\) are used by the Auto Maneuver
+module and labeled "eigen axis" and "rotation angle" respectively.
+</p>
+
+<p>
+Up to this point, there has been no discussion about
+obtaining \(R_I^B\), \(R_I^C\) and \(Q_I^B\), \(Q_I^C\). The matrix \(R_I^C\) is the Euler
+matrix that corresponds to a preselected roll, pitch, and
+yaw angle set chosen for the maneuver.
+The matrix \(R_I^B\) must
+be obtained by integrating the equations of motion, feeding
+the result to the IMU model, and then forming a rotation
+matrix.
+The quaternions \(Q_I^B\), \(Q_I^C\) can be derived from the 
+corresponding R matrix using the equations
+</p>
+
+<p>
+<span style="color: red"> TODO: problem to display the equations</span>
+</p>
+
+
+<p>
+\[
+</p>
+\begin{array}{c}
+q_0 = \frac{1}{2} \sqrt {Tr(R) + 1}\\
+ | q_i | = \frac{&}{2} \sqrt{2 R_{ii} + 1 - Tr(R)}, i = 1 \text{ to } 3
+\end{array}
+<p>
+\]
+</p>
+
+<p>
+with appropriate sign conventions attached.  It is natural to ask at this point,
+"why bother with quaternions when \(R_I^C(R_I^B)^\intercal\) contains all the
+essential information?"  The answer is that evaluation of \(Q_I^C(Q_I^B)^*\)
+requires 40 percent less multiplication than \(R_I^C (R_I^B)^\intercal\). Defining
+</p>
+
+<p>
+<span style="color: red"> TODO: problem to display the equations</span>
+</p>
+
+<p>
+\[ \begin{array}{l} Q_I^{B*} = (q_0', -\underline{V'})\\ Q_I^C = (q_0,
+\underline{V})\\ Q_B^C = (q_0'', \underline{V''}) \]
+</p>
+
+<p>
+and writing the quaternion as a hypercomplex number (i.e.,
+\(Q = q_0 + \underline{V}\), one has 
+</p>
+
+<p>
+<span style="color: red"> TODO: problem to display the equations</span>
+</p>
+
+<p>
+\[
+\begin{array}{lcl}
+q_0'' + \underline{V}'' &=& (q_0' - \underline{V}')(q_0 + \underline{V})\\
+&=& q_0' q_0 - q_0 \underline{V'} + q_0' \underline{V} - \underline{V'} \underline{V}
+\]
+</p>
+
+<p>
+where the quaternion form of the vector product is defined
+as
+\[
+\underline{V'}\underline{V} = \underline{V'} \cdot \underline{V} +
+\underline{V'} \times \underline{V}
+\]
+</p>
+
+<p>
+Therefore
+\begin{array}{lcl}
+q<sub>0</sub>'' &amp;=&amp; q<sub>0</sub>' q<sub>0</sub> - \underline{V}' &sdot; \underline{V}<br />
+\underline{V}'' &amp;=&amp; -q<sub>0</sub> \underline{V'} + q<sub>0</sub>' \underline{V} - \underline{V'} &times; \underline{V}
+\]
+</p>
+</div>
 </div>
 
+
 <div id="outline-container-org3a5b825" class="outline-3">
-<h3 id="org3a5b825"><span class="section-number-3">3.4</span> <span class="todo TODO">TODO</span> VEHICLE RIGID-BODY MOTION MODEL</h3>
+<h3 id="org3a5b825"><span class="section-number-3">3.4</span> VEHICLE RIGID-BODY MOTION MODEL</h3>
 <div class="outline-text-3" id="text-3-4">
 </div>
 <ol class="org-ol">
-<li><a id="org1d98b75"></a>Introduction<br />
+<li><a id="org71b8f6d"></a>Introduction<br />
 <div class="outline-text-4" id="text-3-4-1">
 <p>
 The SDAP is not configured to include translational
@@ -4896,85 +6812,74 @@ control, therefore only the rotational dynamics are modeled.
 </div>
 </li>
 
-<li><a id="org0e074ec"></a><span class="todo TODO">TODO</span> Rotational Dynamics<br />
+<li><a id="org0e074ec"></a>Rotational Dynamics<br />
 <div class="outline-text-4" id="text-3-4-2">
 <p>
-The angular acceleration of the orbiter about its center of gravity is expressed by the Euler equation
-dwv/dt
-=
-I -1 (-
-T
+The angular acceleration of the orbiter about its center of gravity is expressed
+by the Euler equation
 </p>
-<ul class="org-ul">
-<li></li>
 
-<li>w</li>
-</ul>
 <p>
-V
-X
-I
+\[
+d\overline{\omega}_V/dt = I^{-1} (\overline{tau} - \overline{\omega}_V \times I
+\overline{\omega}_V )
+\]
 </p>
-<ul class="org-ul">
-<li>w )</li>
-</ul>
+
 <p>
-V
 where
 </p>
-<ul class="org-ul">
-<li>T =</li>
-</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">\(\overline{\tau}\) = total moment acting on the vehicle</td>
+</tr>
+
+<tr>
+<td class="org-left">\(I\) = vehicle inertia tensor</td>
+</tr>
+
+<tr>
+<td class="org-left">$\overline{\omega}<sub>V</sub> = vehicle angular velocity about its center of gravity</td>
+</tr>
+</tbody>
+</table>
+
 <p>
-=
-</p>
-<ul class="org-ul">
-<li>WV =</li>
-</ul>
-<p>
-I
-total moment acting on the vehicle
-vehicle inertia tensor
-vehicle angular velocity about its center of
-gravity
-The following differential equation updates the transforma-
-tion matrix from vehicle body coordinates to the reference
-inertial coordinates R~
+The following differential equation updates the 
+transformation matrix from vehicle body coordinates to the reference
+inertial coordinates \(R_I^B\).
 </p>
 
 <p>
-RB
-I
-dt
-=
-RB•
-I
-0
-1-wvz
-WV
-y
-z
--w
-vx
--w
--,
-Vy
-WV
-X
-0
-The recommended procedure is to perform numerically
-the first integral of the Euler equation, then, using the
-resultant wV' numerically integrate the dR/dt equation.
-At
-the start of the simulation, the vehicle coordinate system
-can be aligned with the inertial system so that R~(O) is the
-identity matrix.
-Experience has shown that a fourth-order Runge-Kutta
-integration is adequate for the previous equations.
+\[
+\frac{d R_I^B}{d t} = R_I^B \cdot \begin{bmatrix}
+0 & \omega_{V_Z} & - \omega_{V_Y} \\
+-\omega_{V_Z} 1 0 & \omega_{V_X} \\
+\omega_{V_Y} & -\omega_{V_X} & 0
+\end{bmatrix}
+\]
+</p>
+
+<p>
+The recommended procedure is to perform numerically the first integral of the
+Euler equation, then, using the resultant \(\overline{\omega}_V\), numerically
+integrate the \(dR/dt\) equation.  At the start of the simulation, the vehicle
+coordinate system can be aligned with the inertial system so that R<sub>I</sub><sup>B</sup>(0) is
+the identity matrix.
+</p>
+
+<p>
+Experience has shown that a fourth-order Runge-Kutta integration is adequate for
+the previous equations.
 </p>
 </div>
 </li>
-
 
 <li><a id="org7d731a9"></a>Input/Output for the Rigid-Body Dynamical Model<br />
 <div class="outline-text-4" id="text-3-4-3">
@@ -5066,42 +6971,42 @@ effective compensation).</li>
 <div id="orgc4c7a20" class="figure">
 <p><img src="./figs/figD1.png" alt="figD1.png" width="40%" />
 </p>
-<p><span class="figure-number">Figure 10: </span>Typical evolution of switching line S13 with large positive unmodeled disturbance.</p>
+<p><span class="figure-number">Figure 27: </span>Typical evolution of switching line S13 with large positive unmodeled disturbance.</p>
 </div>
 
 
 <div id="org7687fd2" class="figure">
 <p><img src="./figs/figD2.png" alt="figD2.png" width="40%" />
 </p>
-<p><span class="figure-number">Figure 11: </span>Two-sided limit cycle phase-plane trajectory.</p>
+<p><span class="figure-number">Figure 28: </span>Two-sided limit cycle phase-plane trajectory.</p>
 </div>
 
 
 <div id="org55552e4" class="figure">
 <p><img src="./figs/figD3a.png" alt="figD3a.png" width="40%" />
 </p>
-<p><span class="figure-number">Figure 12: </span>One-sided limit cycle phase-plane trajectory. &#x2013; Small disturbance.</p>
+<p><span class="figure-number">Figure 29: </span>One-sided limit cycle phase-plane trajectory. &#x2013; Small disturbance.</p>
 </div>
 
 
 <div id="org4769fc5" class="figure">
 <p><img src="./figs/figD3b.png" alt="figD3b.png" width="40%" />
 </p>
-<p><span class="figure-number">Figure 13: </span>One-sided limit cycle phase-plane trajectory. &#x2013; Large disturbance.</p>
+<p><span class="figure-number">Figure 30: </span>One-sided limit cycle phase-plane trajectory. &#x2013; Large disturbance.</p>
 </div>
 
 
 <div id="org56ae8c8" class="figure">
 <p><img src="./figs/figD4.png" alt="figD4.png" width="40%" />
 </p>
-<p><span class="figure-number">Figure 14: </span>Rate hysteresis cycle phase-plane trajectory.</p>
+<p><span class="figure-number">Figure 31: </span>Rate hysteresis cycle phase-plane trajectory.</p>
 </div>
 
 
 <div id="org3a0a8de" class="figure">
 <p><img src="./figs/figD5.png" alt="figD5.png" width="40%" />
 </p>
-<p><span class="figure-number">Figure 15: </span>Rate threshold cycle phase plane trajectory.</p>
+<p><span class="figure-number">Figure 32: </span>Rate threshold cycle phase plane trajectory.</p>
 </div>
 </div>
 </li>
@@ -5221,11 +7126,8 @@ from appropriate NASA sources including flight techniques panels.
 Disturbance-duration information is specific to each type of event.
 </p>
 
-<p>
-Altitude= 150 nmi
-</p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
+<table id="orgc443fcd" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 35:</span> Gravity gradient torques; orbiter alone around principal LVLH rotation axes.</caption>
 
 <colgroup>
 <col  class="org-left" />
@@ -5239,6 +7141,14 @@ Altitude= 150 nmi
 <col  class="org-left" />
 </colgroup>
 <thead>
+<tr>
+<th scope="col" class="org-left">Altitude= 150 nmi</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+
 <tr>
 <th scope="col" class="org-left">LVLH Rotation Axis</th>
 <th scope="col" class="org-left">Torque Body Axis</th>
@@ -5320,25 +7230,15 @@ Altitude= 150 nmi
 <td class="org-left">--</td>
 </tr>
 </tbody>
-</table>
-<p>
-Altitude= 100 nmi
-</p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-right" />
-
-<col  class="org-right" />
-
-<col  class="org-left" />
-</colgroup>
 <tbody>
+<tr>
+<td class="org-left">Altitude= 100 nmi</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
 <tr>
 <td class="org-left">Roll</td>
 <td class="org-left">X</td>
@@ -5414,7 +7314,7 @@ Altitude= 100 nmi
 </table>
 
 <table id="org421c9cb" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">Table 30:</span> Peak body axis gravity gradient torques for arbitrary rotation; orbiter alone.</caption>
+<caption class="t-above"><span class="table-number">Table 36:</span> Peak body axis gravity gradient torques for arbitrary rotation; orbiter alone.</caption>
 
 <colgroup>
 <col  class="org-left" />
@@ -5446,7 +7346,7 @@ Altitude= 100 nmi
 
 
 <table id="org2a9d94f" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">Table 31:</span> Aerodynamic torques.</caption>
+<caption class="t-above"><span class="table-number">Table 37:</span> Aerodynamic torques.</caption>
 
 <colgroup>
 <col  class="org-left" />
@@ -5531,7 +7431,7 @@ lists the permissible range of the parameters for the real flight code.
 </p>
 
 <table id="org05fa796" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">Table 32:</span> Permissible parameter range.</caption>
+<caption class="t-above"><span class="table-number">Table 38:</span> Permissible parameter range.</caption>
 
 <colgroup>
 <col  class="org-left" />
@@ -5705,14 +7605,14 @@ Figure F-2.
 <div id="org3cd20c0" class="figure">
 <p><img src="./figs/figF1.png" alt="figF1.png" width="40%" />
 </p>
-<p><span class="figure-number">Figure 16: </span>Fabrication frame.</p>
+<p><span class="figure-number">Figure 33: </span>Fabrication frame.</p>
 </div>
 
 
 <div id="org5cb71fd" class="figure">
 <p><img src="./figs/figF2.png" alt="figF2.png" width="40%" />
 </p>
-<p><span class="figure-number">Figure 17: </span>Body coordinate system.</p>
+<p><span class="figure-number">Figure 34: </span>Body coordinate system.</p>
 </div>
 </div>
 </li>
@@ -5768,7 +7668,7 @@ Figure F-2.
 <div id="postamble" class="status">
 <p class="date">Date: July 1982</p>
 <p class="author">Author: P. Hattis, C. Kirchwey, H. Malchow, D. Sargent, S. Tavan.</p>
-<p class="date">Created: 2018-12-18 Tue 12:04</p>
+<p class="date">Created: 2018-12-19 Wed 17:49</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-12-18 Tue 12:04 -->
+<!-- 2018-12-19 Wed 17:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Space Shuttle Requirements</title>
@@ -253,14 +253,33 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">Space Shuttle Requirements</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgad582c6">1. General Hypotheses</a></li>
+<li><a href="#orgc2cae94">2. SDAP Structure</a></li>
+<li><a href="#org01b90a7">3. SDAP Mode Possibilities</a></li>
+<li><a href="#org6775804">4. SDAP Executive</a></li>
+<li><a href="#orgc805f5f">5. Attitude Processor Module</a></li>
+<li><a href="#orgf23d0fc">6. Auto Maneuver Module</a></li>
+<li><a href="#org832be45">7. Manual Maneuver Module</a></li>
+<li><a href="#orgc9aab23">8. State Error Module</a></li>
+<li><a href="#org09d3b39">9. Phase Plane Module</a></li>
+<li><a href="#org25968fe">10. Jet Selection Module</a></li>
+</ul>
+</div>
+</div>
 
-<div id="outline-container-orgaa36aac" class="outline-2">
-<h2 id="orgaa36aac"><span class="section-number-2">1</span> Req.s1.p2.1</h2>
+<div id="outline-container-orgad582c6" class="outline-2">
+<h2 id="orgad582c6"><span class="section-number-2">1</span> General Hypotheses</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgaf58dbc" class="outline-3">
-<h3 id="orgaf58dbc"><span class="section-number-3">1.1</span> Text</h3>
-<div class="outline-text-3" id="text-1-1">
+<ol class="org-ol">
+<li><a id="orgaa36aac"></a>Req.s1.p2.1<br />
+<ol class="org-ol">
+<li><a id="org0de0678"></a>Text<br />
+<div class="outline-text-4" id="text-1-1-1">
 <p>
 Users of the SDAP are cautioned that, at very small rate
 limits and deadbands, e.g., 0.01 deg/s and 0.01 deg for
@@ -269,36 +288,38 @@ here may not represent real vehicle behavior because of the
 model simplifications.
 </p>
 </div>
-</div>
+</li>
 
-<div id="outline-container-org9d365e7" class="outline-3">
-<h3 id="org9d365e7"><span class="section-number-3">1.2</span> Comment</h3>
-<div class="outline-text-3" id="text-1-2">
+<li><a id="org8223dd2"></a>Comment<br />
+<div class="outline-text-4" id="text-1-1-2">
 <p>
 Do we have to do anything. Like check that rate limits and deadband
 should be above the thresholds?
 </p>
 </div>
-</div>
+</li>
 
-<div id="outline-container-orga0c5ab2" class="outline-3">
-<h3 id="orga0c5ab2"><span class="section-number-3">1.3</span> Scope</h3>
-<div class="outline-text-3" id="text-1-3">
+<li><a id="orgb67bfe6"></a>Scope<br />
+<div class="outline-text-4" id="text-1-1-3">
 <p>
 General. Do know exactly where to define it.
 </p>
 </div>
-</div>
+</li>
+</ol>
+</li>
+</ol>
 </div>
 
-
-<div id="outline-container-org8d2f9e7" class="outline-2">
-<h2 id="org8d2f9e7"><span class="section-number-2">2</span> Req.s2.1.p3.1</h2>
+<div id="outline-container-orgc2cae94" class="outline-2">
+<h2 id="orgc2cae94"><span class="section-number-2">2</span> SDAP Structure</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgb513f57" class="outline-3">
-<h3 id="orgb513f57"><span class="section-number-3">2.1</span> Text</h3>
-<div class="outline-text-3" id="text-2-1">
+<ol class="org-ol">
+<li><a id="org8d2f9e7"></a>Req.s2.1.p3.1<br />
+<ol class="org-ol">
+<li><a id="orge030665"></a>Text<br />
+<div class="outline-text-4" id="text-2-1-1">
 <p>
 The conditioning inputs shown in Figure 2 include DAP parameters, such
 as attitude rate limits and deadbands and other quantities that the
@@ -307,105 +328,98 @@ such as the choices between primary and vernier jets and automatic and
 manual attitude control.
 </p>
 </div>
-</div>
+</li>
 
-<div id="outline-container-org36153fd" class="outline-3">
-<h3 id="org36153fd"><span class="section-number-3">2.2</span> Comment</h3>
-<div class="outline-text-3" id="text-2-2">
+<li><a id="org008e1f5"></a>Comment<br />
+<div class="outline-text-4" id="text-2-1-2">
 <p>
 Is this really a requirement?
 </p>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-org72d51fb" class="outline-2">
-<h2 id="org72d51fb"><span class="section-number-2">3</span> Req.s2.2.p5.1</h2>
-<div class="outline-text-2" id="text-3">
-</div>
-<div id="outline-container-org02c83d8" class="outline-3">
-<h3 id="org02c83d8"><span class="section-number-3">3.1</span> Text</h3>
-<div class="outline-text-3" id="text-3-1">
+<li><a id="org72d51fb"></a>Req.s2.2.p5.1<br />
+<ol class="org-ol">
+<li><a id="org20ad5d3"></a>Text<br />
+<div class="outline-text-4" id="text-2-2-1">
 <p>
 When the steering mode is manual open-loop, the State Error and Phase
 Plane modules can be bypassed; jets are fired directly by moving the rotational
 hand controller (RHC) out of detent.
 </p>
 </div>
-</div>
+</li>
 
-<div id="outline-container-org67dcd33" class="outline-3">
-<h3 id="org67dcd33"><span class="section-number-3">3.2</span> Comment</h3>
-<div class="outline-text-3" id="text-3-2">
+<li><a id="org1f77d98"></a>Comment<br />
+<div class="outline-text-4" id="text-2-2-2">
 <p>
 This property is general and describe how the flow of values is
 propagated. The Figure 3 describe the general flow.
 </p>
 </div>
-</div>
+</li>
 
-<div id="outline-container-org4673a52" class="outline-3">
-<h3 id="org4673a52"><span class="section-number-3">3.3</span> Scope</h3>
-<div class="outline-text-3" id="text-3-3">
+<li><a id="org7bd9c07"></a>Scope<br />
+<div class="outline-text-4" id="text-2-2-3">
 <p>
 General. Shall be expressed within SDAP since the use of StateError of
 PhasePlace are not visible from outside.
 </p>
 </div>
-</div>
+</li>
+</ol>
+</li>
+</ol>
 </div>
 
-
-<div id="outline-container-org989d1dc" class="outline-2">
-<h2 id="org989d1dc"><span class="section-number-2">4</span> Req.s2.6.p13.1</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-org01b90a7" class="outline-2">
+<h2 id="org01b90a7"><span class="section-number-2">3</span> SDAP Mode Possibilities</h2>
+<div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org2ee9588" class="outline-3">
-<h3 id="org2ee9588"><span class="section-number-3">4.1</span> Text</h3>
-<div class="outline-text-3" id="text-4-1">
+<ol class="org-ol">
+<li><a id="org989d1dc"></a>Req.s2.6.p13.1<br />
+<ol class="org-ol">
+<li><a id="org2151dc3"></a>Text<br />
+<div class="outline-text-4" id="text-3-1-1">
 <p>
 If in AUTO, the desired state comes from the auto maneuver logic
 </p>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-org727f947" class="outline-2">
-<h2 id="org727f947"><span class="section-number-2">5</span> Req.s2.6.p13.2</h2>
-<div class="outline-text-2" id="text-5">
-</div>
-<div id="outline-container-org7290243" class="outline-3">
-<h3 id="org7290243"><span class="section-number-3">5.1</span> Text</h3>
-<div class="outline-text-3" id="text-5-1">
+<li><a id="org727f947"></a>Req.s2.6.p13.2<br />
+<ol class="org-ol">
+<li><a id="org5f125db"></a>Text<br />
+<div class="outline-text-4" id="text-3-2-1">
 <p>
 if in MANUAL, the desired state depends on the hand controller history
 </p>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-org70cd64c" class="outline-2">
-<h2 id="org70cd64c"><span class="section-number-2">6</span> Req.s2.6.p13.3</h2>
-<div class="outline-text-2" id="text-6">
-</div>
-<div id="outline-container-org3b17e5c" class="outline-3">
-<h3 id="org3b17e5c"><span class="section-number-3">6.1</span> Text</h3>
-<div class="outline-text-3" id="text-6-1">
+<li><a id="org70cd64c"></a>Req.s2.6.p13.3<br />
+<ol class="org-ol">
+<li><a id="orgfda5082"></a>Text<br />
+<div class="outline-text-4" id="text-3-3-1">
 <p>
 The flight code pulse
 mode can be emulated by an appropriate choice of RHC deflection interval
 </p>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-org336cfcb" class="outline-2">
-<h2 id="org336cfcb"><span class="section-number-2">7</span> Req.s2.6.p13.4</h2>
-<div class="outline-text-2" id="text-7">
-</div>
-<div id="outline-container-org4e7bb57" class="outline-3">
-<h3 id="org4e7bb57"><span class="section-number-3">7.1</span> Text</h3>
-<div class="outline-text-3" id="text-7-1">
+<li><a id="org336cfcb"></a>Req.s2.6.p13.4<br />
+<ol class="org-ol">
+<li><a id="org9dce0d1"></a>Text<br />
+<div class="outline-text-4" id="text-3-4-1">
 <p>
 In
 flight, pulse sizes in all axes are controlled by a single crew specified rate
@@ -413,97 +427,91 @@ change quantity which is divided by an estimated per axis acceleration to
 compute pulse duration
 </p>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-orgc7475a5" class="outline-2">
-<h2 id="orgc7475a5"><span class="section-number-2">8</span> Req.s2.6.p13.5</h2>
-<div class="outline-text-2" id="text-8">
-</div>
-<div id="outline-container-orgc41a9c0" class="outline-3">
-<h3 id="orgc41a9c0"><span class="section-number-3">8.1</span> Text</h3>
-<div class="outline-text-3" id="text-8-1">
+<li><a id="orgc7475a5"></a>Req.s2.6.p13.5<br />
+<ol class="org-ol">
+<li><a id="org5deefef"></a>Text<br />
+<div class="outline-text-4" id="text-3-5-1">
 <p>
 Pulses in close proximity to one another generally will
 all be based on one rate change value
 </p>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-orgdd4f64c" class="outline-2">
-<h2 id="orgdd4f64c"><span class="section-number-2">9</span> Req.s2.6.p13.6</h2>
-<div class="outline-text-2" id="text-9">
-</div>
-<div id="outline-container-orge9f4a06" class="outline-3">
-<h3 id="orge9f4a06"><span class="section-number-3">9.1</span> Text</h3>
-<div class="outline-text-3" id="text-9-1">
+<li><a id="orgdd4f64c"></a>Req.s2.6.p13.6<br />
+<ol class="org-ol">
+<li><a id="org61db6ee"></a>Text<br />
+<div class="outline-text-4" id="text-3-6-1">
 <p>
 In any one axis, plus and minus pulses
 will be of the same duration
 </p>
 </div>
-</div>
+</li>
+</ol>
+</li>
+</ol>
 </div>
 
-<div id="outline-container-orgbbdc459" class="outline-2">
-<h2 id="orgbbdc459"><span class="section-number-2">10</span> Req.s3.1.1.p18.1</h2>
-<div class="outline-text-2" id="text-10">
+<div id="outline-container-org6775804" class="outline-2">
+<h2 id="org6775804"><span class="section-number-2">4</span> SDAP Executive</h2>
+<div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orga52fd22" class="outline-3">
-<h3 id="orga52fd22"><span class="section-number-3">10.1</span> Text</h3>
-<div class="outline-text-3" id="text-10-1">
+<ol class="org-ol">
+<li><a id="orgbbdc459"></a>Req.s3.1.1.p18.1<br />
+<ol class="org-ol">
+<li><a id="org7b0df99"></a>Text<br />
+<div class="outline-text-4" id="text-4-1-1">
 <p>
 SDAP Executive routine calls the SDAP modules
      in proper sequence 
 </p>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-org3d55636" class="outline-2">
-<h2 id="org3d55636"><span class="section-number-2">11</span> Req.s3.1.1.p18.2</h2>
-<div class="outline-text-2" id="text-11">
-</div>
-<div id="outline-container-org29ed4a5" class="outline-3">
-<h3 id="org29ed4a5"><span class="section-number-3">11.1</span> Text</h3>
-<div class="outline-text-3" id="text-11-1">
+<li><a id="org3d55636"></a>Req.s3.1.1.p18.2<br />
+<ol class="org-ol">
+<li><a id="org53ee71e"></a>Text<br />
+<div class="outline-text-5" id="text-4-2-0-1">
 <p>
 SDAP Executive routine sets SDAP moding flags
 </p>
 </div>
-</div>
-</div>
-<div id="outline-container-org3546385" class="outline-2">
-<h2 id="org3546385"><span class="section-number-2">12</span> Req.s3.1.2.1.p19.1</h2>
-<div class="outline-text-2" id="text-12">
-</div>
-<div id="outline-container-org3f6004a" class="outline-3">
-<h3 id="org3f6004a"><span class="section-number-3">12.1</span> Text</h3>
-<div class="outline-text-3" id="text-12-1">
+</li>
+</ol>
+</li>
+<li><a id="org3546385"></a>Req.s3.1.2.1.p19.1<br />
+<ol class="org-ol">
+<li><a id="org476e219"></a>Text<br />
+<div class="outline-text-4" id="text-4-3-1">
 <p>
 A clock is maintained that increments time at intervals of 80 ms, the SDAP
       time step
 </p>
 </div>
-</div>
-</div>
-<div id="outline-container-org0c4b991" class="outline-2">
-<h2 id="org0c4b991"><span class="section-number-2">13</span> Req.s3.1.2.2.p19.1</h2>
-<div class="outline-text-2" id="text-13">
-</div>
-<div id="outline-container-org023a5f0" class="outline-3">
-<h3 id="org023a5f0"><span class="section-number-3">13.1</span> Text</h3>
-<div class="outline-text-3" id="text-13-1">
+</li>
+</ol>
+</li>
+<li><a id="org0c4b991"></a>Req.s3.1.2.2.p19.1<br />
+<ol class="org-ol">
+<li><a id="orgcc4e903"></a>Text<br />
+<div class="outline-text-4" id="text-4-4-1">
 <p>
 If the hand controller is deflected in any axis, the SDAP
       automatically switches to manual mode
 </p>
 </div>
-</div>
-<div id="outline-container-orge6a2b43" class="outline-3">
-<h3 id="orge6a2b43"><span class="section-number-3">13.2</span> Spec</h3>
-<div class="outline-text-3" id="text-13-2">
+</li>
+<li><a id="org457c2f0"></a>Spec<br />
+<div class="outline-text-4" id="text-4-4-2">
 <pre class="example">
 (* Req Id: req_s3_1_2_2_p19_1
 
@@ -538,71 +546,61 @@ let
 tel	   
 </pre>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-org6442c0b" class="outline-2">
-<h2 id="org6442c0b"><span class="section-number-2">14</span> Req.s3.1.2.2.p19.2</h2>
-<div class="outline-text-2" id="text-14">
-</div>
-<div id="outline-container-org4a7712e" class="outline-3">
-<h3 id="org4a7712e"><span class="section-number-3">14.1</span> Text</h3>
-<div class="outline-text-3" id="text-14-1">
+<li><a id="org6442c0b"></a>Req.s3.1.2.2.p19.2<br />
+<ol class="org-ol">
+<li><a id="org1c57d46"></a>Text<br />
+<div class="outline-text-4" id="text-4-5-1">
 <p>
 On the first pass, the jet select initialization flag is
       set
 </p>
 </div>
-</div>
-</div>
-<div id="outline-container-org645ceff" class="outline-2">
-<h2 id="org645ceff"><span class="section-number-2">15</span> Req.s3.1.2.2.p19.3</h2>
-<div class="outline-text-2" id="text-15">
-</div>
-<div id="outline-container-org1d4655b" class="outline-3">
-<h3 id="org1d4655b"><span class="section-number-3">15.1</span> Text</h3>
-<div class="outline-text-3" id="text-15-1">
+</li>
+</ol>
+</li>
+<li><a id="org645ceff"></a>Req.s3.1.2.2.p19.3<br />
+<ol class="org-ol">
+<li><a id="org0521d29"></a>Text<br />
+<div class="outline-text-4" id="text-4-6-1">
 <p>
 On the first pass, if the mode is manual, the state error initialization flag is
       set
 </p>
 </div>
-</div>
-</div>
-<div id="outline-container-org2ca634e" class="outline-2">
-<h2 id="org2ca634e"><span class="section-number-2">16</span> Req.s3.1.2.2.p19.4</h2>
-<div class="outline-text-2" id="text-16">
-</div>
-<div id="outline-container-orgb42759c" class="outline-3">
-<h3 id="orgb42759c"><span class="section-number-3">16.1</span> Text</h3>
-<div class="outline-text-3" id="text-16-1">
+</li>
+</ol>
+</li>
+<li><a id="org2ca634e"></a>Req.s3.1.2.2.p19.4<br />
+<ol class="org-ol">
+<li><a id="org275faff"></a>Text<br />
+<div class="outline-text-4" id="text-4-7-1">
 <p>
 Every second pass, the Attitude Processor and Part 1 of the State
       Estimator are called to incorporate new attitude information from the IMU.
 </p>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-
-<div id="outline-container-orgc468f31" class="outline-2">
-<h2 id="orgc468f31"><span class="section-number-2">17</span> Req.s3.1.2.2.p19.5</h2>
-<div class="outline-text-2" id="text-17">
-</div>
-<div id="outline-container-org3c8f1e8" class="outline-3">
-<h3 id="org3c8f1e8"><span class="section-number-3">17.1</span> Text</h3>
-<div class="outline-text-3" id="text-17-1">
+<li><a id="orgc468f31"></a>Req.s3.1.2.2.p19.5<br />
+<ol class="org-ol">
+<li><a id="org5cc55d0"></a>Text<br />
+<div class="outline-text-4" id="text-4-8-1">
 <p>
 When the maneuver mode is changed from manual to auto, if the bypass
       flag is ON, it is set to OFF and the auto maneuver
       initialization flag is set to ON.
 </p>
 </div>
-</div>
+</li>
 
-<div id="outline-container-orgada63c5" class="outline-3">
-<h3 id="orgada63c5"><span class="section-number-3">17.2</span> Spec</h3>
-<div class="outline-text-3" id="text-17-2">
+<li><a id="orgb9a72bb"></a>Spec<br />
+<div class="outline-text-4" id="text-4-8-2">
 <pre class="example">
 (* Req Id: req_s3_1_2_2_p19_5
 
@@ -656,77 +654,82 @@ guarantees req_s3_1_2_2_p19_5_3;
 tel	   
 </pre>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-org6ceb275" class="outline-2">
-<h2 id="org6ceb275"><span class="section-number-2">18</span> Req.s3.1.2.2.p19.6</h2>
-<div class="outline-text-2" id="text-18">
-</div>
-<div id="outline-container-org78ac7c3" class="outline-3">
-<h3 id="org78ac7c3"><span class="section-number-3">18.1</span> Text</h3>
-<div class="outline-text-3" id="text-18-1">
+<li><a id="org6ceb275"></a>Req.s3.1.2.2.p19.6<br />
+<ol class="org-ol">
+<li><a id="org6314c32"></a>Text<br />
+<div class="outline-text-4" id="text-4-9-1">
 <p>
 Since the Auto Maneuver module is processed at 1.04 Hz, it is
       called every 12th DAP pass whenever SDAP is in the auto mode.  
 </p>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-org688f36f" class="outline-2">
-<h2 id="org688f36f"><span class="section-number-2">19</span> Req.s3.1.2.2.p20.1</h2>
-<div class="outline-text-2" id="text-19">
-</div>
-<div id="outline-container-org5a8bc22" class="outline-3">
-<h3 id="org5a8bc22"><span class="section-number-3">19.1</span> Text</h3>
-<div class="outline-text-3" id="text-19-1">
+<li><a id="org688f36f"></a>Req.s3.1.2.2.p20.1<br />
+<ol class="org-ol">
+<li><a id="org26c3426"></a>Text<br />
+<div class="outline-text-4" id="text-4-10-1">
 <p>
 If the mode
       is manual, the Manual Maneuver module is called each SDAP pass.
 </p>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-org591ab80" class="outline-2">
-<h2 id="org591ab80"><span class="section-number-2">20</span> Req.s3.1.2.2.p20.2</h2>
-<div class="outline-text-2" id="text-20">
-</div>
-<div id="outline-container-org3d1dcec" class="outline-3">
-<h3 id="org3d1dcec"><span class="section-number-3">20.1</span> Text</h3>
-<div class="outline-text-3" id="text-20-1">
+<li><a id="org591ab80"></a>Req.s3.1.2.2.p20.2<br />
+<ol class="org-ol">
+<li><a id="org12f1364"></a>Text<br />
+<div class="outline-text-4" id="text-4-11-1">
 <p>
 If any of the
       bypass-flag elements are OFF, then Phase Plane is called to set the
       rotation commands in those axes.
 </p>
 </div>
-</div>
+</li>
+</ol>
+</li>
+</ol>
 </div>
 
-<div id="outline-container-org3d59726" class="outline-2">
-<h2 id="org3d59726"><span class="section-number-2">21</span> Req.s3.2.2.p23.1</h2>
-<div class="outline-text-2" id="text-21">
+
+<div id="outline-container-orgc805f5f" class="outline-2">
+<h2 id="orgc805f5f"><span class="section-number-2">5</span> Attitude Processor Module</h2>
+<div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org83ce94f" class="outline-3">
-<h3 id="org83ce94f"><span class="section-number-3">21.1</span> Text</h3>
-<div class="outline-text-3" id="text-21-1">
+<ol class="org-ol">
+<li><a id="org3d59726"></a>Req.s3.2.2.p23.1<br />
+<ol class="org-ol">
+<li><a id="orgf6a1505"></a>Text<br />
+<div class="outline-text-4" id="text-5-1-1">
 <p>
 The Attitude Processor module is called every
 second SDAP pass; that is, on the same pass on which Part 1 of the State
 Estimator is called
 </p>
 </div>
+</li>
+</ol>
+</li>
+</ol>
 </div>
+<div id="outline-container-orgf23d0fc" class="outline-2">
+<h2 id="orgf23d0fc"><span class="section-number-2">6</span> Auto Maneuver Module</h2>
+<div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org8122bcd" class="outline-2">
-<h2 id="org8122bcd"><span class="section-number-2">22</span> Req.s3.3.1.p26.1</h2>
-<div class="outline-text-2" id="text-22">
-</div>
-<div id="outline-container-org04a2c2a" class="outline-3">
-<h3 id="org04a2c2a"><span class="section-number-3">22.1</span> Text</h3>
-<div class="outline-text-3" id="text-22-1">
+<ol class="org-ol">
+<li><a id="org8122bcd"></a>Req.s3.3.1.p26.1<br />
+<ol class="org-ol">
+<li><a id="orgee689d6"></a>Text<br />
+<div class="outline-text-4" id="text-6-1-1">
 <p>
 if this attitude is sufficiently
 different from the current attitude, the SDAP executes a maneuver at a
@@ -734,16 +737,14 @@ preselected maneuver rate until the current attitude approaches the commanded
 attitude
 </p>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-orgc6e95e4" class="outline-2">
-<h2 id="orgc6e95e4"><span class="section-number-2">23</span> Req.s3.3.2.p27.1</h2>
-<div class="outline-text-2" id="text-23">
-</div>
-<div id="outline-container-org083798b" class="outline-3">
-<h3 id="org083798b"><span class="section-number-3">23.1</span> Text</h3>
-<div class="outline-text-3" id="text-23-1">
+<li><a id="orgc6e95e4"></a>Req.s3.3.2.p27.1<br />
+<ol class="org-ol">
+<li><a id="orgc984a34"></a>Text<br />
+<div class="outline-text-4" id="text-6-2-1">
 <p>
 Auto Maneuver tests the rotation angle \(\Delta\theta\) against
 two numerical criteria.
@@ -752,60 +753,52 @@ places itself in the maneuver mode; if \(\Delta\theta\) is less than \(x\),
 the hold mode results.
 </p>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-org825ac78" class="outline-2">
-<h2 id="org825ac78"><span class="section-number-2">24</span> Req.s3.3.2.p27.2</h2>
-<div class="outline-text-2" id="text-24">
-</div>
-<div id="outline-container-org63e276d" class="outline-3">
-<h3 id="org63e276d"><span class="section-number-3">24.1</span> Text</h3>
-<div class="outline-text-3" id="text-24-1">
+<li><a id="org825ac78"></a>Req.s3.3.2.p27.2<br />
+<ol class="org-ol">
+<li><a id="orgbd4df8c"></a>Text<br />
+<div class="outline-text-4" id="text-6-3-1">
 <p>
 DESIRED RATE is either zero during hold or the projection of
 MANEUVER RATE on the eigen axis during maneuver.
 </p>
 </div>
-</div>
-</div>
-<div id="outline-container-org1bff8d9" class="outline-2">
-<h2 id="org1bff8d9"><span class="section-number-2">25</span> Req.s3.3.2.p28.1</h2>
-<div class="outline-text-2" id="text-25">
-</div>
-<div id="outline-container-orgddd523b" class="outline-3">
-<h3 id="orgddd523b"><span class="section-number-3">25.1</span> Text</h3>
-<div class="outline-text-3" id="text-25-1">
+</li>
+</ol>
+</li>
+<li><a id="org1bff8d9"></a>Req.s3.3.2.p28.1<br />
+<ol class="org-ol">
+<li><a id="org7aa385f"></a>Text<br />
+<div class="outline-text-4" id="text-6-4-1">
 <p>
 In the hold mode, DESIRED ATTITUDE is the attitude estimate plus the projection
 of the rotation angle \(\Delta\theta\) the eigen axis
 </p>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-orga87c3fa" class="outline-2">
-<h2 id="orga87c3fa"><span class="section-number-2">26</span> Req.s3.3.2.p28.2</h2>
-<div class="outline-text-2" id="text-26">
-</div>
-<div id="outline-container-org5b87e85" class="outline-3">
-<h3 id="org5b87e85"><span class="section-number-3">26.1</span> Text</h3>
-<div class="outline-text-3" id="text-26-1">
+<li><a id="orga87c3fa"></a>Req.s3.3.2.p28.2<br />
+<ol class="org-ol">
+<li><a id="org01df607"></a>Text<br />
+<div class="outline-text-4" id="text-6-5-1">
 <p>
 When the maneuver mode is first entered, DESIRED ATTITUDE is set equal
 to the current attitude estimate plus a bias vector. The State Error
 module then has an attitude error equal to the bias vector.
 </p>
 </div>
-</div>
-</div>
-<div id="outline-container-orgc475951" class="outline-2">
-<h2 id="orgc475951"><span class="section-number-2">27</span> Req.s3.3.2.p28.3</h2>
-<div class="outline-text-2" id="text-27">
-</div>
-<div id="outline-container-org8bd2d5b" class="outline-3">
-<h3 id="org8bd2d5b"><span class="section-number-3">27.1</span> Text</h3>
-<div class="outline-text-3" id="text-27-1">
+</li>
+</ol>
+</li>
+<li><a id="orgc475951"></a>Req.s3.3.2.p28.3<br />
+<ol class="org-ol">
+<li><a id="org3daaf46"></a>Text<br />
+<div class="outline-text-4" id="text-6-6-1">
 <p>
 On each pass, State Error adds an attitude
 increment of \(0.08 \cdot \text{DESIRED RATE}\) to the desired attitude
@@ -813,29 +806,32 @@ so that the attitude error is always referred to a frame rotating at
 the desired maneuver rate.
 </p>
 </div>
-</div>
+</li>
+</ol>
+</li>
+</ol>
 </div>
 
-<div id="outline-container-org7a5f064" class="outline-2">
-<h2 id="org7a5f064"><span class="section-number-2">28</span> Req.s3.4.2.p33.1</h2>
-<div class="outline-text-2" id="text-28">
+<div id="outline-container-org832be45" class="outline-2">
+<h2 id="org832be45"><span class="section-number-2">7</span> Manual Maneuver Module</h2>
+<div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-org02bcea6" class="outline-3">
-<h3 id="org02bcea6"><span class="section-number-3">28.1</span> Text</h3>
-<div class="outline-text-3" id="text-28-1">
+<ol class="org-ol">
+<li><a id="org7a5f064"></a>Req.s3.4.2.p33.1<br />
+<ol class="org-ol">
+<li><a id="org0f5e034"></a>Text<br />
+<div class="outline-text-4" id="text-7-1-1">
 <p>
 The open-loop submode issues a rotation command whenever the RHC is deflected.
 </p>
 </div>
-</div>
-</div>
-<div id="outline-container-org0737438" class="outline-2">
-<h2 id="org0737438"><span class="section-number-2">29</span> Req.s3.4.2.p33.2</h2>
-<div class="outline-text-2" id="text-29">
-</div>
-<div id="outline-container-org29da1d7" class="outline-3">
-<h3 id="org29da1d7"><span class="section-number-3">29.1</span> Text</h3>
-<div class="outline-text-3" id="text-29-1">
+</li>
+</ol>
+</li>
+<li><a id="org0737438"></a>Req.s3.4.2.p33.2<br />
+<ol class="org-ol">
+<li><a id="org0093d78"></a>Text<br />
+<div class="outline-text-4" id="text-7-2-1">
 <p>
 The user can simulate acceleration and pulse actions by choosing an appropriate
 RHC deflection interval.  In this submode, the module sets a BYPASS discrete and
@@ -843,45 +839,39 @@ consequently, the Phase Plane module output is ignored. The rotation command is
 sent directly to the Jet Selection module 
 </p>
 </div>
-</div>
-</div>
-<div id="outline-container-orgbb1f79f" class="outline-2">
-<h2 id="orgbb1f79f"><span class="section-number-2">30</span> Req.s3.4.2.p33.3</h2>
-<div class="outline-text-2" id="text-30">
-</div>
-<div id="outline-container-org03570e6" class="outline-3">
-<h3 id="org03570e6"><span class="section-number-3">30.1</span> Text</h3>
-<div class="outline-text-3" id="text-30-1">
+</li>
+</ol>
+</li>
+<li><a id="orgbb1f79f"></a>Req.s3.4.2.p33.3<br />
+<ol class="org-ol">
+<li><a id="org3d8b0c7"></a>Text<br />
+<div class="outline-text-4" id="text-7-3-1">
 <p>
 The closed-loop submode causes a DESIRED RATE value to be sent to State Error.
 For each axis in which the RHC is deflected, this rate is set equal to the input
 MANEUVER RATE.
 </p>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-org19b6fd2" class="outline-2">
-<h2 id="org19b6fd2"><span class="section-number-2">31</span> Req.s3.4.2.p33.4</h2>
-<div class="outline-text-2" id="text-31">
-</div>
-<div id="outline-container-org0ae701f" class="outline-3">
-<h3 id="org0ae701f"><span class="section-number-3">31.1</span> Text</h3>
-<div class="outline-text-3" id="text-31-1">
+<li><a id="org19b6fd2"></a>Req.s3.4.2.p33.4<br />
+<ol class="org-ol">
+<li><a id="org9888c9f"></a>Text<br />
+<div class="outline-text-5" id="text-7-4-0-1">
 <p>
 When the RHC is returned to detent, the DESIRED RATE is set to zero and
 attitude hold is established at the current attitude.
 </p>
 </div>
-</div>
-</div>
-<div id="outline-container-org9c27332" class="outline-2">
-<h2 id="org9c27332"><span class="section-number-2">32</span> Req.s3.4.2.p33.5</h2>
-<div class="outline-text-2" id="text-32">
-</div>
-<div id="outline-container-orgee4d494" class="outline-3">
-<h3 id="orgee4d494"><span class="section-number-3">32.1</span> Text</h3>
-<div class="outline-text-3" id="text-32-1">
+</li>
+</ol>
+</li>
+<li><a id="org9c27332"></a>Req.s3.4.2.p33.5<br />
+<ol class="org-ol">
+<li><a id="org15665da"></a>Text<br />
+<div class="outline-text-4" id="text-7-5-1">
 <p>
 When the closed-loop submode is operating, the Manual Maneuver module issues an
 INITIALIZE STATE ERROR discrete whenever a change occurs in RHC state.  This
@@ -889,16 +879,14 @@ allows an attitude hold to be effected at the attitude attained when the RHC is
 returned to detent, by zeroing the attitude error.
 </p>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-org997af3d" class="outline-2">
-<h2 id="org997af3d"><span class="section-number-2">33</span> Req.s3.4.2.p34.1</h2>
-<div class="outline-text-2" id="text-33">
-</div>
-<div id="outline-container-orgddf2c67" class="outline-3">
-<h3 id="orgddf2c67"><span class="section-number-3">33.1</span> Text</h3>
-<div class="outline-text-3" id="text-33-1">
+<li><a id="org997af3d"></a>Req.s3.4.2.p34.1<br />
+<ol class="org-ol">
+<li><a id="orgd38d62a"></a>Text<br />
+<div class="outline-text-4" id="text-7-6-1">
 <p>
 A FORCE FIRE discrete is sent to the Phase Plane module when the RHC is
 deflected (first pass of deflection only).  This discrete causes at least a
@@ -907,39 +895,41 @@ crew "feel" of vehicle response to manual input for SDAP settings involving a
 large RATE LIMIT and small MANEUVER RATE.
 </p>
 </div>
-</div>
-<div id="outline-container-org7eb6834" class="outline-3">
-<h3 id="org7eb6834"><span class="section-number-3">33.2</span> Comment</h3>
-<div class="outline-text-3" id="text-33-2">
+</li>
+<li><a id="org53e35c9"></a>Comment<br />
+<div class="outline-text-4" id="text-7-6-2">
 <p>
 Is it a single req or multiple ones?
 </p>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-orgcc1e7cc" class="outline-2">
-<h2 id="orgcc1e7cc"><span class="section-number-2">34</span> Req.s3.4.2.p34.2</h2>
-<div class="outline-text-2" id="text-34">
-</div>
-<div id="outline-container-org6515a30" class="outline-3">
-<h3 id="org6515a30"><span class="section-number-3">34.1</span> Text</h3>
-<div class="outline-text-3" id="text-34-1">
+<li><a id="orgcc1e7cc"></a>Req.s3.4.2.p34.2<br />
+<ol class="org-ol">
+<li><a id="orgb1421f5"></a>Text<br />
+<div class="outline-text-4" id="text-7-7-1">
 <p>
 The choice between manual open- and closed-loop functions is made by setting the
 discrete CLOSED LOOP.  The ON setting selects the closed-loop function.
 </p>
 </div>
-</div>
+</li>
+</ol>
+</li>
+</ol>
 </div>
 
-<div id="outline-container-org0d023e0" class="outline-2">
-<h2 id="org0d023e0"><span class="section-number-2">35</span> Req.s3.6.2.p45.1</h2>
-<div class="outline-text-2" id="text-35">
+<div id="outline-container-orgc9aab23" class="outline-2">
+<h2 id="orgc9aab23"><span class="section-number-2">8</span> State Error Module</h2>
+<div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-orgee9b19a" class="outline-3">
-<h3 id="orgee9b19a"><span class="section-number-3">35.1</span> Text</h3>
-<div class="outline-text-3" id="text-35-1">
+<ol class="org-ol">
+<li><a id="org0d023e0"></a>Req.s3.6.2.p45.1<br />
+<ol class="org-ol">
+<li><a id="org6633e54"></a>Text<br />
+<div class="outline-text-4" id="text-8-1-1">
 <p>
 The
 desired rate equals the MANEUVER RATE when the SDAP is in the discrete rate mode
@@ -948,24 +938,21 @@ RATE when the SDAP is in the auto maneuver mode and maneuvering. Otherwise the
 desired rate is zero.
 </p>
 </div>
-</div>
-<div id="outline-container-org95f8d94" class="outline-3">
-<h3 id="org95f8d94"><span class="section-number-3">35.2</span> Comment</h3>
-<div class="outline-text-3" id="text-35-2">
+</li>
+<li><a id="org03781e9"></a>Comment<br />
+<div class="outline-text-4" id="text-8-1-2">
 <p>
 check completeness of the conditions
 </p>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-org7ee5ae9" class="outline-2">
-<h2 id="org7ee5ae9"><span class="section-number-2">36</span> Req.s3.6.2.p45.2</h2>
-<div class="outline-text-2" id="text-36">
-</div>
-<div id="outline-container-orgab83562" class="outline-3">
-<h3 id="orgab83562"><span class="section-number-3">36.1</span> Text</h3>
-<div class="outline-text-3" id="text-36-1">
+<li><a id="org7ee5ae9"></a>Req.s3.6.2.p45.2<br />
+<ol class="org-ol">
+<li><a id="orgc3d417e"></a>Text<br />
+<div class="outline-text-4" id="text-8-2-1">
 <p>
 While maneuvering in the automatic maneuver mode, and while in the manual
 closed-loop mode with RHC deflected, desired attitude equals a snapshot of the
@@ -973,122 +960,113 @@ attitude estimate at the beginning of the maneuver plus an accumulation of
 angular increments each equal to 0.08 times DESIRED RATE.
 </p>
 </div>
-</div>
-</div>
-<div id="outline-container-orgf453b94" class="outline-2">
-<h2 id="orgf453b94"><span class="section-number-2">37</span> Req.s3.6.2.p46.1</h2>
-<div class="outline-text-2" id="text-37">
-</div>
-<div id="outline-container-org0b455e3" class="outline-3">
-<h3 id="org0b455e3"><span class="section-number-3">37.1</span> Text</h3>
-<div class="outline-text-3" id="text-37-1">
+</li>
+</ol>
+</li>
+<li><a id="orgf453b94"></a>Req.s3.6.2.p46.1<br />
+<ol class="org-ol">
+<li><a id="orgaa859c4"></a>Text<br />
+<div class="outline-text-4" id="text-8-3-1">
 <p>
 When the momentary INITIALIZE STATE ERROR flag is ON, DESIRED ATTITUDE is set
 equal to the current attitude estimate.  The flag is set in the Manual Maneuver
 module when a change of RHC state occurs.
 </p>
 </div>
-</div>
+</li>
+</ol>
+</li>
+</ol>
 </div>
 
-<div id="outline-container-orgcbde0bf" class="outline-2">
-<h2 id="orgcbde0bf"><span class="section-number-2">38</span> Req.s3.7.2.p53.1</h2>
-<div class="outline-text-2" id="text-38">
+<div id="outline-container-org09d3b39" class="outline-2">
+<h2 id="org09d3b39"><span class="section-number-2">9</span> Phase Plane Module</h2>
+<div class="outline-text-2" id="text-9">
 </div>
-<div id="outline-container-org7e97bac" class="outline-3">
-<h3 id="org7e97bac"><span class="section-number-3">38.1</span> Text</h3>
-<div class="outline-text-3" id="text-38-1">
+<ol class="org-ol">
+<li><a id="orgcbde0bf"></a>Req.s3.7.2.p53.1<br />
+<ol class="org-ol">
+<li><a id="orgdb120f6"></a>Text<br />
+<div class="outline-text-4" id="text-9-1-1">
 <p>
 Crossing a switch line usually requires redetermination of jet command status.
 The command status is decided by determining the current state region shown in
 Table 22 and the required action shown in Table 23.
 </p>
 </div>
-</div>
+</li>
 
-<div id="outline-container-org59ff2c8" class="outline-3">
-<h3 id="org59ff2c8"><span class="section-number-3">38.2</span> Comment</h3>
-<div class="outline-text-3" id="text-38-2">
+<li><a id="orgd231ada"></a>Comment<br />
+<div class="outline-text-4" id="text-9-1-2">
 <p>
 Encode the logic of Tables 22 and 23
 </p>
 </div>
-</div>
-</div>
-<div id="outline-container-org6b7a8f3" class="outline-2">
-<h2 id="org6b7a8f3"><span class="section-number-2">39</span> Req.s3.7.2.p48.1</h2>
-<div class="outline-text-2" id="text-39">
-</div>
-<div id="outline-container-org87f90c9" class="outline-3">
-<h3 id="org87f90c9"><span class="section-number-3">39.1</span> Text</h3>
-<div class="outline-text-3" id="text-39-1">
+</li>
+</ol>
+</li>
+<li><a id="org6b7a8f3"></a>Req.s3.7.2.p48.1<br />
+<ol class="org-ol">
+<li><a id="org8bbb6e3"></a>Text<br />
+<div class="outline-text-4" id="text-9-2-1">
 <p>
 At any time, for each axis, the rigid vehicle
 state is defined by an attitude and rate error point that must lie in one of the
 defined regions since the regions cover the entire plane
 </p>
 </div>
-</div>
-<div id="outline-container-orgba8b752" class="outline-3">
-<h3 id="orgba8b752"><span class="section-number-3">39.2</span> Comment</h3>
-<div class="outline-text-3" id="text-39-2">
+</li>
+<li><a id="org99cb40a"></a>Comment<br />
+<div class="outline-text-4" id="text-9-2-2">
 <p>
 check that exactly one mode is selected 
 </p>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-org0a73d63" class="outline-2">
-<h2 id="org0a73d63"><span class="section-number-2">40</span> Req.s3.7.2.p53.2</h2>
-<div class="outline-text-2" id="text-40">
-</div>
-<div id="outline-container-org2ce0e8e" class="outline-3">
-<h3 id="org2ce0e8e"><span class="section-number-3">40.1</span> Text</h3>
-<div class="outline-text-3" id="text-40-1">
+<li><a id="org0a73d63"></a>Req.s3.7.2.p53.2<br />
+<ol class="org-ol">
+<li><a id="orgf9b12e5"></a>Text<br />
+<div class="outline-text-4" id="text-9-3-1">
 <p>
 Regions 1 and 5 always command jets
 </p>
 </div>
-</div>
-</div>
-<div id="outline-container-orgd5fa694" class="outline-2">
-<h2 id="orgd5fa694"><span class="section-number-2">41</span> Req.s3.7.2.p53.3</h2>
-<div class="outline-text-2" id="text-41">
-</div>
-<div id="outline-container-org9fc68d9" class="outline-3">
-<h3 id="org9fc68d9"><span class="section-number-3">41.1</span> Text</h3>
-<div class="outline-text-3" id="text-41-1">
+</li>
+</ol>
+</li>
+<li><a id="orgd5fa694"></a>Req.s3.7.2.p53.3<br />
+<ol class="org-ol">
+<li><a id="org63b8597"></a>Text<br />
+<div class="outline-text-4" id="text-9-4-1">
 <p>
 For primary
 jet use, regions 2, 3, 6, and 7 always permit coast with no jet
 commands
 </p>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-orgccdcb79" class="outline-2">
-<h2 id="orgccdcb79"><span class="section-number-2">42</span> Req.s3.7.2.p53.4</h2>
-<div class="outline-text-2" id="text-42">
-</div>
-<div id="outline-container-orgb4c8e78" class="outline-3">
-<h3 id="orgb4c8e78"><span class="section-number-3">42.1</span> Text</h3>
-<div class="outline-text-3" id="text-42-1">
+<li><a id="orgccdcb79"></a>Req.s3.7.2.p53.4<br />
+<ol class="org-ol">
+<li><a id="org7f099e1"></a>Text<br />
+<div class="outline-text-4" id="text-9-5-1">
 <p>
 Region 9 never causes commands to be generated, but a
 preference for vernier jet selection is computed.
 </p>
 </div>
-</div>
-</div>
-<div id="outline-container-orgefc5dba" class="outline-2">
-<h2 id="orgefc5dba"><span class="section-number-2">43</span> Req.s3.7.2.p53.5</h2>
-<div class="outline-text-2" id="text-43">
-</div>
-<div id="outline-container-org371fd89" class="outline-3">
-<h3 id="org371fd89"><span class="section-number-3">43.1</span> Text</h3>
-<div class="outline-text-3" id="text-43-1">
+</li>
+</ol>
+</li>
+<li><a id="orgefc5dba"></a>Req.s3.7.2.p53.5<br />
+<ol class="org-ol">
+<li><a id="orgf7ea534"></a>Text<br />
+<div class="outline-text-4" id="text-9-6-1">
 <p>
 Regions 4 and 8
 have hysteresis.  If the phase is in either region 4 or 8 and a firing
@@ -1098,16 +1076,14 @@ phase point crosses the S13 switch curve.  At that point, the ROTATION
 COMMAND magnitude will become less than one and stop the firing.
 </p>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-orgc3ee753" class="outline-2">
-<h2 id="orgc3ee753"><span class="section-number-2">44</span> Req.s3.7.2.p53.6</h2>
-<div class="outline-text-2" id="text-44">
-</div>
-<div id="outline-container-org082e6a4" class="outline-3">
-<h3 id="org082e6a4"><span class="section-number-3">44.1</span> Text</h3>
-<div class="outline-text-3" id="text-44-1">
+<li><a id="orgc3ee753"></a>Req.s3.7.2.p53.6<br />
+<ol class="org-ol">
+<li><a id="orgb8707bb"></a>Text<br />
+<div class="outline-text-4" id="text-9-7-1">
 <p>
 When inside region 4 or 8, after S13 has been crossed once, the ROTATION COMMAND
 magnitude will be less than unity since \(|S13| \leq |RL|\).  In fact, it will be
@@ -1115,96 +1091,95 @@ less than 0.8 because of the 0.8 multiplication factor.  When no ROTATION
 COMMANDS are issued, vernier jet preferences usually are computed.
 </p>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-orgb9e4b9c" class="outline-2">
-<h2 id="orgb9e4b9c"><span class="section-number-2">45</span> Req.s3.7.2.p56.1</h2>
-<div class="outline-text-2" id="text-45">
-</div>
-<div id="outline-container-org139f573" class="outline-3">
-<h3 id="org139f573"><span class="section-number-3">45.1</span> Text</h3>
-<div class="outline-text-3" id="text-45-1">
+<li><a id="orgb9e4b9c"></a>Req.s3.7.2.p56.1<br />
+<ol class="org-ol">
+<li><a id="orge0c9143"></a>Text<br />
+<div class="outline-text-4" id="text-9-8-1">
 <p>
 BYPASS flag effectively eliminates the Phase Plane from the SDAP by ignoring its
 output in favor of the RHC-commanded rotation from the Manual (open-loop)
 Maneuver module.
 </p>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-orgcac71ff" class="outline-2">
-<h2 id="orgcac71ff"><span class="section-number-2">46</span> Req.s3.7.2.p56.2</h2>
-<div class="outline-text-2" id="text-46">
-</div>
-<div id="outline-container-org6ed1364" class="outline-3">
-<h3 id="org6ed1364"><span class="section-number-3">46.1</span> Text</h3>
-<div class="outline-text-3" id="text-46-1">
+<li><a id="orgcac71ff"></a>Req.s3.7.2.p56.2<br />
+<ol class="org-ol">
+<li><a id="org75827b7"></a>Text<br />
+<div class="outline-text-4" id="text-9-9-1">
 <p>
 The FORCE FIRE flag initiates a firing if a command was not
 being set by Phase Plane when the RHC changed state in the closed-loop Manual
 Maneuver module.
 </p>
 </div>
-</div>
-</div>
+</li>
+</ol>
+</li>
 
-<div id="outline-container-orgde973a7" class="outline-2">
-<h2 id="orgde973a7"><span class="section-number-2">47</span> Req.s3.7.2.p56.3</h2>
-<div class="outline-text-2" id="text-47">
-</div>
-<div id="outline-container-org4862bff" class="outline-3">
-<h3 id="org4862bff"><span class="section-number-3">47.1</span> Text</h3>
-<div class="outline-text-3" id="text-47-1">
+<li><a id="orgde973a7"></a>Req.s3.7.2.p56.3<br />
+<ol class="org-ol">
+<li><a id="org3c602dc"></a>Text<br />
+<div class="outline-text-4" id="text-9-10-1">
 <p>
 The ROTATION COMMAND from the past cycle is input to be used
 in the region logic.
 </p>
 </div>
-</div>
-<div id="outline-container-org555c09c" class="outline-3">
-<h3 id="org555c09c"><span class="section-number-3">47.2</span> Comment</h3>
-<div class="outline-text-3" id="text-47-2">
+</li>
+<li><a id="org5bd02d2"></a>Comment<br />
+<div class="outline-text-4" id="text-9-10-2">
 <p>
 Is it related to Req.s3.7.2.p56.2 or an independent property ?
 </p>
 </div>
+</li>
+</ol>
+</li>
+</ol>
 </div>
+<div id="outline-container-org25968fe" class="outline-2">
+<h2 id="org25968fe"><span class="section-number-2">10</span> Jet Selection Module</h2>
+<div class="outline-text-2" id="text-10">
 </div>
-<div id="outline-container-orgc1bdef6" class="outline-2">
-<h2 id="orgc1bdef6"><span class="section-number-2">48</span> Req.s3.8.2.p63.1</h2>
-<div class="outline-text-2" id="text-48">
-</div>
-<div id="outline-container-org0b44817" class="outline-3">
-<h3 id="org0b44817"><span class="section-number-3">48.1</span> Text</h3>
-<div class="outline-text-3" id="text-48-1">
+<ol class="org-ol">
+<li><a id="orgc1bdef6"></a>Req.s3.8.2.p63.1<br />
+<ol class="org-ol">
+<li><a id="orgb64761b"></a>Text<br />
+<div class="outline-text-4" id="text-10-1-1">
 <p>
 The two types of thrusters may not be used simultaneously
 </p>
 </div>
-</div>
-</div>
-<div id="outline-container-orgb21b6c6" class="outline-2">
-<h2 id="orgb21b6c6"><span class="section-number-2">49</span> Req.s3.8.2.p63.2</h2>
-<div class="outline-text-2" id="text-49">
-</div>
-<div id="outline-container-orgfb0891b" class="outline-3">
-<h3 id="orgfb0891b"><span class="section-number-3">49.1</span> Text</h3>
-<div class="outline-text-3" id="text-49-1">
+</li>
+</ol>
+</li>
+<li><a id="orgb21b6c6"></a>Req.s3.8.2.p63.2<br />
+<ol class="org-ol">
+<li><a id="orgc727902"></a>Text<br />
+<div class="outline-text-4" id="text-10-2-1">
 <p>
 Moding
 between primary and vernier jets is accomplished by choosing a value for the
 discrete PRIMARY VERNIER SW (a simulation input).
 </p>
 </div>
-</div>
+</li>
+</ol>
+</li>
+</ol>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: Oct. 2019</p>
 <p class="author">Author: H. Bourbouh, P-L. Garoche and K. Trinh</p>
-<p class="date">Created: 2018-12-18 Tue 12:04</p>
+<p class="date">Created: 2018-12-19 Wed 17:52</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
